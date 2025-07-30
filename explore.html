@@ -38,6 +38,7 @@
         </nav>
     </header>
 
+   
     <div class="container">
         <div class="page-header">
             <h1>The Link Board</h1>
@@ -229,17 +230,21 @@
                 <p>Complete this form to connect with <span id="targetCreator"></span></p>
             </div>
             <div class="form-container">
-                
-                  <!-- Netflify -->
+          
+   <!-- Netflify -->
                <form id="interestForm" name="interest" action="/success" method="POST" data-netlify="true" netlify-honeypot="bot-field">
   <input type="hidden" name="form-name" value="interest">
   <p class="hidden">
     <label>Don’t fill this out: <input name="bot-field" /></label>
   </p>
+  <br>
   <!-- rest of your form fields... -->
-                    
+
+
+
                     <input type="hidden" id="linkUpId" name="linkUpId">
                     <input type="hidden" id="targetCreatorName" name="targetCreatorName">
+                    
                     <div class="form-row">
                         <div class="form-group">
                             <label class="form-label" for="yourName">Your Name/Studio</label>
@@ -249,11 +254,11 @@
                             <label class="form-label" for="yourGender">Gender Identity</label>
                             <select id="yourGender" name="yourGender" class="form-select" required>
                                 <option value="">Select...</option>
-                                <option value="Female">Female</option>
-                                <option value="Male">Male</option>
+                                <option value="Female">Woman</option>
+                                <option value="Male">Man</option>
                                 <option value="Non-binary">Non-binary</option>
-                                <option value="Trans Female">Trans Female</option>
-                                <option value="Trans Male">Trans Male</option>
+                                <option value="Trans Female">Trans Woman</option>
+                                <option value="Trans Male">Trans Man</option>
                                 <option value="Other">Other</option>
                             </select>
                         </div>
@@ -317,8 +322,20 @@
                                 <option value="1M+">1M+</option>
                             </select>
                         </div>
-                        <div class="form-group"></div>
-                    </div>
+                    
+        
+                         <div class="form-group">
+                            <label class="form-label" for="yourExperience">Experience</label>
+                            <select id="yourExperience" name="yourExperience" class="form-select" required>
+                                <option value="">Select...</option>
+                                <option value="Just Starting">Just starting</option>
+                                <option value="New">New</option>
+                                <option value="Experienced">Experienced</option>
+                                <option value="Veteran">Veteran</option>
+                            </select>
+                        </div>
+                        </div>
+                    
 
                     <div class="form-group">
                         <label class="form-label" for="yourPlatforms">Your Platforms</label>
@@ -453,6 +470,7 @@
   <p hidden>
   <label>Don’t fill this out: <input name="bot-field" /></label>
   </p>
+  <br>
   <!-- your real form fields here -->
                     
                     <div class="form-group">
@@ -471,6 +489,22 @@
                         </div>
                     </div>
 
+                      <div class="form-row">
+                     <div class="form-group">
+                            <label class="form-label" for="shootGender">Gender Identity</label>
+                            <select id="shootGender" name="shootGender" class="form-select" required>
+                                <option value="">Select...</option>
+                                <option value="Female">Woman</option>
+                                <option value="Male">Man</option>
+                                <option value="Non-binary">Non-binary</option>
+                                <option value="Trans Female">Trans Woman</option>
+                                <option value="Trans Male">Trans Man</option>
+                                <option value="Other">Other</option>
+                            </select>
+                        </div>
+                    </div>
+
+                        
                     <div class="form-row">
                         <div class="form-group">
                             <label class="form-label" for="shootExperience">Your Experience</label>
@@ -547,10 +581,48 @@
 
                     <div class="form-row">
                         <div class="form-group">
-                            <label class="form-label" for="shootLocation">Location</label>
-                            <input type="text" id="shootLocation" name="shootLocation" class="form-input" placeholder="City, State/Country" required>
+                            <label class="form-label" for="yourAge">Age</label>
+                            <select id="yourAge" name="yourAge" class="form-select" required>
+                                <option value="">Select...</option>
+                                <option value="18">18</option>
+                                <option value="19">19</option>
+                                <option value="20">20</option>
+                                <option value="21">21</option>
+                                <option value="22">22</option>
+                                <option value="23">23</option>
+                                <option value="24">24</option>
+                                <option value="25">25</option>
+                                <option value="26">26</option>
+                                <option value="27">27</option>
+                                <option value="28">28</option>
+                                <option value="29">29</option>
+                                <option value="30">30</option>
+                                <option value="31">31</option>
+                                <option value="32">32</option>
+                                <option value="33">33</option>
+                                <option value="34">34</option>
+                                <option value="35">35</option>
+                                <option value="36">36</option>
+                                <option value="37">37</option>
+                                <option value="38">38</option>
+                                <option value="39">39</option>
+                                <option value="40">40</option>
+                                <option value="41">41</option>
+                                <option value="42">42</option>
+                                <option value="43">43</option>
+                                <option value="44">44</option>
+                                <option value="45">45</option>
+                                <option value="46">46</option>
+                                <option value="47">47</option>
+                                <option value="48">48</option>
+                                <option value="49">49</option>
+                                <option value="50+">50+</option>
+                            </select>
                         </div>
-                        <div class="form-group"></div>
+                        <div class="form-group">
+                            <label class="form-label" for="yourLocation">Your Location</label>
+                            <input type="text" id="yourLocation" name="yourLocation" class="form-input" placeholder="City, Country" required>
+                        </div>
                     </div>
 
                     <div class="form-group">
@@ -568,7 +640,7 @@
                     </div>
 
                     <div class="form-group">
-                        <label class="form-label">Who are you looking for?</label>
+                        <label class="form-label">Looking for ?</label>
                         <div class="platform-checkboxes">
                             <div class="platform-item">
                                 <input type="checkbox" id="shoot-looking-man" name="shootLookingFor" value="Man" class="platform-checkbox">
@@ -646,7 +718,7 @@
                     </div>
 
                     <div class="form-group">
-                        <label class="form-label">What type of niche?</label>
+                        <label class="form-label">What type of niche ?</label>
                         <div class="platform-checkboxes">
                             <div class="platform-item">
                                 <input type="checkbox" id="shoot-niche-femdom" name="shootNiche" value="Femdom" class="platform-checkbox">
@@ -694,7 +766,7 @@
                     </div>
 
                     <div class="form-group">
-                        <label class="form-label" for="shootContentType">What type of content?</label>
+                        <label class="form-label" for="shootContentType">What type of content ?</label>
                         <select id="shootContentType" name="shootContentType" class="form-select" required>
                             <option value="">Select...</option>
                             <option value="High Production">High Production</option>
@@ -801,9 +873,7 @@
 
 
 
-
-
-<!-- Collaboration Knowledge Pop-up -->
+    <!-- Collaboration Knowledge Pop-up -->
     <div id="collabPopup" class="collab-popup">
         <div class="collab-popup-content">
             <div class="collab-popup-header">
@@ -871,17 +941,16 @@
             </div>
         </div>
     </div>
+
+
   
-
-
-    
     <!-- Footer -->
     <footer class="footer">
         <div class="footer-content">
             <div class="footer-links">
-             <a href="index.html" class="footer-links a">Home</a>
-             <a href="explore.html" class="footer-links a">The Link Board</a>
-             <a href="mailto:contact@softlylinked.net" class="footer-links a">Contact</a>
+                <a href="#">Home</a>
+                <a href="#">The Link Board</a>
+                <a href="#">Contact</a>
             </div>
             <div class="footer-newsletter">
                 <div class="newsletter-form">
@@ -905,4 +974,4 @@
       <script src="explore.js"></script>
 
     </body>
-    </html>
+</html>
