@@ -231,11 +231,12 @@
             <div class="form-container">
                 
                   <!-- Netflify -->
-                <form id="interestForm" name="interest" action="/success" method="POST" data-netlify="true" netlify-honeypot="bot-field">
-                <input type="hidden" name="form-name" value="interest"><p class="hidden">
-                <label>Don’t fill this out: <input name="bot-field" /></label>
-                </p>
-                <!-- rest of your form fields... -->
+               <form id="interestForm" name="interest" action="/success" method="POST" data-netlify="true" netlify-honeypot="bot-field">
+  <input type="hidden" name="form-name" value="interest">
+  <p class="hidden">
+    <label>Don’t fill this out: <input name="bot-field" /></label>
+  </p>
+  <!-- rest of your form fields... -->
                     
                     <input type="hidden" id="linkUpId" name="linkUpId">
                     <input type="hidden" id="targetCreatorName" name="targetCreatorName">
@@ -445,7 +446,15 @@
                 <p>Submit your own link up opportunity and connect with creators</p>
             </div>
             <div class="form-container">
-                <form id="shootShotForm">
+                
+               <!-- Netflify -->
+  <form id="shootShotForm" name="shoot-your-shot" action="/success" method="POST" data-netlify="true" netlify-honeypot="bot-field" action="/success-shoot">
+  <input type="hidden" name="form-name" value="shoot-your-shot" />
+  <p hidden>
+  <label>Don’t fill this out: <input name="bot-field" /></label>
+  </p>
+  <!-- your real form fields here -->
+                    
                     <div class="form-group">
                         <label class="form-label" for="projectTitle">Project Title</label>
                         <input type="text" id="projectTitle" name="projectTitle" class="form-input" placeholder="What's your project called?" required>
