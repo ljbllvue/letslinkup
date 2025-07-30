@@ -995,7 +995,8 @@
         .collab-learn-btn:hover {
             transform: translateY(-2px);
             box-shadow: 0 8px 25px rgba(199, 174, 233, 0.4);
-            background: linear-gradient(135deg, #b794f6, #a78bfa);
+            background: ##c5b0e5;
+            color: #fff; 
         }
         
         .collab-dismiss-btn {
@@ -1012,9 +1013,9 @@
         }
         
         .collab-dismiss-btn:hover {
-            background-color: #f9fafb;
+            background-color: #000;
             border-color: #d1d5db;
-            color: #374151;
+            color: #fff;
         }
 
         .scene-summary {
