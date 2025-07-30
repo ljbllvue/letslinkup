@@ -927,6 +927,7 @@ html {
   flex-direction: row;
   justify-content: center;
   flex-wrap: wrap;
+  text-decoration: none; 
   gap: 2rem;
 }
 
