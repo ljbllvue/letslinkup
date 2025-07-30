@@ -4,7 +4,7 @@
                 id: 1,
                 creator: "Miss Kiskeya",
                 type: "Creator",
-                platforms: ["OnlyFans", "Loyalfans"],
+                platforms: ["Clips4Sale", "Loyalfans", "ManyVids"],
                 gender: "Female",
                 location: "Berlin",
                 followers: "1200",
