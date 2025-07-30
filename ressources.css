@@ -931,6 +931,14 @@ html {
   gap: 2rem;
 }
 
+.footer-links ul {
+  list-style: none; /* removes the dots */
+  padding: 0;
+  margin: 0;
+  display: flex;
+  gap: 2rem;
+}
+
 .footer-links a {
     color: #ffffff;
     text-decoration: none;
