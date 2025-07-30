@@ -142,24 +142,24 @@
 
 
              <!-- Shoot Your Shot Modal -->
-     <!-- Submit your Link Up - Shoot your Shot -->
-   <div id="shootShotModal" class="modal">
+    <div id="shootShotModal" class="modal">
         <div class="modal-content">
             <div class="modal-header">
                 <span class="close" onclick="closeShootShotModal()">&times;</span>
-                <h2>Submit a Link Up</h2>
-                <p>Submit your own Link Up opportunity to shoot with creators</p>
+                <h2>Shoot Your Shot</h2>
+                <p>Submit your own link up opportunity and connect with creators</p>
             </div>
             <div class="form-container">
                 
-     <!-- Netflify -->
-    <form id="shootShotForm" name="shoot-your-shot" action="/success" method="POST" data-netlify="true" netlify-honeypot="bot-field" action="/success-shoot">
+               <!-- Netflify -->
+  <form id="shootShotForm" name="shoot-your-shot" action="/success" method="POST" data-netlify="true" netlify-honeypot="bot-field" action="/success-shoot">
   <input type="hidden" name="form-name" value="shoot-your-shot" />
   <p hidden>
   <label>Don’t fill this out: <input name="bot-field" /></label>
   </p>
+  <br>
   <!-- your real form fields here -->
-
+                    
                     <div class="form-group">
                         <label class="form-label" for="projectTitle">Project Title</label>
                         <input type="text" id="projectTitle" name="projectTitle" class="form-input" placeholder="What's your project called?" required>
@@ -167,7 +167,7 @@
 
                     <div class="form-row">
                         <div class="form-group">
-                            <label class="form-label" for="shootName">Your Name</label>
+                            <label class="form-label" for="shootName">Your Name/Studio</label>
                             <input type="text" id="shootName" name="shootName" class="form-input" required>
                         </div>
                         <div class="form-group">
@@ -176,6 +176,22 @@
                         </div>
                     </div>
 
+                      <div class="form-row">
+                     <div class="form-group">
+                            <label class="form-label" for="shootGender">Gender Identity</label>
+                            <select id="shootGender" name="shootGender" class="form-select" required>
+                                <option value="">Select...</option>
+                                <option value="Female">Woman</option>
+                                <option value="Male">Man</option>
+                                <option value="Non-binary">Non-binary</option>
+                                <option value="Trans Female">Trans Woman</option>
+                                <option value="Trans Male">Trans Man</option>
+                                <option value="Other">Other</option>
+                            </select>
+                        </div>
+                    </div>
+
+                        
                     <div class="form-row">
                         <div class="form-group">
                             <label class="form-label" for="shootExperience">Your Experience</label>
@@ -183,8 +199,8 @@
                                 <option value="">Select...</option>
                                 <option value="Just Starting">Just Starting</option>
                                 <option value="New">New</option>
-                                <option value="Experienced">Established</option>
-                                <option value="Established">Veteran</option>
+                                <option value="Experienced">Experienced</option>
+                                <option value="Established">Established</option>
                             </select>
                         </div>
                         <div class="form-group">
@@ -252,10 +268,48 @@
 
                     <div class="form-row">
                         <div class="form-group">
-                            <label class="form-label" for="shootLocation">Location</label>
-                            <input type="text" id="shootLocation" name="shootLocation" class="form-input" placeholder="City, State/Country" required>
+                            <label class="form-label" for="yourAge">Age</label>
+                            <select id="yourAge" name="yourAge" class="form-select" required>
+                                <option value="">Select...</option>
+                                <option value="18">18</option>
+                                <option value="19">19</option>
+                                <option value="20">20</option>
+                                <option value="21">21</option>
+                                <option value="22">22</option>
+                                <option value="23">23</option>
+                                <option value="24">24</option>
+                                <option value="25">25</option>
+                                <option value="26">26</option>
+                                <option value="27">27</option>
+                                <option value="28">28</option>
+                                <option value="29">29</option>
+                                <option value="30">30</option>
+                                <option value="31">31</option>
+                                <option value="32">32</option>
+                                <option value="33">33</option>
+                                <option value="34">34</option>
+                                <option value="35">35</option>
+                                <option value="36">36</option>
+                                <option value="37">37</option>
+                                <option value="38">38</option>
+                                <option value="39">39</option>
+                                <option value="40">40</option>
+                                <option value="41">41</option>
+                                <option value="42">42</option>
+                                <option value="43">43</option>
+                                <option value="44">44</option>
+                                <option value="45">45</option>
+                                <option value="46">46</option>
+                                <option value="47">47</option>
+                                <option value="48">48</option>
+                                <option value="49">49</option>
+                                <option value="50+">50+</option>
+                            </select>
                         </div>
-                        <div class="form-group"></div>
+                        <div class="form-group">
+                            <label class="form-label" for="yourLocation">Your Location</label>
+                            <input type="text" id="yourLocation" name="yourLocation" class="form-input" placeholder="City, Country" required>
+                        </div>
                     </div>
 
                     <div class="form-group">
@@ -264,7 +318,7 @@
                     </div>
 
                     <div class="form-group">
-                        <label class="form-label" for="shootVisible">Do you want your social media links to be visible?</label>
+                        <label class="form-label" for="shootVisible">Do you want your link to be visible?</label>
                         <select id="shootVisible" name="shootVisible" class="form-select" required>
                             <option value="">Select...</option>
                             <option value="Yes">Yes</option>
@@ -273,7 +327,7 @@
                     </div>
 
                     <div class="form-group">
-                        <label class="form-label">Who are you looking for?</label>
+                        <label class="form-label">Looking for ?</label>
                         <div class="platform-checkboxes">
                             <div class="platform-item">
                                 <input type="checkbox" id="shoot-looking-man" name="shootLookingFor" value="Man" class="platform-checkbox">
@@ -374,7 +428,7 @@
                             <div class="platform-item">
                                 <input type="checkbox" id="shoot-niche-kinky" name="shootNiche" value="Kinky" class="platform-checkbox">
                                 <label for="shoot-niche-kinky" class="platform-label">
-                                    <span class="platform-text">Softcore</span>
+                                    <span class="platform-text">Kinky</span>
                                 </label>
                             </div>
                             <div class="platform-item">
@@ -394,18 +448,6 @@
                                 <label for="shoot-niche-couple" class="platform-label">
                                     <span class="platform-text">Couple</span>
                                 </label>
-                                </div>
-                                <div class="platform-item">
-                                <input type="checkbox" id="shoot-niche-vanilla" name="shootNiche" value="Vanilla" class="platform-checkbox">
-                                <label for="shoot-niche-vanilla" class="platform-label">
-                                    <span class="platform-text">Cosplay</span>
-                                </label>
-                                 </div>
-                                <div class="platform-item">
-                                <input type="checkbox" id="shoot-niche-vanilla" name="shootNiche" value="Vanilla" class="platform-checkbox">
-                                <label for="shoot-niche-vanilla" class="platform-label">
-                                    <span class="platform-text">BDSM</span>
-                                </label>
                             </div>
                         </div>
                     </div>
@@ -421,12 +463,12 @@
 
                     <div class="form-group">
                         <label class="form-label" for="shootRequirements">Requirements</label>
-                        <textarea id="shootRequirements" name="shootRequirements" class="form-textarea" placeholder="Describe any specific requirements, preferences, or conditions for this collaboration..." rows="3"></textarea>
+                        <textarea id="shootRequirements" name="shootRequirements" class="form-textarea" placeholder="Describe any specific requirements, preferences, or conditions for this collaboration..." rows="4"></textarea>
                     </div>
 
                     <div class="form-row">
                         <div class="form-group">
-                            <label class="form-label" for="shootCanHost">Can you host ?</label>
+                            <label class="form-label" for="shootCanHost">Can you host?</label>
                             <select id="shootCanHost" name="shootCanHost" class="form-select" required>
                                 <option value="">Select...</option>
                                 <option value="Yes">Yes</option>
@@ -471,16 +513,16 @@
                     </div>
 
                     <div class="form-group">
-                        <label class="form-label" for="shootDescription">Your scene project</label>
-                        <textarea id="shootDescription" name="shootDescription" class="form-textarea" placeholder="Tell us about your project, what you're looking for, and what you can offer..." rows="4" required></textarea>
+                        <label class="form-label" for="shootDescription">Project Description</label>
+                        <textarea id="shootDescription" name="shootDescription" class="form-textarea" placeholder="Tell us about your project, what you're looking for, and what you can offer..." required></textarea>
                     </div>
 
                     <div class="form-group">
                         <label class="form-label">Verification Test</label>
                         <div class="verification-instructions">
                             <p><strong>To verify your account:</strong></p>
-                            <p>Add "Verified ☑️ <span id="shootCurrentMonth"></span>" to your bio on the social media profile you provided.</p>
-                            <small>This helps us ensure you're a real creator and 18.</small>
+                            <p>Add "Verified ☑️ <span id="shootCurrentMonth"></span>" to your bio on the social media profile you provided above.</p>
+                            <small>This helps us ensure you're a real creator and prevents spam applications.</small>
                         </div>
                     </div>
 
@@ -488,12 +530,12 @@
                     <div class="form-group">
                         <div class="checkbox-preferences">
                             <div class="preference-item">
-                                <input type="checkbox" id="shootEmailUpdates" name="shootEmailUpdates" class="preference-checkbox" required>
+                                <input type="checkbox" id="shootEmailUpdates" name="shootEmailUpdates" class="preference-checkbox">
                                 <label for="shootEmailUpdates" class="preference-label">
                                     <span class="checkmark"></span>
                                     <span class="preference-text">
-                                        <strong>Email me when creators express interest </strong>
-                                        <small>That's how you will see responses to your link-up !</small>
+                                        <strong>Email me when creators express interest</strong>
+                                        <small>Get notified about responses to your link-up</small>
                                     </span>
                                 </label>
                             </div>
@@ -515,6 +557,7 @@
             </div>
         </div>
     </div>
+
                
             
           <!-- Footer -->
