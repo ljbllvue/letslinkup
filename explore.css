@@ -1465,6 +1465,7 @@
         .footer-links {
             display: flex;
             gap: 2rem;
+            text-decoration: none;
         }
 
         .footer-links a {
