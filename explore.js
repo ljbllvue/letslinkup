@@ -2,27 +2,26 @@
         const linkUps = [
             {
                 id: 1,
-                creator: "Luna Rose Studios",
-                type: "Studio",
-                platforms: ["OnlyFans", "ManyVids"],
+                creator: "Miss Kiskeya",
+                type: "Creator",
+                platforms: ["OnlyFans", "Loyalfans"],
                 gender: "Female",
-                location: "Los Angeles, CA",
-                followers: "50k-100k",
-                followerCount: 75000,
+                location: "Berlin",
+                followers: "1200",
+                followerCount: 1000,
                 experience: "Experienced",
-                contentTypes: ["G/G", "Vanilla"],
+                contentTypes: ["G/G", "Femdom", "Fetish"],
                 lookingFor: ["Woman", "Non-binary"],
-                sceneTypes: ["No Sex", "PIV"],
-                tags: ["vanilla", "gg"],
+                sceneTypes: ["No PIV"? "No sex"],
+                tags: ["kinky", "gg", "fetish", "femdom"],
                 canHost: "Yes",
                 hostingCost: "Covered",
-                requirements: "Must have recent STI test results, professional attitude, and flexible schedule",
-                sceneSummary: "Looking to create intimate, artistic content focused on female empowerment and authentic connection. Interested in slow-burn, story-driven scenes.",
-                shootDates: "Available March 15-20, 2024",
-                shootMonth: "2024-03",
+                requirements: , 
+                sceneSummary: "Looking to film hot femdom scenes with queer women involving roleplay, lesbian sex but also soft and sensual domination with practices like orgasm control, pussy denial, spanking and a lot of titties action"
+                shootDates: "Available from 25th September - 21th October",
+                shootMonth: "2025-10",
                 socialLinks: {
-                    instagram: "@lunarosestudios",
-                    twitter: "@lunarose_studio"
+                    twitter: "@misskiskeya"
                 }
             },
             {
