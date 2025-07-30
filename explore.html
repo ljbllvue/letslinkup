@@ -229,10 +229,16 @@
                 <p>Complete this form to connect with <span id="targetCreator"></span></p>
             </div>
             <div class="form-container">
-                <form id="interestForm">
+                
+                  <!-- Netflify -->
+                <form id="interestForm" name="interest" method="POST" data-netlify="true" netlify-honeypot="bot-field">
+                <input type="hidden" name="form-name" value="interest"><p class="hidden">
+                <label>Don’t fill this out: <input name="bot-field" /></label>
+                </p>
+                <!-- rest of your form fields... -->
+                    
                     <input type="hidden" id="linkUpId" name="linkUpId">
                     <input type="hidden" id="targetCreatorName" name="targetCreatorName">
-                    
                     <div class="form-row">
                         <div class="form-group">
                             <label class="form-label" for="yourName">Your Name/Studio</label>
