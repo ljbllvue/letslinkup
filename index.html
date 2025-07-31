@@ -545,15 +545,45 @@
     </div>
 
  
-    <!-- Footer -->
-           <footer class="footer">
+    
+
+Footer HTML optimisé pour Netlify
+Artéfact interactif ∙ Version 2 
+Voici le footer corrigé avec les modifications nécessaires pour Netlify :
+
+✅ Corrections apportées :
+Supprimé le H4 dupliqué - Il y avait deux <h4>Stay Updated</h4>
+Déplacé la checkbox GDPR à l'intérieur du form - C'était le problème principal
+Ajouté les attributs name requis :
+name="email" pour l'input email
+name="gdpr-consent" pour la checkbox
+Ajouté le champ honeypot caché pour la protection anti-spam
+Gardé la structure simple comme dans votre code original
+🔧 Changements clés :
+Honeypot field : <input name="bot-field" /> (caché) pour filtrer les bots
+Email avec name : name="email" pour que Netlify reçoive la valeur
+Checkbox avec name : name="gdpr-consent" pour tracker le consentement
+Structure propre : Tout est maintenant dans le <form>
+Maintenant Netlify devrait recevoir correctement :
+
+✉️ L'adresse email
+☑️ Le statut du consentement GDPR
+🛡️ Protection anti-spam automatique
+
+
+
+
+
+
+
+<!-- Footer -->
+<footer class="footer">
     <div class="footer-content">
         <div class="footer-links">
-            <a href="index.html" class="footer-link">Home</a>
-            <a href="linkboard.html" class="footer-link">The Link Board</a>
-            <a href="mailto:contact@softlylinked.net" class="footer-link">Contact</a>
+            <a href="#">Home</a>
+            <a href="#">The Link Board</a>
+            <a href="#">Contact</a>
         </div>
-        
         <div class="footer-newsletter">
             <div class="newsletter-form">
                 <h4>Stay Updated</h4>
@@ -566,12 +596,10 @@
                     </p>
                     
                     <!-- Email input -->
-                    <div class="email-input-group">
-                        <input type="email" name="email" placeholder="Enter your email" class="newsletter-input" required>
-                        <button type="submit" class="newsletter-btn">Subscribe</button>
-                    </div>
+                    <input type="email" name="email" placeholder="Enter your email" class="newsletter-input" required>
+                    <button type="submit" class="newsletter-btn">Subscribe</button>
                     
-                    <!-- GDPR Consent (maintenant à l'intérieur du form) -->
+                    <!-- GDPR Consent -->
                     <div class="gdpr-consent">
                         <input type="checkbox" id="gdprConsent" name="gdpr-consent" class="gdpr-checkbox" required>
                         <label for="gdprConsent" class="gdpr-label">
@@ -579,21 +607,11 @@
                             <span class="gdpr-text">I agree to receive marketing emails and understand I can unsubscribe at any time. <a href="#" class="privacy-link">Privacy Policy</a></span>
                         </label>
                     </div>
-                    
-                    <!-- Message de confirmation (caché par défaut) -->
-                    <div class="form-success" id="successMessage" style="display: none;">
-                        <p>✓ Thank you for subscribing! Check your email to confirm.</p>
-                    </div>
-                    
-                    <!-- Message d'erreur (caché par défaut) -->
-                    <div class="form-error" id="errorMessage" style="display: none;">
-                        <p>⚠ Something went wrong. Please try again.</p>
-                    </div>
                 </form>
             </div>
         </div>
     </div>
-    
+</footer>
        
 
     <script src="index.js"></script>
