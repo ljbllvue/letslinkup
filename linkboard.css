@@ -1028,6 +1028,11 @@
             line-height: 1.5;
         }
 
+           .hidden {
+            visibility: hidden;
+           }
+                       
+
         .requirements-section {
             background-color: #f0f8ff;
             border-left: 4px solid #dbe4ff;
