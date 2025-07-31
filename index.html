@@ -545,37 +545,6 @@
     </div>
 
  
-    
-
-Footer HTML optimisé pour Netlify
-Artéfact interactif ∙ Version 2 
-Voici le footer corrigé avec les modifications nécessaires pour Netlify :
-
-✅ Corrections apportées :
-Supprimé le H4 dupliqué - Il y avait deux <h4>Stay Updated</h4>
-Déplacé la checkbox GDPR à l'intérieur du form - C'était le problème principal
-Ajouté les attributs name requis :
-name="email" pour l'input email
-name="gdpr-consent" pour la checkbox
-Ajouté le champ honeypot caché pour la protection anti-spam
-Gardé la structure simple comme dans votre code original
-🔧 Changements clés :
-Honeypot field : <input name="bot-field" /> (caché) pour filtrer les bots
-Email avec name : name="email" pour que Netlify reçoive la valeur
-Checkbox avec name : name="gdpr-consent" pour tracker le consentement
-Structure propre : Tout est maintenant dans le <form>
-Maintenant Netlify devrait recevoir correctement :
-
-✉️ L'adresse email
-☑️ Le statut du consentement GDPR
-🛡️ Protection anti-spam automatique
-
-
-
-
-
-
-
 <!-- Footer -->
 <footer class="footer">
     <div class="footer-content">
@@ -612,8 +581,9 @@ Maintenant Netlify devrait recevoir correctement :
         </div>
     </div>
 </footer>
-       
 
+
+        
     <script src="index.js"></script>
 </body>
 </html>
