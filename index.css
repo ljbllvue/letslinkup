@@ -1072,8 +1072,43 @@ h3 {
     font-style: italic;
 }
 
+ .preference-item {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 16px;
+            cursor: pointer;
+        }
 
- .preference-checkbox:checked + .preference-label .checkmark {
+        .preference-item:last-child {
+            margin-bottom: 0;
+        }
+
+        .preference-checkbox {
+            display: none;
+        }
+
+        .preference-label {
+            display: flex;
+            align-items: flex-start;
+            cursor: pointer;
+            user-select: none;
+            gap: 12px;
+            width: 100%;
+        }
+
+        .checkmark {
+            flex-shrink: 0;
+            width: 20px;
+            height: 20px;
+            border: 2px solid #d1d5db;
+            border-radius: 4px;
+            background-color: #ffffff;
+            position: relative;
+            transition: all 0.2s ease;
+            margin-top: 2px;
+        }
+
+        .preference-checkbox:checked + .preference-label .checkmark {
             background-color: #000000;
             border-color: #000000;
         }
@@ -1114,11 +1149,9 @@ h3 {
             font-weight: 400;
         }
 
-.gdpr-text {
-            font-size: 0.8rem;
-            color: #d1d5db;
-            flex: 1;
-        }
+
+
+
 
 
 /* Parallax scroll effect for sections */
