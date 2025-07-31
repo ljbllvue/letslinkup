@@ -741,6 +741,11 @@ html {
             font-weight: 500;
         }
 
+
+  .hidden {
+            visibility: hidden;
+           }
+
         /* Email Preferences and Remember Me Styling */
         .checkbox-preferences {
             background-color: #f9f9f9;
