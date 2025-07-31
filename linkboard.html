@@ -15,7 +15,7 @@
     <!-- Flatpickr JS -->
     <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
     <script src="https://cdn.jsdelivr.net/npm/flatpickr/dist/plugins/monthSelect/index.js"></script>
-</head>
+    </head>
 
 <body>
     <!-- MOBILE MENU - Header Section -->
@@ -124,8 +124,8 @@
                             <input type="text" class="custom-select-input" id="filterGender" placeholder="All Genders" readonly onclick="toggleCustomDropdown('gender')">
                             <div class="custom-select-dropdown" id="gender-dropdown">
                                 <div class="custom-select-option" data-value="">All Genders</div>
-                                <div class="custom-select-option" data-value="Woman">Woman</div>
-                                <div class="custom-select-option" data-value="Man">Man</div>
+                                <div class="custom-select-option" data-value="Female">Woman</div>
+                                <div class="custom-select-option" data-value="Male">Man</div>
                                 <div class="custom-select-option" data-value="Trans Woman">Trans Woman</div>
                                 <div class="custom-select-option" data-value="Trans Man">Trans Man</div>
                                 <div class="custom-select-option" data-value="Non-binary">Non Binary</div>
@@ -135,34 +135,34 @@
                         </div>
                     </div>
                     <div class="filter-group">
-                        <label class="filter-label">Looking For</label>
-                        <div class="custom-select-container">
-                            <input type="text" class="custom-select-input" id="filterLookingFor" placeholder="All Genders" readonly onclick="toggleCustomDropdown('lookingfor')">
-                            <div class="custom-select-dropdown" id="lookingfor-dropdown">
-                                <div class="custom-select-option" data-value="">All Genders</div>
-                                <div class="custom-select-option" data-value="Woman">Woman</div>
-                                <div class="custom-select-option" data-value="Man">Man</div>
-                                <div class="custom-select-option" data-value="Non-binary">Non-binary</div>
-                                <div class="custom-select-option" data-value="Trans Man">Trans Man</div>
-                                <div class="custom-select-option" data-value="Trans Woman">Trans Woman</div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="filter-group">
-                        <label class="filter-label">Type of Scenes</label>
-                        <div class="custom-select-container">
-                            <input type="text" class="custom-select-input" id="filterSceneType" placeholder="All Types" readonly onclick="toggleCustomDropdown('scenetype')">
-                            <div class="custom-select-dropdown" id="scenetype-dropdown">
-                                <div class="custom-select-option" data-value="">All Types</div>
-                                <div class="custom-select-option" data-value="Sex">Sex</div>
-                                <div class="custom-select-option" data-value="No Sex">No Sex</div>
-                                <div class="custom-select-option" data-value="PIV">PIV</div>
-                                <div class="custom-select-option" data-value="No PIV">No PIV</div>
-                                <div class="custom-select-option" data-value="Anal">Anal</div>
-                                <div class="custom-select-option" data-value="👀">👀</div>
-                            </div>
-                        </div>
-                    </div>
+    <label class="filter-label">Looking For</label>
+    <div class="custom-select-container">
+        <input type="text" class="custom-select-input" id="filterLookingFor" placeholder="All Genders" readonly onclick="toggleCustomDropdown('lookingfor')">
+        <div class="custom-select-dropdown" id="lookingfor-dropdown">
+            <div class="custom-select-option" data-value="">All Genders</div>
+            <div class="custom-select-option" data-value="Woman">Woman</div>
+            <div class="custom-select-option" data-value="Man">Man</div>
+            <div class="custom-select-option" data-value="Non-binary">Non-binary</div>
+            <div class="custom-select-option" data-value="Trans Man">Trans Man</div>
+            <div class="custom-select-option" data-value="Trans Woman">Trans Woman</div>
+        </div>
+    </div>
+</div>
+<div class="filter-group">
+    <label class="filter-label">Type of Scenes</label>
+    <div class="custom-select-container">
+        <input type="text" class="custom-select-input" id="filterSceneType" placeholder="All Types" readonly onclick="toggleCustomDropdown('scenetype')">
+        <div class="custom-select-dropdown" id="scenetype-dropdown">
+            <div class="custom-select-option" data-value="">All Types</div>
+            <div class="custom-select-option" data-value="Sex">Sex</div>
+            <div class="custom-select-option" data-value="No Sex">No Sex</div>
+            <div class="custom-select-option" data-value="PIV">PIV</div>
+            <div class="custom-select-option" data-value="No PIV">No PIV</div>
+            <div class="custom-select-option" data-value="Anal">Anal</div>
+            <div class="custom-select-option" data-value="👀">👀</div>
+        </div>
+    </div>
+</div>
                     <div class="filter-group">
                         <label class="filter-label">Followers</label>
                         <div class="custom-select-container">
@@ -221,644 +221,723 @@
         </div>
     </div>
 
-    <!-- Interest Form Modal -->
-    <div id="interestModal" class="modal">
-        <div class="modal-content">
-            <div class="modal-header">
-                <span class="close" onclick="closeModal()">&times;</span>
-                <h2>Express Interest</h2>
-                <p>Complete this form to connect with <span id="targetCreator"></span></p>
-            </div>
-            <div class="form-container">
-                <!-- Netlify Form -->
-                <form id="interestForm" name="interest" action="/success" method="POST" data-netlify="true" netlify-honeypot="bot-field">
-                    <input type="hidden" name="form-name" value="interest">
-                    <p class="hidden">
-                        <label>Don't fill this out: <input name="bot-field" /></label>
-                    </p>
-                    
-                    <input type="hidden" id="linkUpId" name="linkUpId">
-                    <input type="hidden" id="targetCreatorName" name="targetCreatorName">
-                    
-                    <div class="form-row">
-                        <div class="form-group">
-                            <label class="form-label" for="yourName">Your Name/Studio</label>
-                            <input type="text" id="yourName" name="yourName" class="form-input" required>
-                        </div>
-                        <div class="form-group">
-                            <label class="form-label" for="yourEmail">Your Email</label>
-                            <input type="email" id="yourEmail" name="yourEmail" class="form-input" placeholder="your@email.com" required>
-                        </div>
-                    </div>
 
-                    <div class="form-row">
-                        <div class="form-group">
-                            <label class="form-label" for="yourGender">Gender Identity</label>
-                            <select id="yourGender" name="yourGender" class="form-select" required>
-                                <option value="">Select...</option>
-                                <option value="Woman">Woman</option>
-                                <option value="Man">Man</option>
-                                <option value="Non-binary">Non-binary</option>
-                                <option value="Trans Woman">Trans Woman</option>
-                                <option value="Trans Man">Trans Man</option>
-                                <option value="Other">Other</option>
-                            </select>
-                        </div>
-                        <div class="form-group">
-                            <label class="form-label" for="yourAge">Age</label>
-                            <select id="yourAge" name="yourAge" class="form-select" required>
-                                <option value="">Select...</option>
-                                <option value="18">18</option>
-                                <option value="19">19</option>
-                                <option value="20">20</option>
-                                <option value="21">21</option>
-                                <option value="22">22</option>
-                                <option value="23">23</option>
-                                <option value="24">24</option>
-                                <option value="25">25</option>
-                                <option value="26">26</option>
-                                <option value="27">27</option>
-                                <option value="28">28</option>
-                                <option value="29">29</option>
-                                <option value="30">30</option>
-                                <option value="31">31</option>
-                                <option value="32">32</option>
-                                <option value="33">33</option>
-                                <option value="34">34</option>
-                                <option value="35">35</option>
-                                <option value="36">36</option>
-                                <option value="37">37</option>
-                                <option value="38">38</option>
-                                <option value="39">39</option>
-                                <option value="40">40</option>
-                                <option value="41">41</option>
-                                <option value="42">42</option>
-                                <option value="43">43</option>
-                                <option value="44">44</option>
-                                <option value="45">45</option>
-                                <option value="46">46</option>
-                                <option value="47">47</option>
-                                <option value="48">48</option>
-                                <option value="49">49</option>
-                                <option value="50+">50+</option>
-                            </select>
-                        </div>
-                    </div>
-
-                    <div class="form-row">
-                        <div class="form-group">
-                            <label class="form-label" for="yourLocation">Your Location</label>
-                            <input type="text" id="yourLocation" name="yourLocation" class="form-input" placeholder="City, Country" required>
-                        </div>
-                    </div>
-
-                    <div class="form-row">
-                        <div class="form-group">
-                            <label class="form-label" for="yourFollowers">Follower Count</label>
-                            <select id="yourFollowers" name="yourFollowers" class="form-select" required>
-                                <option value="">Select range...</option>
-                                <option value="Under 1k">Under 1k</option>
-                                <option value="1k-10k">1k-10k</option>
-                                <option value="10k-100k">10k-100k</option>
-                                <option value="100k-1M">100k-1M</option>
-                                <option value="1M+">1M+</option>
-                            </select>
-                        </div>
-                        <div class="form-group">
-                            <label class="form-label" for="yourExperience">Experience</label>
-                            <select id="yourExperience" name="yourExperience" class="form-select" required>
-                                <option value="">Select...</option>
-                                <option value="Just Starting">Just starting</option>
-                                <option value="New">New</option>
-                                <option value="Experienced">Experienced</option>
-                                <option value="Veteran">Veteran</option>
-                            </select>
-                        </div>
-                    </div>
-
+<!-- Interest Form Modal -->
+<div id="interestModal" class="modal">
+    <div class="modal-content">
+        <div class="modal-header">
+            <span class="close" onclick="closeModal()">&times;</span>
+            <h2>Express Interest</h2>
+            <p>Complete this form to connect with <span id="targetCreator"></span></p>
+        </div>
+        <div class="form-container">
+            <!-- Netlify Form -->
+            <form id="interestForm" name="interest" action="/success" method="POST" data-netlify="true" netlify-honeypot="bot-field">
+                <input type="hidden" name="form-name" value="interest">
+                <p class="hidden">
+                    <label>Don't fill this out: <input name="bot-field" /></label>
+                </p>
+                
+                <input type="hidden" id="linkUpId" name="linkUpId">
+                <input type="hidden" id="targetCreatorName" name="targetCreatorName">
+                
+                <div class="form-row">
                     <div class="form-group">
-                        <label class="form-label" for="yourPlatforms">Your Platforms</label>
-                        <div class="platform-checkboxes">
-                            <div class="platform-item">
-                                <input type="checkbox" id="platform-onlyfans" name="yourPlatforms" value="OnlyFans" class="platform-checkbox">
-                                <label for="platform-onlyfans" class="platform-label">
-                                    <span class="platform-text">OnlyFans</span>
-                                </label>
-                            </div>
-                            <div class="platform-item">
-                                <input type="checkbox" id="platform-fansly" name="yourPlatforms" value="Fansly" class="platform-checkbox">
-                                <label for="platform-fansly" class="platform-label">
-                                    <span class="platform-text">Fansly</span>
-                                </label>
-                            </div>
-                            <div class="platform-item">
-                                <input type="checkbox" id="platform-justforfans" name="yourPlatforms" value="JustForFans" class="platform-checkbox">
-                                <label for="platform-justforfans" class="platform-label">
-                                    <span class="platform-text">JustForFans</span>
-                                </label>
-                            </div>
-                            <div class="platform-item">
-                                <input type="checkbox" id="platform-loyalfans" name="yourPlatforms" value="LoyalFans" class="platform-checkbox">
-                                <label for="platform-loyalfans" class="platform-label">
-                                    <span class="platform-text">LoyalFans</span>
-                                </label>
-                            </div>
-                            <div class="platform-item">
-                                <input type="checkbox" id="platform-manyvids" name="yourPlatforms" value="ManyVids" class="platform-checkbox">
-                                <label for="platform-manyvids" class="platform-label">
-                                    <span class="platform-text">ManyVids</span>
-                                </label>
-                            </div>
-                            <div class="platform-item">
-                                <input type="checkbox" id="platform-clips4sale" name="yourPlatforms" value="Clips4Sale" class="platform-checkbox">
-                                <label for="platform-clips4sale" class="platform-label">
-                                    <span class="platform-text">Clips4Sale</span>
-                                </label>
-                            </div>
-                            <div class="platform-item">
-                                <input type="checkbox" id="platform-pornhub" name="yourPlatforms" value="Pornhub" class="platform-checkbox">
-                                <label for="platform-pornhub" class="platform-label">
-                                    <span class="platform-text">Pornhub</span>
-                                </label>
-                            </div>
+                        <label class="form-label" for="yourName">Your Name/Studio</label>
+                        <input type="text" id="yourName" name="yourName" class="form-input" required>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label" for="yourEmail">Your Email</label>
+                        <input type="email" id="yourEmail" name="yourEmail" class="form-input" placeholder="your@email.com" required>
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label class="form-label" for="yourGender">Gender Identity</label>
+                        <select id="yourGender" name="yourGender" class="form-select" required>
+                            <option value="">Select...</option>
+                            <option value="Woman">Woman</option>
+                            <option value="Man">Man</option>
+                            <option value="Non-binary">Non-binary</option>
+                            <option value="Trans Woman">Trans Woman</option>
+                            <option value="Trans Man">Trans Man</option>
+                            <option value="Other">Other</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label" for="yourAge">Age</label>
+                        <select id="yourAge" name="yourAge" class="form-select" required>
+                            <option value="">Select...</option>
+                            <option value="18">18</option>
+                            <option value="19">19</option>
+                            <option value="20">20</option>
+                            <option value="21">21</option>
+                            <option value="22">22</option>
+                            <option value="23">23</option>
+                            <option value="24">24</option>
+                            <option value="25">25</option>
+                            <option value="26">26</option>
+                            <option value="27">27</option>
+                            <option value="28">28</option>
+                            <option value="29">29</option>
+                            <option value="30">30</option>
+                            <option value="31">31</option>
+                            <option value="32">32</option>
+                            <option value="33">33</option>
+                            <option value="34">34</option>
+                            <option value="35">35</option>
+                            <option value="36">36</option>
+                            <option value="37">37</option>
+                            <option value="38">38</option>
+                            <option value="39">39</option>
+                            <option value="40">40</option>
+                            <option value="41">41</option>
+                            <option value="42">42</option>
+                            <option value="43">43</option>
+                            <option value="44">44</option>
+                            <option value="45">45</option>
+                            <option value="46">46</option>
+                            <option value="47">47</option>
+                            <option value="48">48</option>
+                            <option value="49">49</option>
+                            <option value="50+">50+</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label class="form-label" for="yourLocation">Your Location</label>
+                        <input type="text" id="yourLocation" name="yourLocation" class="form-input" placeholder="City, Country" required>
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label class="form-label" for="yourFollowers">Follower Count</label>
+                        <select id="yourFollowers" name="yourFollowers" class="form-select" required>
+                            <option value="">Select range...</option>
+                            <option value="Under 1k">Under 1k</option>
+                            <option value="1k-10k">1k-10k</option>
+                            <option value="10k-100k">10k-100k</option>
+                            <option value="100k-1M">100k-1M</option>
+                            <option value="1M+">1M+</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label" for="yourExperience">Experience</label>
+                        <select id="yourExperience" name="yourExperience" class="form-select" required>
+                            <option value="">Select...</option>
+                            <option value="Just Starting">Just starting</option>
+                            <option value="New">New</option>
+                            <option value="Experienced">Experienced</option>
+                            <option value="Veteran">Veteran</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label" for="yourPlatforms">Your Platforms</label>
+                    <div class="platform-checkboxes">
+                        <div class="platform-item">
+                            <input type="checkbox" id="platform-onlyfans" name="yourPlatforms" value="OnlyFans" class="platform-checkbox">
+                            <label for="platform-onlyfans" class="platform-label">
+                                <span class="platform-text">OnlyFans</span>
+                            </label>
+                        </div>
+                        <div class="platform-item">
+                            <input type="checkbox" id="platform-fansly" name="yourPlatforms" value="Fansly" class="platform-checkbox">
+                            <label for="platform-fansly" class="platform-label">
+                                <span class="platform-text">Fansly</span>
+                            </label>
+                        </div>
+                        <div class="platform-item">
+                            <input type="checkbox" id="platform-justforfans" name="yourPlatforms" value="JustForFans" class="platform-checkbox">
+                            <label for="platform-justforfans" class="platform-label">
+                                <span class="platform-text">JustForFans</span>
+                            </label>
+                        </div>
+                        <div class="platform-item">
+                            <input type="checkbox" id="platform-loyalfans" name="yourPlatforms" value="LoyalFans" class="platform-checkbox">
+                            <label for="platform-loyalfans" class="platform-label">
+                                <span class="platform-text">LoyalFans</span>
+                            </label>
+                        </div>
+                        <div class="platform-item">
+                            <input type="checkbox" id="platform-manyvids" name="yourPlatforms" value="ManyVids" class="platform-checkbox">
+                            <label for="platform-manyvids" class="platform-label">
+                                <span class="platform-text">ManyVids</span>
+                            </label>
+                        </div>
+                        <div class="platform-item">
+                            <input type="checkbox" id="platform-clips4sale" name="yourPlatforms" value="Clips4Sale" class="platform-checkbox">
+                            <label for="platform-clips4sale" class="platform-label">
+                                <span class="platform-text">Clips4Sale</span>
+                            </label>
+                        </div>
+                        <div class="platform-item">
+                            <input type="checkbox" id="platform-pornhub" name="yourPlatforms" value="Pornhub" class="platform-checkbox">
+                            <label for="platform-pornhub" class="platform-label">
+                                <span class="platform-text">Pornhub</span>
+                            </label>
                         </div>
                     </div>
+                </div>
 
-                    <div class="form-group">
-                        <label class="form-label" for="yourSocialProfile">Your Social Media Profile</label>
-                        <input type="url" id="yourSocialProfile" name="yourSocialProfile" class="form-input" placeholder="https://twitter.com/yourprofile (Twitter, Instagram, or OnlyFans profile)" required>
+                <div class="form-group">
+                    <label class="form-label" for="yourSocialProfile">Your Social Media Profile</label>
+                    <input type="url" id="yourSocialProfile" name="yourSocialProfile" class="form-input" placeholder="https://twitter.com/yourprofile (Twitter, Instagram, or OnlyFans profile)" required>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label">Verification Test</label>
+                    <div class="verification-instructions">
+                        <p><strong>To verify your account:</strong></p>
+                        <p>Add "Verified ☑️ <span id="currentMonth"></span>" to your bio on the social media profile you provided above.</p>
+                        <small>This helps us ensure you're a real creator and prevents spam applications.</small>
                     </div>
+                </div>
 
-                    <div class="form-group">
-                        <label class="form-label">Verification Test</label>
-                        <div class="verification-instructions">
-                            <p><strong>To verify your account:</strong></p>
-                            <p>Add "Verified ☑️ <span id="currentMonth"></span>" to your bio on the social media profile you provided above.</p>
-                            <small>This helps us ensure you're a real creator and prevents spam applications.</small>
-                        </div>
+                <div class="form-group">
+                    <label class="form-label" for="yourAvailability">Your Available Dates</label>
+                    <input type="text" id="yourAvailability" name="yourAvailability" class="form-input" placeholder="e.g., March 15-20, 2024" required>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label" for="introMessage">Introduction Message</label>
+                    <textarea id="introMessage" name="introMessage" class="form-textarea" placeholder="Introduce yourself and explain why you'd like to collaborate..." required></textarea>
+                </div>
+
+                <!-- Terms Agreement -->
+                <div class="form-group">
+                    <div class="preference-item">
+                        <input type="checkbox" id="termsAgreement" name="termsAgreement" class="preference-checkbox" required>
+                        <label for="termsAgreement" class="preference-label">
+                            <span class="checkmark"></span>
+                            <span class="preference-text">
+                                <strong>I understand and agree to the Collaboration Terms and that this form does not guarantee a match.</strong>
+                            </span>
+                        </label>
                     </div>
+                </div>
 
-                    <div class="form-group">
-                        <label class="form-label" for="yourAvailability">Your Available Dates</label>
-                        <input type="text" id="yourAvailability" name="yourAvailability" class="form-input" placeholder="e.g., March 15-20, 2024" required>
-                    </div>
-
-                    <div class="form-group">
-                        <label class="form-label" for="introMessage">Introduction Message</label>
-                        <textarea id="introMessage" name="introMessage" class="form-textarea" placeholder="Introduce yourself and explain why you'd like to collaborate..." required></textarea>
-                    </div>
-
-                    <!-- Terms Agreement -->
-                    <div class="form-group">
+                <!-- Email Preferences and Remember Me -->
+                <div class="form-group">
+                    <div class="checkbox-preferences">
                         <div class="preference-item">
-                            <input type="checkbox" id="termsAgreement" name="termsAgreement" class="preference-checkbox" required>
-                            <label for="termsAgreement" class="preference-label">
+                            <input type="checkbox" id="emailUpdates" name="emailUpdates" class="preference-checkbox">
+                            <label for="emailUpdates" class="preference-label">
                                 <span class="checkmark"></span>
                                 <span class="preference-text">
-                                    <strong>I understand and agree to the Collaboration Terms and that this form does not guarantee a match.</strong>
+                                    <strong>Email me about new opportunities</strong>
+                                    <small>Get notified when new link-ups match your interests</small>
+                                </span>
+                            </label>
+                        </div>
+                        <div class="preference-item">
+                            <input type="checkbox" id="rememberMe" name="rememberMe" class="preference-checkbox">
+                            <label for="rememberMe" class="preference-label">
+                                <span class="checkmark"></span>
+                                <span class="preference-text">
+                                    <strong>Remember my information</strong>
+                                    <small>Save my details for faster applications</small>
                                 </span>
                             </label>
                         </div>
                     </div>
+                </div>
 
-                    <!-- Email Preferences and Remember Me -->
-                    <div class="form-group">
-                        <div class="checkbox-preferences">
-                            <div class="preference-item">
-                                <input type="checkbox" id="emailUpdates" name="emailUpdates" class="preference-checkbox">
-                                <label for="emailUpdates" class="preference-label">
-                                    <span class="checkmark"></span>
-                                    <span class="preference-text">
-                                        <strong>Email me about new opportunities</strong>
-                                        <small>Get notified when new link-ups match your interests</small>
-                                    </span>
-                                </label>
-                            </div>
-                            <div class="preference-item">
-                                <input type="checkbox" id="rememberMe" name="rememberMe" class="preference-checkbox">
-                                <label for="rememberMe" class="preference-label">
-                                    <span class="checkmark"></span>
-                                    <span class="preference-text">
-                                        <strong>Remember my information</strong>
-                                        <small>Save my details for faster applications</small>
-                                    </span>
-                                </label>
-                            </div>
-                        </div>
-                    </div>
-
-                    <button type="submit" class="submit-btn">Send Interest</button>
-                </form>
-            </div>
+                <button type="submit" class="submit-btn">Send Interest</button>
+            </form>
         </div>
     </div>
+</div>
+                            </label>
+                        </div>
+                    </div>
+                </div>
 
-    <!-- Shoot Your Shot Modal -->
-    <div id="shootShotModal" class="modal">
-        <div class="modal-content">
-            <div class="modal-header">
-                <span class="close" onclick="closeShootShotModal()">&times;</span>
-                <h2>Shoot Your Shot</h2>
-                <p>Submit your own link up opportunity and connect with creators</p>
-            </div>
-            <div class="form-container">
-                <!-- Netlify Form -->
-                <form id="shootShotForm" name="shoot-your-shot" action="/success" method="POST" data-netlify="true" netlify-honeypot="bot-field">
-                    <input type="hidden" name="form-name" value="shoot-your-shot" />
-                       <p class="hidden">
-                        <label>Don't fill this out: <input name="bot-field" /></label>
-                    </p>
-                    
+                <div class="form-group">
+                    <label class="form-label" for="yourSocialProfile">Your Social Media Profile</label>
+                    <input type="url" id="yourSocialProfile" name="yourSocialProfile" class="form-input" placeholder="https://twitter.com/yourprofile (Twitter, Instagram, or OnlyFans profile)" required>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label">Verification Test</label>
+                    <div class="verification-instructions">
+                        <p><strong>To verify your account:</strong></p>
+                        <p>Add "Verified ☑️ <span id="currentMonth"></span>" to your bio on the social media profile you provided above.</p>
+                        <small>This helps us ensure you're a real creator and prevents spam applications.</small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label" for="yourAvailability">Your Available Dates</label>
+                    <input type="text" id="yourAvailability" name="yourAvailability" class="form-input" placeholder="e.g., March 15-20, 2024" required>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label" for="introMessage">Introduction Message</label>
+                    <textarea id="introMessage" name="introMessage" class="form-textarea" placeholder="Introduce yourself and explain why you'd like to collaborate..." required></textarea>
+                </div>
+
+                <!-- Terms Agreement -->
+                <div class="form-group">
+                    <div class="preference-item">
+                        <input type="checkbox" id="termsAgreement" name="termsAgreement" class="preference-checkbox" required>
+                        <label for="termsAgreement" class="preference-label">
+                            <span class="checkmark"></span>
+                            <span class="preference-text">
+                                <strong>I understand and agree to the Collaboration Terms and that this form does not guarantee a match.</strong>
+                            </span>
+                        </label>
+                    </div>
+                </div>
+
+                <!-- Email Preferences and Remember Me -->
+                <div class="form-group">
+                    <div class="checkbox-preferences">
+                        <div class="preference-item">
+                            <input type="checkbox" id="emailUpdates" name="emailUpdates" class="preference-checkbox">
+                            <label for="emailUpdates" class="preference-label">
+                                <span class="checkmark"></span>
+                                <span class="preference-text">
+                                    <strong>Email me about new opportunities</strong>
+                                    <small>Get notified when new link-ups match your interests</small>
+                                </span>
+                            </label>
+                        </div>
+                        <div class="preference-item">
+                            <input type="checkbox" id="rememberMe" name="rememberMe" class="preference-checkbox">
+                            <label for="rememberMe" class="preference-label">
+                                <span class="checkmark"></span>
+                                <span class="preference-text">
+                                    <strong>Remember my information</strong>
+                                    <small>Save my details for faster applications</small>
+                                </span>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+
+                <button type="submit" class="submit-btn">Send Interest</button>
+            </form>
+        </div>
+    </div>
+</div>
+
+    
+
+    <!-- Shoot Your Shot Modal - FULLY CORRECTED VERSION -->
+<div id="shootShotModal" class="modal">
+    <div class="modal-content">
+        <div class="modal-header">
+            <span class="close" onclick="closeShootShotModal()">&times;</span>
+            <h2>Shoot Your Shot</h2>
+            <p>Submit your own link up opportunity and connect with creators</p>
+        </div>
+        <div class="form-container">
+            <!-- Netlify Form -->
+            <form id="shootShotForm" name="shoot-your-shot" action="/success" method="POST" data-netlify="true" netlify-honeypot="bot-field">
+                <input type="hidden" name="form-name" value="shoot-your-shot" />
+                <p hidden>
+                    <label>Don't fill this out: <input name="bot-field" /></label>
+                </p>
+                
+                <div class="form-group">
+                    <label class="form-label" for="projectTitle">Project Title</label>
+                    <input type="text" id="projectTitle" name="projectTitle" class="form-input" placeholder="What's your project called?" required>
+                </div>
+
+                <div class="form-row">
                     <div class="form-group">
-                        <label class="form-label" for="projectTitle">Project Title</label>
-                        <input type="text" id="projectTitle" name="projectTitle" class="form-input" placeholder="What's your project called?" required>
+                        <label class="form-label" for="shootName">Your Name/Studio</label>
+                        <input type="text" id="shootName" name="shootName" class="form-input" required>
                     </div>
-
-                    <div class="form-row">
-                        <div class="form-group">
-                            <label class="form-label" for="shootName">Your Name/Studio</label>
-                            <input type="text" id="shootName" name="shootName" class="form-input" required>
-                        </div>
-                        <div class="form-group">
-                            <label class="form-label" for="shootEmail">Your Email</label>
-                            <input type="email" id="shootEmail" name="shootEmail" class="form-input" placeholder="your@email.com" required>
-                        </div>
-                    </div>
-
-                    <div class="form-row">
-                        <div class="form-group">
-                            <label class="form-label" for="shootGender">Gender Identity</label>
-                            <select id="shootGender" name="shootGender" class="form-select" required>
-                                <option value="">Select...</option>
-                                <option value="Woman">Woman</option>
-                                <option value="Man">Man</option>
-                                <option value="Non-binary">Non-binary</option>
-                                <option value="Trans Woman">Trans Woman</option>
-                                <option value="Trans Man">Trans Man</option>
-                                <option value="Other">Other</option>
-                            </select>
-                        </div>
-                    </div>
-                    
-                    <div class="form-row">
-                        <div class="form-group">
-                            <label class="form-label" for="shootExperience">Your Experience</label>
-                            <select id="shootExperience" name="shootExperience" class="form-select" required>
-                                <option value="">Select...</option>
-                                <option value="Just Starting">Just Starting</option>
-                                <option value="New">New</option>
-                                <option value="Experienced">Experienced</option>
-                                <option value="Established">Established</option>
-                            </select>
-                        </div>
-                        <div class="form-group">
-                            <label class="form-label" for="shootFollowers">Your Follower Range</label>
-                            <select id="shootFollowers" name="shootFollowers" class="form-select" required>
-                                <option value="">Select range...</option>
-                                <option value="Under 1k">Under 1k</option>
-                                <option value="1k-10k">1k-10k</option>
-                                <option value="10k-50k">10k-50k</option>
-                                <option value="50k-100k">50k-100k</option>
-                                <option value="100k-500k">100k-500k</option>
-                                <option value="500k-1M">500k-1M</option>
-                                <option value="1M+">1M+</option>
-                            </select>
-                        </div>
-                    </div>
-
                     <div class="form-group">
-                        <label class="form-label" for="shootPlatforms">Your Platforms</label>
-                        <div class="platform-checkboxes">
-                            <div class="platform-item">
-                                <input type="checkbox" id="shoot-platform-onlyfans" name="shootPlatforms" value="OnlyFans" class="platform-checkbox">
-                                <label for="shoot-platform-onlyfans" class="platform-label">
-                                    <span class="platform-text">OnlyFans</span>
-                                </label>
-                            </div>
-                            <div class="platform-item">
-                                <input type="checkbox" id="shoot-platform-fansly" name="shootPlatforms" value="Fansly" class="platform-checkbox">
-                                <label for="shoot-platform-fansly" class="platform-label">
-                                    <span class="platform-text">Fansly</span>
-                                </label>
-                            </div>
-                            <div class="platform-item">
-                                <input type="checkbox" id="shoot-platform-justforfans" name="shootPlatforms" value="JustForFans" class="platform-checkbox">
-                                <label for="shoot-platform-justforfans" class="platform-label">
-                                    <span class="platform-text">JustForFans</span>
-                                </label>
-                            </div>
-                            <div class="platform-item">
-                                <input type="checkbox" id="shoot-platform-loyalfans" name="shootPlatforms" value="LoyalFans" class="platform-checkbox">
-                                <label for="shoot-platform-loyalfans" class="platform-label">
-                                    <span class="platform-text">LoyalFans</span>
-                                </label>
-                            </div>
-                            <div class="platform-item">
-                                <input type="checkbox" id="shoot-platform-manyvids" name="shootPlatforms" value="ManyVids" class="platform-checkbox">
-                                <label for="shoot-platform-manyvids" class="platform-label">
-                                    <span class="platform-text">ManyVids</span>
-                                </label>
-                            </div>
-                            <div class="platform-item">
-                                <input type="checkbox" id="shoot-platform-clips4sale" name="shootPlatforms" value="Clips4Sale" class="platform-checkbox">
-                                <label for="shoot-platform-clips4sale" class="platform-label">
-                                    <span class="platform-text">Clips4Sale</span>
-                                </label>
-                            </div>
-                            <div class="platform-item">
-                                <input type="checkbox" id="shoot-platform-pornhub" name="shootPlatforms" value="Pornhub" class="platform-checkbox">
-                                <label for="shoot-platform-pornhub" class="platform-label">
-                                    <span class="platform-text">Pornhub</span>
-                                </label>
-                            </div>
-                        </div>
+                        <label class="form-label" for="shootEmail">Your Email</label>
+                        <input type="email" id="shootEmail" name="shootEmail" class="form-input" placeholder="your@email.com" required>
                     </div>
+                </div>
 
-                    <div class="form-row">
-                        <div class="form-group">
-                            <label class="form-label" for="shootAge">Age</label>
-                            <select id="shootAge" name="shootAge" class="form-select" required>
-                                <option value="">Select...</option>
-                                <option value="18">18</option>
-                                <option value="19">19</option>
-                                <option value="20">20</option>
-                                <option value="21">21</option>
-                                <option value="22">22</option>
-                                <option value="23">23</option>
-                                <option value="24">24</option>
-                                <option value="25">25</option>
-                                <option value="26">26</option>
-                                <option value="27">27</option>
-                                <option value="28">28</option>
-                                <option value="29">29</option>
-                                <option value="30">30</option>
-                                <option value="31">31</option>
-                                <option value="32">32</option>
-                                <option value="33">33</option>
-                                <option value="34">34</option>
-                                <option value="35">35</option>
-                                <option value="36">36</option>
-                                <option value="37">37</option>
-                                <option value="38">38</option>
-                                <option value="39">39</option>
-                                <option value="40">40</option>
-                                <option value="41">41</option>
-                                <option value="42">42</option>
-                                <option value="43">43</option>
-                                <option value="44">44</option>
-                                <option value="45">45</option>
-                                <option value="46">46</option>
-                                <option value="47">47</option>
-                                <option value="48">48</option>
-                                <option value="49">49</option>
-                                <option value="50+">50+</option>
-                            </select>
-                        </div>
-                        <div class="form-group">
-                            <label class="form-label" for="shootLocation">Your Location</label>
-                            <input type="text" id="shootLocation" name="shootLocation" class="form-input" placeholder="City, Country" required>
-                        </div>
-                    </div>
-
+                <div class="form-row">
                     <div class="form-group">
-                        <label class="form-label" for="shootSocialProfile">Your Social Media Profile</label>
-                        <input type="url" id="shootSocialProfile" name="shootSocialProfile" class="form-input" placeholder="https://twitter.com/yourprofile (Twitter, Instagram, or OnlyFans profile)" required>
+                        <label class="form-label" for="shootGender">Gender Identity</label>
+                        <select id="shootGender" name="shootGender" class="form-select" required>
+                            <option value="">Select...</option>
+                            <option value="Woman">Woman</option>
+                            <option value="Man">Man</option>
+                            <option value="Non-binary">Non-binary</option>
+                            <option value="Trans Woman">Trans Woman</option>
+                            <option value="Trans Man">Trans Man</option>
+                            <option value="Other">Other</option>
+                        </select>
                     </div>
-
+                </div>
+                
+                <div class="form-row">
                     <div class="form-group">
-                        <label class="form-label" for="shootVisible">Do you want your link to be visible?</label>
-                        <select id="shootVisible" name="shootVisible" class="form-select" required>
+                        <label class="form-label" for="shootExperience">Your Experience</label>
+                        <select id="shootExperience" name="shootExperience" class="form-select" required>
+                            <option value="">Select...</option>
+                            <option value="Just Starting">Just Starting</option>
+                            <option value="New">New</option>
+                            <option value="Experienced">Experienced</option>
+                            <option value="Established">Established</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label" for="shootFollowers">Your Follower Range</label>
+                        <select id="shootFollowers" name="shootFollowers" class="form-select" required>
+                            <option value="">Select range...</option>
+                            <option value="Under 1k">Under 1k</option>
+                            <option value="1k-10k">1k-10k</option>
+                            <option value="10k-50k">10k-50k</option>
+                            <option value="50k-100k">50k-100k</option>
+                            <option value="100k-500k">100k-500k</option>
+                            <option value="500k-1M">500k-1M</option>
+                            <option value="1M+">1M+</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label" for="shootPlatforms">Your Platforms</label>
+                    <div class="platform-checkboxes">
+                        <div class="platform-item">
+                            <input type="checkbox" id="shoot-platform-onlyfans" name="shootPlatforms" value="OnlyFans" class="platform-checkbox">
+                            <label for="shoot-platform-onlyfans" class="platform-label">
+                                <span class="platform-text">OnlyFans</span>
+                            </label>
+                        </div>
+                        <div class="platform-item">
+                            <input type="checkbox" id="shoot-platform-fansly" name="shootPlatforms" value="Fansly" class="platform-checkbox">
+                            <label for="shoot-platform-fansly" class="platform-label">
+                                <span class="platform-text">Fansly</span>
+                            </label>
+                        </div>
+                        <div class="platform-item">
+                            <input type="checkbox" id="shoot-platform-justforfans" name="shootPlatforms" value="JustForFans" class="platform-checkbox">
+                            <label for="shoot-platform-justforfans" class="platform-label">
+                                <span class="platform-text">JustForFans</span>
+                            </label>
+                        </div>
+                        <div class="platform-item">
+                            <input type="checkbox" id="shoot-platform-loyalfans" name="shootPlatforms" value="LoyalFans" class="platform-checkbox">
+                            <label for="shoot-platform-loyalfans" class="platform-label">
+                                <span class="platform-text">LoyalFans</span>
+                            </label>
+                        </div>
+                        <div class="platform-item">
+                            <input type="checkbox" id="shoot-platform-manyvids" name="shootPlatforms" value="ManyVids" class="platform-checkbox">
+                            <label for="shoot-platform-manyvids" class="platform-label">
+                                <span class="platform-text">ManyVids</span>
+                            </label>
+                        </div>
+                        <div class="platform-item">
+                            <input type="checkbox" id="shoot-platform-clips4sale" name="shootPlatforms" value="Clips4Sale" class="platform-checkbox">
+                            <label for="shoot-platform-clips4sale" class="platform-label">
+                                <span class="platform-text">Clips4Sale</span>
+                            </label>
+                        </div>
+                        <div class="platform-item">
+                            <input type="checkbox" id="shoot-platform-pornhub" name="shootPlatforms" value="Pornhub" class="platform-checkbox">
+                            <label for="shoot-platform-pornhub" class="platform-label">
+                                <span class="platform-text">Pornhub</span>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label class="form-label" for="shootAge">Age</label>
+                        <select id="shootAge" name="shootAge" class="form-select" required>
+                            <option value="">Select...</option>
+                            <option value="18">18</option>
+                            <option value="19">19</option>
+                            <option value="20">20</option>
+                            <option value="21">21</option>
+                            <option value="22">22</option>
+                            <option value="23">23</option>
+                            <option value="24">24</option>
+                            <option value="25">25</option>
+                            <option value="26">26</option>
+                            <option value="27">27</option>
+                            <option value="28">28</option>
+                            <option value="29">29</option>
+                            <option value="30">30</option>
+                            <option value="31">31</option>
+                            <option value="32">32</option>
+                            <option value="33">33</option>
+                            <option value="34">34</option>
+                            <option value="35">35</option>
+                            <option value="36">36</option>
+                            <option value="37">37</option>
+                            <option value="38">38</option>
+                            <option value="39">39</option>
+                            <option value="40">40</option>
+                            <option value="41">41</option>
+                            <option value="42">42</option>
+                            <option value="43">43</option>
+                            <option value="44">44</option>
+                            <option value="45">45</option>
+                            <option value="46">46</option>
+                            <option value="47">47</option>
+                            <option value="48">48</option>
+                            <option value="49">49</option>
+                            <option value="50+">50+</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label" for="shootLocation">Your Location</label>
+                        <input type="text" id="shootLocation" name="shootLocation" class="form-input" placeholder="City, Country" required>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label" for="shootSocialProfile">Your Social Media Profile</label>
+                    <input type="url" id="shootSocialProfile" name="shootSocialProfile" class="form-input" placeholder="https://twitter.com/yourprofile (Twitter, Instagram, or OnlyFans profile)" required>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label" for="shootVisible">Do you want your link to be visible?</label>
+                    <select id="shootVisible" name="shootVisible" class="form-select" required>
+                        <option value="">Select...</option>
+                        <option value="Yes">Yes</option>
+                        <option value="No">No</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label">Looking for ?</label>
+                    <div class="platform-checkboxes">
+                        <div class="platform-item">
+                            <input type="checkbox" id="shoot-looking-man" name="shootLookingFor" value="Man" class="platform-checkbox">
+                            <label for="shoot-looking-man" class="platform-label">
+                                <span class="platform-text">Man</span>
+                            </label>
+                        </div>
+                        <div class="platform-item">
+                            <input type="checkbox" id="shoot-looking-woman" name="shootLookingFor" value="Woman" class="platform-checkbox">
+                            <label for="shoot-looking-woman" class="platform-label">
+                                <span class="platform-text">Woman</span>
+                            </label>
+                        </div>
+                        <div class="platform-item">
+                            <input type="checkbox" id="shoot-looking-transwoman" name="shootLookingFor" value="Trans Woman" class="platform-checkbox">
+                            <label for="shoot-looking-transwoman" class="platform-label">
+                                <span class="platform-text">Trans Woman</span>
+                            </label>
+                        </div>
+                        <div class="platform-item">
+                            <input type="checkbox" id="shoot-looking-transman" name="shootLookingFor" value="Trans Man" class="platform-checkbox">
+                            <label for="shoot-looking-transman" class="platform-label">
+                                <span class="platform-text">Trans Man</span>
+                            </label>
+                        </div>
+                        <div class="platform-item">
+                            <input type="checkbox" id="shoot-looking-nonbinary" name="shootLookingFor" value="Non Binary" class="platform-checkbox">
+                            <label for="shoot-looking-nonbinary" class="platform-label">
+                                <span class="platform-text">Non Binary</span>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label">What type of scenes?</label>
+                    <div class="platform-checkboxes">
+                        <div class="platform-item">
+                            <input type="checkbox" id="shoot-scene-sex" name="shootSceneType" value="Sex" class="platform-checkbox">
+                            <label for="shoot-scene-sex" class="platform-label">
+                                <span class="platform-text">Sex</span>
+                            </label>
+                        </div>
+                        <div class="platform-item">
+                            <input type="checkbox" id="shoot-scene-nosex" name="shootSceneType" value="No sex" class="platform-checkbox">
+                            <label for="shoot-scene-nosex" class="platform-label">
+                                <span class="platform-text">No sex</span>
+                            </label>
+                        </div>
+                        <div class="platform-item">
+                            <input type="checkbox" id="shoot-scene-piv" name="shootSceneType" value="PIV" class="platform-checkbox">
+                            <label for="shoot-scene-piv" class="platform-label">
+                                <span class="platform-text">PIV</span>
+                            </label>
+                        </div>
+                        <div class="platform-item">
+                            <input type="checkbox" id="shoot-scene-nopiv" name="shootSceneType" value="No PIV" class="platform-checkbox">
+                            <label for="shoot-scene-nopiv" class="platform-label">
+                                <span class="platform-text">No PIV</span>
+                            </label>
+                        </div>
+                        <div class="platform-item">
+                            <input type="checkbox" id="shoot-scene-anal" name="shootSceneType" value="Anal" class="platform-checkbox">
+                            <label for="shoot-scene-anal" class="platform-label">
+                                <span class="platform-text">Anal</span>
+                            </label>
+                        </div>
+                        <div class="platform-item">
+                            <input type="checkbox" id="shoot-scene-dontsay" name="shootSceneType" value="Don't want to say" class="platform-checkbox">
+                            <label for="shoot-scene-dontsay" class="platform-label">
+                                <span class="platform-text">Don't want to say</span>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label">What type of niche ?</label>
+                    <div class="platform-checkboxes">
+                        <div class="platform-item">
+                            <input type="checkbox" id="shoot-niche-femdom" name="shootNiche" value="Femdom" class="platform-checkbox">
+                            <label for="shoot-niche-femdom" class="platform-label">
+                                <span class="platform-text">Femdom</span>
+                            </label>
+                        </div>
+                        <div class="platform-item">
+                            <input type="checkbox" id="shoot-niche-fetish" name="shootNiche" value="Fetish" class="platform-checkbox">
+                            <label for="shoot-niche-fetish" class="platform-label">
+                                <span class="platform-text">Fetish</span>
+                            </label>
+                        </div>
+                        <div class="platform-item">
+                            <input type="checkbox" id="shoot-niche-vanilla" name="shootNiche" value="Vanilla" class="platform-checkbox">
+                            <label for="shoot-niche-vanilla" class="platform-label">
+                                <span class="platform-text">Vanilla</span>
+                            </label>
+                        </div>
+                        <div class="platform-item">
+                            <input type="checkbox" id="shoot-niche-kinky" name="shootNiche" value="Kinky" class="platform-checkbox">
+                            <label for="shoot-niche-kinky" class="platform-label">
+                                <span class="platform-text">Kinky</span>
+                            </label>
+                        </div>
+                        <div class="platform-item">
+                            <input type="checkbox" id="shoot-niche-hardcore" name="shootNiche" value="Hardcore" class="platform-checkbox">
+                            <label for="shoot-niche-hardcore" class="platform-label">
+                                <span class="platform-text">Hardcore</span>
+                            </label>
+                        </div>
+                        <div class="platform-item">
+                            <input type="checkbox" id="shoot-niche-group" name="shootNiche" value="Group" class="platform-checkbox">
+                            <label for="shoot-niche-group" class="platform-label">
+                                <span class="platform-text">Group</span>
+                            </label>
+                        </div>
+                        <div class="platform-item">
+                            <input type="checkbox" id="shoot-niche-couple" name="shootNiche" value="Couple" class="platform-checkbox">
+                            <label for="shoot-niche-couple" class="platform-label">
+                                <span class="platform-text">Couple</span>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label" for="shootContentType">What type of content ?</label>
+                    <select id="shootContentType" name="shootContentType" class="form-select" required>
+                        <option value="">Select...</option>
+                        <option value="High Production">High Production</option>
+                        <option value="Amateur">Amateur</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label" for="shootRequirements">Requirements</label>
+                    <textarea id="shootRequirements" name="shootRequirements" class="form-textarea" placeholder="Describe any specific requirements, preferences, or conditions for this collaboration..." rows="4"></textarea>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label class="form-label" for="shootCanHost">Can you host?</label>
+                        <select id="shootCanHost" name="shootCanHost" class="form-select" required>
                             <option value="">Select...</option>
                             <option value="Yes">Yes</option>
                             <option value="No">No</option>
                         </select>
                     </div>
-
                     <div class="form-group">
-                        <label class="form-label">Looking for ?</label>
+                        <label class="form-label">Hosting (if you can't host)</label>
                         <div class="platform-checkboxes">
                             <div class="platform-item">
-                                <input type="checkbox" id="shoot-looking-man" name="shootLookingFor" value="Man" class="platform-checkbox">
-                                <label for="shoot-looking-man" class="platform-label">
-                                    <span class="platform-text">Man</span>
+                                <input type="checkbox" id="shoot-hosting-covered" name="shootHosting" value="Covered" class="platform-checkbox">
+                                <label for="shoot-hosting-covered" class="platform-label">
+                                    <span class="platform-text">Covered</span>
                                 </label>
                             </div>
                             <div class="platform-item">
-                                <input type="checkbox" id="shoot-looking-woman" name="shootLookingFor" value="Woman" class="platform-checkbox">
-                                <label for="shoot-looking-woman" class="platform-label">
-                                    <span class="platform-text">Woman</span>
+                                <input type="checkbox" id="shoot-hosting-split" name="shootHosting" value="Split" class="platform-checkbox">
+                                <label for="shoot-hosting-split" class="platform-label">
+                                    <span class="platform-text">Split</span>
                                 </label>
                             </div>
                             <div class="platform-item">
-                                <input type="checkbox" id="shoot-looking-transwoman" name="shootLookingFor" value="Trans Woman" class="platform-checkbox">
-                                <label for="shoot-looking-transwoman" class="platform-label">
-                                    <span class="platform-text">Trans Woman</span>
+                                <input type="checkbox" id="shoot-hosting-partner" name="shootHosting" value="On the partner" class="platform-checkbox">
+                                <label for="shoot-hosting-partner" class="platform-label">
+                                    <span class="platform-text">On the partner</span>
                                 </label>
                             </div>
                             <div class="platform-item">
-                                <input type="checkbox" id="shoot-looking-transman" name="shootLookingFor" value="Trans Man" class="platform-checkbox">
-                                <label for="shoot-looking-transman" class="platform-label">
-                                    <span class="platform-text">Trans Man</span>
-                                </label>
-                            </div>
-                            <div class="platform-item">
-                                <input type="checkbox" id="shoot-looking-nonbinary" name="shootLookingFor" value="Non Binary" class="platform-checkbox">
-                                <label for="shoot-looking-nonbinary" class="platform-label">
-                                    <span class="platform-text">Non Binary</span>
+                                <input type="checkbox" id="shoot-hosting-your" name="shootHosting" value="To your place" class="platform-checkbox">
+                                <label for="shoot-hosting-your" class="platform-label">
+                                    <span class="platform-text">To your place</span>
                                 </label>
                             </div>
                         </div>
                     </div>
+                </div>
 
-                    <div class="form-group">
-                        <label class="form-label">What type of scenes?</label>
-                        <div class="platform-checkboxes">
-                            <div class="platform-item">
-                                <input type="checkbox" id="shoot-scene-sex" name="shootSceneType" value="Sex" class="platform-checkbox">
-                                <label for="shoot-scene-sex" class="platform-label">
-                                    <span class="platform-text">Sex</span>
-                                </label>
-                            </div>
-                            <div class="platform-item">
-                                <input type="checkbox" id="shoot-scene-nosex" name="shootSceneType" value="No sex" class="platform-checkbox">
-                                <label for="shoot-scene-nosex" class="platform-label">
-                                    <span class="platform-text">No sex</span>
-                                </label>
-                            </div>
-                            <div class="platform-item">
-                                <input type="checkbox" id="shoot-scene-piv" name="shootSceneType" value="PIV" class="platform-checkbox">
-                                <label for="shoot-scene-piv" class="platform-label">
-                                    <span class="platform-text">PIV</span>
-                                </label>
-                            </div>
-                            <div class="platform-item">
-                                <input type="checkbox" id="shoot-scene-nopiv" name="shootSceneType" value="No PIV" class="platform-checkbox">
-                                <label for="shoot-scene-nopiv" class="platform-label">
-                                    <span class="platform-text">No PIV</span>
-                                </label>
-                            </div>
-                            <div class="platform-item">
-                                <input type="checkbox" id="shoot-scene-anal" name="shootSceneType" value="Anal" class="platform-checkbox">
-                                <label for="shoot-scene-anal" class="platform-label">
-                                    <span class="platform-text">Anal</span>
-                                </label>
-                            </div>
-                            <div class="platform-item">
-                                <input type="checkbox" id="shoot-scene-dontsay" name="shootSceneType" value="Don't want to say" class="platform-checkbox">
-                                <label for="shoot-scene-dontsay" class="platform-label">
-                                    <span class="platform-text">Don't want to say</span>
-                                </label>
-                            </div>
+                <div class="form-group">
+                    <label class="form-label" for="shootDescription">Project Description</label>
+                    <textarea id="shootDescription" name="shootDescription" class="form-textarea" placeholder="Tell us about your project, what you're looking for, and what you can offer..." required></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label">Verification Test</label>
+                    <div class="verification-instructions">
+                        <p><strong>To verify your account:</strong></p>
+                        <p>Add "Verified ☑️ <span id="shootCurrentMonth"></span>" to your bio on the social media profile you provided above.</p>
+                        <small>This helps us ensure you're a real creator and prevents spam applications.</small>
+                    </div>
+                </div>
+
+                <!-- Email Preferences and Remember Me -->
+                <div class="form-group">
+                    <div class="checkbox-preferences">
+                        <div class="preference-item">
+                            <input type="checkbox" id="shootEmailUpdates" name="shootEmailUpdates" class="preference-checkbox">
+                            <label for="shootEmailUpdates" class="preference-label">
+                                <span class="checkmark"></span>
+                                <span class="preference-text">
+                                    <strong>Email me when creators express interest</strong>
+                                    <small>Get notified about responses to your link-up</small>
+                                </span>
+                            </label>
+                        </div>
+                        <div class="preference-item">
+                            <input type="checkbox" id="shootRememberMe" name="shootRememberMe" class="preference-checkbox">
+                            <label for="shootRememberMe" class="preference-label">
+                                <span class="checkmark"></span>
+                                <span class="preference-text">
+                                    <strong>Remember my information</strong>
+                                    <small>Save my details for future submissions</small>
+                                </span>
+                            </label>
                         </div>
                     </div>
+                </div>
 
-                    <div class="form-group">
-                        <label class="form-label">What type of niche ?</label>
-                        <div class="platform-checkboxes">
-                            <div class="platform-item">
-                                <input type="checkbox" id="shoot-niche-femdom" name="shootNiche" value="Femdom" class="platform-checkbox">
-                                <label for="shoot-niche-femdom" class="platform-label">
-                                    <span class="platform-text">Femdom</span>
-                                </label>
-                            </div>
-                            <div class="platform-item">
-                                <input type="checkbox" id="shoot-niche-fetish" name="shootNiche" value="Fetish" class="platform-checkbox">
-                                <label for="shoot-niche-fetish" class="platform-label">
-                                    <span class="platform-text">Fetish</span>
-                                </label>
-                            </div>
-                            <div class="platform-item">
-                                <input type="checkbox" id="shoot-niche-vanilla" name="shootNiche" value="Vanilla" class="platform-checkbox">
-                                <label for="shoot-niche-vanilla" class="platform-label">
-                                    <span class="platform-text">Vanilla</span>
-                                </label>
-                            </div>
-                            <div class="platform-item">
-                                <input type="checkbox" id="shoot-niche-kinky" name="shootNiche" value="Kinky" class="platform-checkbox">
-                                <label for="shoot-niche-kinky" class="platform-label">
-                                    <span class="platform-text">Kinky</span>
-                                </label>
-                            </div>
-                            <div class="platform-item">
-                                <input type="checkbox" id="shoot-niche-hardcore" name="shootNiche" value="Hardcore" class="platform-checkbox">
-                                <label for="shoot-niche-hardcore" class="platform-label">
-                                    <span class="platform-text">Hardcore</span>
-                                </label>
-                            </div>
-                            <div class="platform-item">
-                                <input type="checkbox" id="shoot-niche-group" name="shootNiche" value="Group" class="platform-checkbox">
-                                <label for="shoot-niche-group" class="platform-label">
-                                    <span class="platform-text">Group</span>
-                                </label>
-                            </div>
-                            <div class="platform-item">
-                                <input type="checkbox" id="shoot-niche-couple" name="shootNiche" value="Couple" class="platform-checkbox">
-                                <label for="shoot-niche-couple" class="platform-label">
-                                    <span class="platform-text">Couple</span>
-                                </label>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="form-group">
-                        <label class="form-label" for="shootContentType">What type of content ?</label>
-                        <select id="shootContentType" name="shootContentType" class="form-select" required>
-                            <option value="">Select...</option>
-                            <option value="High Production">High Production</option>
-                            <option value="Amateur">Amateur</option>
-                        </select>
-                    </div>
-
-                    <div class="form-group">
-                        <label class="form-label" for="shootRequirements">Requirements</label>
-                        <textarea id="shootRequirements" name="shootRequirements" class="form-textarea" placeholder="Describe any specific requirements, preferences, or conditions for this collaboration..." rows="4"></textarea>
-                    </div>
-
-                    <div class="form-row">
-                        <div class="form-group">
-                            <label class="form-label" for="shootCanHost">Can you host?</label>
-                            <select id="shootCanHost" name="shootCanHost" class="form-select" required>
-                                <option value="">Select...</option>
-                                <option value="Yes">Yes</option>
-                                <option value="No">No</option>
-                            </select>
-                        </div>
-                        <div class="form-group">
-                            <label class="form-label">Hosting (if you can't host)</label>
-                            <div class="platform-checkboxes">
-                                <div class="platform-item">
-                                    <input type="checkbox" id="shoot-hosting-covered" name="shootHosting" value="Covered" class="platform-checkbox">
-                                    <label for="shoot-hosting-covered" class="platform-label">
-                                        <span class="platform-text">Covered</span>
-                                    </label>
-                                </div>
-                                <div class="platform-item">
-                                    <input type="checkbox" id="shoot-hosting-split" name="shootHosting" value="Split" class="platform-checkbox">
-                                    <label for="shoot-hosting-split" class="platform-label">
-                                        <span class="platform-text">Split</span>
-                                    </label>
-                                </div>
-                                <div class="platform-item">
-                                    <input type="checkbox" id="shoot-hosting-partner" name="shootHosting" value="On the partner" class="platform-checkbox">
-                                    <label for="shoot-hosting-partner" class="platform-label">
-                                        <span class="platform-text">On the partner</span>
-                                    </label>
-                                </div>
-                                <div class="platform-item">
-                                    <input type="checkbox" id="shoot-hosting-your" name="shootHosting" value="To your place" class="platform-checkbox">
-                                    <label for="shoot-hosting-your" class="platform-label">
-                                        <span class="platform-text">To your place</span>
-                                    </label>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="form-group">
-                        <label class="form-label" for="shootDescription">Project Description</label>
-                        <textarea id="shootDescription" name="shootDescription" class="form-textarea" placeholder="Tell us about your project, what you're looking for, and what you can offer..." required></textarea>
-                    </div>
-
-                    <div class="form-group">
-                        <label class="form-label">Verification Test</label>
-                        <div class="verification-instructions">
-                            <p><strong>To verify your account:</strong></p>
-                            <p>Add "Verified ☑️ <span id="shootCurrentMonth"></span>" to your bio on the social media profile you provided above.</p>
-                            <small>This helps us ensure you're a real creator and prevents spam applications.</small>
-                        </div>
-                    </div>
-
-                    <!-- Email Preferences and Remember Me -->
-                    <div class="form-group">
-                        <div class="checkbox-preferences">
-                            <div class="preference-item">
-                                <input type="checkbox" id="shootEmailUpdates" name="shootEmailUpdates" class="preference-checkbox">
-                                <label for="shootEmailUpdates" class="preference-label">
-                                    <span class="checkmark"></span>
-                                    <span class="preference-text">
-                                        <strong>Email me when creators express interest</strong>
-                                        <small>Get notified about responses to your link-up</small>
-                                    </span>
-                                </label>
-                            </div>
-                            <div class="preference-item">
-                                <input type="checkbox" id="shootRememberMe" name="shootRememberMe" class="preference-checkbox">
-                                <label for="shootRememberMe" class="preference-label">
-                                    <span class="checkmark"></span>
-                                    <span class="preference-text">
-                                        <strong>Remember my information</strong>
-                                        <small>Save my details for future submissions</small>
-                                    </span>
-                                </label>
-                            </div>
-                        </div>
-                    </div>
-
-                    <button type="submit" class="submit-btn">Submit Link Up</button>
-                </form>
-            </div>
+                <button type="submit" class="submit-btn">Submit Link Up</button>
+            </form>
         </div>
     </div>
+</div>
+
+            
+
 
     <!-- Collaboration Knowledge Pop-up -->
     <div id="collabPopup" class="collab-popup">
@@ -923,11 +1002,14 @@
                 <div class="collab-cta-section">
                     <a href="ressources.html" class="collab-learn-btn">Read our guide</a>
                     <button class="collab-dismiss-btn" onclick="closeCollabPopup()">Maybe later</button>
+                    
                 </div>
             </div>
         </div>
     </div>
 
+
+  
     <!-- Footer -->
     <footer class="footer">
         <div class="footer-content">
@@ -955,6 +1037,7 @@
         </div>
     </footer>
 
-    <script src="linkboard.js"></script>
-</body>
+      <script src="linkboard.js"></script>
+
+    </body>
 </html>
