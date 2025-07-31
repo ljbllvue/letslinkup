@@ -1,307 +1,303 @@
- // Sample data for Link Ups
-        const linkUps = [
- {
-  id: 1,
-  creator: "Miss Kiskeya",
-  type: "Creator",
-  platforms: ["Clips4Sale", "Loyalfans", "ManyVids"],
-  gender: "Female",
-  location: "Berlin",
-  followers: "1200",
-  followerCount: 1000,
-  experience: "Experienced",
-  contentTypes: ["G/G", "Femdom", "Fetish"],
-  lookingFor: ["Woman", "Non-binary"],
-  sceneTypes: ["No PIV", "No sex"],          // ← fixed
-  tags: ["kinky", "gg", "fetish", "femdom"],
-  canHost: "Yes",
-  hostingCost: "Covered",
-  requirements: "",                          // ← fixed
-  sceneSummary:
-    "Looking to film hot femdom scenes with queer women involving role-play...",
-  shootDates: "Available from 25 Sept – 21 Oct", // ← comma added above
-  shootMonth: "2025-10",
-  socialLinks: {
-    twitter: "@misskiskeya"
-  }
-},
-
-            {
-                id: 2,
-                creator: "Alex Chen",
-                type: "Creator",
-                platforms: ["OnlyFans", "Fansly"],
-                gender: "Male",
-                location: "New York, NY",
-                followers: "10k-50k",
-                followerCount: 25000,
-                experience: "New",
-                contentTypes: ["B/G", "Couple"],
-                lookingFor: ["Woman"],
-                sceneTypes: ["Sex", "PIV", "👀"],
-                tags: ["bg", "couple", "vanilla"],
-                canHost: "No",
-                hostingCost: "N/A",
-                requirements: "Experience with photography/videography preferred, must be comfortable with artistic direction",
-                sceneSummary: "Professional photographer seeking collaborative content creation. Specializing in aesthetic, high-quality productions with emphasis on lighting and composition.",
-                shootDates: "Flexible - April 2024",
-                shootMonth: "2024-04",
-                socialLinks: {
-                    instagram: "@alexchen_photo",
-                    twitter: "@alexchenart"
-                }
-            },
-            {
-                id: 3,
-                creator: "Riley Storm",
-                type: "Creator",
-                platforms: ["OnlyFans", "ManyVids", "Clips4Sale"],
-                gender: "Non-binary",
-                location: "Miami, FL",
-                followers: "25k-50k",
-                followerCount: 35000,
-                experience: "Experienced",
-                contentTypes: ["Fetish", "Kinky"],
-                lookingFor: ["Woman", "Man", "Non-binary"],
-                sceneTypes: ["Sex", "No PIV", "Anal", "👀"],
-                tags: ["fetish", "femdom", "kinky"],
-                canHost: "Yes",
-                hostingCost: "Split",
-                requirements: "Open-minded, willing to explore alternative themes, must respect boundaries",
-                sceneSummary: "Alternative aesthetic creator looking for unique, boundary-pushing content. Open to experimental themes and artistic expression.",
-                shootDates: "March 22-25, 2024",
-                shootMonth: "2024-03",
-                socialLinks: {
-                    instagram: "@riley_storm_",
-                    twitter: "@rileystormalt"
-                }
-            },
-            {
-                id: 4,
-                creator: "Diamond & Co.",
-                type: "Agency",
-                platforms: ["OnlyFans", "JustForFans"],
-                gender: "Female",
-                location: "Las Vegas, NV",
-                followers: "100k+",
-                followerCount: 250000,
-                experience: "Veteran",
-                contentTypes: ["G/G", "Group"],
-                lookingFor: ["Woman"],
-                sceneTypes: ["Sex", "PIV", "No PIV"],
-                tags: ["gg", "group", "vanilla"],
-                canHost: "Yes",
-                hostingCost: "Covered",
-                requirements: "Minimum 10k followers, professional portfolio required, must sign exclusivity agreement",
-                sceneSummary: "Luxury content studio specializing in high-end productions. Looking for creators who want to be part of exclusive, premium content series.",
-                shootDates: "Available weekly",
-                shootMonth: "ongoing",
-                isOngoing: true,
-                socialLinks: {
-                    instagram: "@diamondco_official",
-                    twitter: "@diamondco_lux"
-                }
-            },
-            {
-                id: 5,
-                creator: "Marco Rossi",
-                type: "Creator",
-                platforms: ["OnlyFans", "Pornhub"],
-                gender: "Male",
-                location: "Berlin, Germany",
-                followers: "15k-25k",
-                followerCount: 20000,
-                experience: "Experienced",
-                contentTypes: ["B/G", "Gay"],
-                lookingFor: ["Man", "Trans Man"],
-                sceneTypes: ["Sex", "PIV", "Anal"],
-                tags: ["bg", "gay", "vanilla"],
-                canHost: "Yes",
-                hostingCost: "On you",
-                requirements: "Conversational English/German, travel documents ready, cultural sensitivity appreciated",
-                sceneSummary: "European creator focused on cinematic, story-driven adult content. Looking for international collaborations with creative storytellers.",
-                shootDates: "May 1-15, 2024",
-                shootMonth: "2024-05",
-                socialLinks: {
-                    instagram: "@marco.rossi.art"
-                }
-            },
-            {
-                id: 6,
-                creator: "Scarlett Moon",
-                type: "Creator",
-                platforms: ["OnlyFans", "ManyVids"],
-                gender: "Trans Woman",
-                location: "London, UK",
-                followers: "75k-100k",
-                followerCount: 85000,
-                experience: "Just Starting",
-                contentTypes: ["Cosplay", "Taboo"],
-                lookingFor: ["Woman", "Trans Woman"],
-                sceneTypes: ["No Sex", "👀"],
-                tags: ["fetish", "cosplay", "taboo"],
-                canHost: "No",
-                hostingCost: "N/A",
-                requirements: "Must provide own costumes/props, comfortable with character roleplay, anime knowledge preferred",
-                sceneSummary: "Cosplay specialist looking for themed collaborative content. Interested in fantasy, sci-fi, and anime-inspired productions.",
-                shootDates: "April 10-14, 2024",
-                shootMonth: "2024-04",
-                socialLinks: {
-                    instagram: "@scarlett_moon_cos",
-                    twitter: "@scarlettmooncos"
-                }
-            },
-            {
-                id: 7,
-                creator: "Tech Solutions Inc",
-                type: "Studio", 
-                platforms: ["LoyalFans", "JustForFans"],
-                gender: "Male",
-                location: "Toronto, Canada",
-                followers: "5k-10k",
-                followerCount: 7500,
-                experience: "New",
-                contentTypes: ["B/G", "Tech"],
-                lookingFor: ["Woman", "Non-binary"],
-                sceneTypes: ["Sex", "PIV", "👀"],
-                tags: ["bg", "vanilla"],
-                canHost: "Yes",
-                hostingCost: "Split",
-                requirements: "Must be tech-savvy, comfortable with high-end equipment",
-                sceneSummary: "Technology-focused studio creating innovative adult content with cutting-edge equipment.",
-                shootDates: "June 1-30, 2024",
-                shootMonth: "2024-06",
-                socialLinks: {
-                    instagram: "@techsolutions"
-                }
-            },
-            {
-                id: 8,
-                creator: "Maya Rodriguez",
-                type: "Creator",
-                platforms: ["Fansly", "Clips4Sale"],
-                gender: "Trans Man",
-                location: "Mexico City, Mexico",
-                followers: "1k-10k",
-                followerCount: 3500,
-                experience: "Just Starting",
-                contentTypes: ["Solo", "Educational"],
-                lookingFor: ["Woman", "Trans Woman"],
-                sceneTypes: ["No Sex", "👀"],
-                tags: ["vanilla"],
-                canHost: "No",
-                hostingCost: "N/A",
-                requirements: "LGBTQ+ friendly, educational focus preferred",
-                sceneSummary: "New creator focusing on educational and inclusive content for the LGBTQ+ community.",
-                shootDates: "July 15-25, 2024",
-                shootMonth: "2024-07",
-                socialLinks: {
-                    instagram: "@maya_educator"
-                }
-            },
-            {
-                id: 9,
-                creator: "Zoe & Blake Productions",
-                type: "Couple",
-                platforms: ["OnlyFans", "ManyVids", "Pornhub"],
-                gender: "Couple",
-                location: "Austin, TX",
-                followers: "100k+",
-                followerCount: 120000,
-                experience: "Veteran",
-                contentTypes: ["B/G", "Couple", "Amateur"],
-                lookingFor: ["Woman", "Man", "Couple"],
-                sceneTypes: ["Sex", "PIV", "Anal"],
-                tags: ["bg", "couple", "vanilla"],
-                canHost: "Yes",
-                hostingCost: "Covered",
-                requirements: "Must be comfortable with couple dynamics, willing to sign content release forms, recent STI testing required",
-                sceneSummary: "Established couple creating authentic, passionate content. Looking for singles or other couples for threesome/foursome content with focus on real chemistry and connection.",
-                shootDates: "August 5-12, 2024",
-                shootMonth: "2024-08",
-                socialLinks: {
-                    instagram: "@zoeblakeproductions",
-                    twitter: "@zoeblake_xxx"
-                }
-            },
-            {
-                id: 10,
-                creator: "Phoenix Rising Studio",
-                type: "Studio",
-                platforms: ["OnlyFans", "JustForFans", "LoyalFans"],
-                gender: "Mixed",
-                location: "Phoenix, AZ",
-                followers: "250k+",
-                followerCount: 275000,
-                experience: "Veteran",
-                contentTypes: ["B/G", "G/G", "Group", "Fetish"],
-                tags: ["bg", "gg", "group", "fetish", "kinky"],
-                canHost: "Yes",
-                hostingCost: "Covered",
-                requirements: "Professional experience required, must have 25k+ followers, portfolio review necessary, exclusive 6-month contract",
-                sceneSummary: "Premium adult content studio specializing in high-production value scenes. State-of-the-art facility with professional lighting, multiple sets, and experienced crew. Seeking established creators for ongoing collaboration series.",
-                shootDates: "Available year-round",
-                shootMonth: "ongoing",
-                isOngoing: true,
-                socialLinks: {
-                    instagram: "@phoenixrisingstudio",
-                    twitter: "@phoenixrising_xxx"
-                }
-            },
-            {
-
-                id: 11,
-                creator: "Sage Wilde",
-                type: "Creator",
-                platforms: ["Fansly", "OnlyFans"],
-                gender: "Non-binary",
-                location: "Portland, OR",
-                followers: "15k-25k",
-                followerCount: 18500,
-                experience: "Experienced",
-                contentTypes: ["Solo", "Artistic", "Alternative"],
-                lookingFor: ["Woman", "Non-binary", "Trans Woman"],
-                sceneTypes: ["No Sex", "👀"],
-                tags: ["fetish", "kinky", "vanilla"],
-                canHost: "Yes",
-                hostingCost: "Split",
-                requirements: "Open to alternative expressions, body-positive mindset, comfortable with artistic nudity and creative direction",
-                sceneSummary: "Alternative artist creating boundary-pushing content that blends eroticism with fine art. Interested in collaborative pieces that challenge conventional adult content norms while maintaining sensual appeal.",
-                shootDates: "September 10-20, 2024",
-                shootMonth: "2024-09",
-                socialLinks: {
-                    instagram: "@sagewilde_art",
-                    twitter: "@sagewilde"
-                }
-            },
-            {
-
-                id: 12,
-                creator: "Velvet Dreams Collective",
-                type: "Agency",
-                platforms: ["OnlyFans", "ManyVids", "Fansly"],
-                gender: "Mixed",
-                location: "Miami, FL",
-                followers: "500k+",
-                followerCount: 650000,
-                experience: "Veteran",
-                contentTypes: ["B/G", "G/G", "Group", "Luxury"],
-                lookingFor: ["Woman", "Man"],
-                sceneTypes: ["Sex", "PIV", "No PIV"],
-                tags: ["bg", "gg", "group", "vanilla"],
-                canHost: "Yes",
-                hostingCost: "Covered",
-                requirements: "Professional models only, must have 50k+ followers, exclusive representation preferred, wardrobe and styling provided",
-                sceneSummary: "Elite adult entertainment collective specializing in luxury lifestyle content. We offer ongoing partnerships with top-tier creators for premium brand collaborations, yacht shoots, international travel content, and high-end production series.",
-                shootDates: "Flexible scheduling - ongoing opportunities",
-                shootMonth: "ongoing",
-                isOngoing: true,
-                socialLinks: {
-                    instagram: "@velvetdreamscollective",
-                    twitter: "@velvetdreams_vip"
-                }
-            }
-        ];
+// Sample data for Link Ups - UPDATED WITH CORRECT GENDER TERMINOLOGY
+const linkUps = [
+    {
+        id: 1,
+        creator: "Miss Kiskeya",
+        type: "Creator",
+        platforms: ["Clips4Sale", "Loyalfans", "ManyVids"],
+        gender: "Woman", // Updated from "Female"
+        location: "Berlin",
+        followers: "1200",
+        followerCount: 1000,
+        experience: "Experienced",
+        contentTypes: ["G/G", "Femdom", "Fetish"],
+        lookingFor: ["Woman", "Non-binary"],
+        sceneTypes: ["No PIV", "No sex"],
+        tags: ["kinky", "gg", "fetish", "femdom"],
+        canHost: "Yes",
+        hostingCost: "Covered",
+        requirements: "",
+        sceneSummary: "Looking to film hot femdom scenes with queer women involving role-play...",
+        shootDates: "Available from 25 Sept – 21 Oct",
+        shootMonth: "2025-10",
+        socialLinks: {
+            twitter: "@misskiskeya"
+        }
+    },
+    {
+        id: 2,
+        creator: "Alex Chen",
+        type: "Creator",
+        platforms: ["OnlyFans", "Fansly"],
+        gender: "Man", // Updated from "Male"
+        location: "New York, NY",
+        followers: "10k-50k",
+        followerCount: 25000,
+        experience: "New",
+        contentTypes: ["B/G", "Couple"],
+        lookingFor: ["Woman"],
+        sceneTypes: ["Sex", "PIV", "👀"],
+        tags: ["bg", "couple", "vanilla"],
+        canHost: "No",
+        hostingCost: "N/A",
+        requirements: "Experience with photography/videography preferred, must be comfortable with artistic direction",
+        sceneSummary: "Professional photographer seeking collaborative content creation. Specializing in aesthetic, high-quality productions with emphasis on lighting and composition.",
+        shootDates: "Flexible - April 2024",
+        shootMonth: "2024-04",
+        socialLinks: {
+            instagram: "@alexchen_photo",
+            twitter: "@alexchenart"
+        }
+    },
+    {
+        id: 3,
+        creator: "Riley Storm",
+        type: "Creator",
+        platforms: ["OnlyFans", "ManyVids", "Clips4Sale"],
+        gender: "Non-binary",
+        location: "Miami, FL",
+        followers: "25k-50k",
+        followerCount: 35000,
+        experience: "Experienced",
+        contentTypes: ["Fetish", "Kinky"],
+        lookingFor: ["Woman", "Man", "Non-binary"],
+        sceneTypes: ["Sex", "No PIV", "Anal", "👀"],
+        tags: ["fetish", "femdom", "kinky"],
+        canHost: "Yes",
+        hostingCost: "Split",
+        requirements: "Open-minded, willing to explore alternative themes, must respect boundaries",
+        sceneSummary: "Alternative aesthetic creator looking for unique, boundary-pushing content. Open to experimental themes and artistic expression.",
+        shootDates: "March 22-25, 2024",
+        shootMonth: "2024-03",
+        socialLinks: {
+            instagram: "@riley_storm_",
+            twitter: "@rileystormalt"
+        }
+    },
+    {
+        id: 4,
+        creator: "Diamond & Co.",
+        type: "Agency",
+        platforms: ["OnlyFans", "JustForFans"],
+        gender: "Woman", // Updated from "Female"
+        location: "Las Vegas, NV",
+        followers: "100k+",
+        followerCount: 250000,
+        experience: "Veteran",
+        contentTypes: ["G/G", "Group"],
+        lookingFor: ["Woman"],
+        sceneTypes: ["Sex", "PIV", "No PIV"],
+        tags: ["gg", "group", "vanilla"],
+        canHost: "Yes",
+        hostingCost: "Covered",
+        requirements: "Minimum 10k followers, professional portfolio required, must sign exclusivity agreement",
+        sceneSummary: "Luxury content studio specializing in high-end productions. Looking for creators who want to be part of exclusive, premium content series.",
+        shootDates: "Available weekly",
+        shootMonth: "ongoing",
+        isOngoing: true,
+        socialLinks: {
+            instagram: "@diamondco_official",
+            twitter: "@diamondco_lux"
+        }
+    },
+    {
+        id: 5,
+        creator: "Marco Rossi",
+        type: "Creator",
+        platforms: ["OnlyFans", "Pornhub"],
+        gender: "Man", // Updated from "Male"
+        location: "Berlin, Germany",
+        followers: "15k-25k",
+        followerCount: 20000,
+        experience: "Experienced",
+        contentTypes: ["B/G", "Gay"],
+        lookingFor: ["Man", "Trans Man"],
+        sceneTypes: ["Sex", "PIV", "Anal"],
+        tags: ["bg", "gay", "vanilla"],
+        canHost: "Yes",
+        hostingCost: "On you",
+        requirements: "Conversational English/German, travel documents ready, cultural sensitivity appreciated",
+        sceneSummary: "European creator focused on cinematic, story-driven adult content. Looking for international collaborations with creative storytellers.",
+        shootDates: "May 1-15, 2024",
+        shootMonth: "2024-05",
+        socialLinks: {
+            instagram: "@marco.rossi.art"
+        }
+    },
+    {
+        id: 6,
+        creator: "Scarlett Moon",
+        type: "Creator",
+        platforms: ["OnlyFans", "ManyVids"],
+        gender: "Trans Woman", // Updated from "Trans Female"
+        location: "London, UK",
+        followers: "75k-100k",
+        followerCount: 85000,
+        experience: "Just Starting",
+        contentTypes: ["Cosplay", "Taboo"],
+        lookingFor: ["Woman", "Trans Woman"],
+        sceneTypes: ["No Sex", "👀"],
+        tags: ["fetish", "cosplay", "taboo"],
+        canHost: "No",
+        hostingCost: "N/A",
+        requirements: "Must provide own costumes/props, comfortable with character roleplay, anime knowledge preferred",
+        sceneSummary: "Cosplay specialist looking for themed collaborative content. Interested in fantasy, sci-fi, and anime-inspired productions.",
+        shootDates: "April 10-14, 2024",
+        shootMonth: "2024-04",
+        socialLinks: {
+            instagram: "@scarlett_moon_cos",
+            twitter: "@scarlettmooncos"
+        }
+    },
+    {
+        id: 7,
+        creator: "Tech Solutions Inc",
+        type: "Studio", 
+        platforms: ["LoyalFans", "JustForFans"],
+        gender: "Man", // Updated from "Male"
+        location: "Toronto, Canada",
+        followers: "5k-10k",
+        followerCount: 7500,
+        experience: "New",
+        contentTypes: ["B/G", "Tech"],
+        lookingFor: ["Woman", "Non-binary"],
+        sceneTypes: ["Sex", "PIV", "👀"],
+        tags: ["bg", "vanilla"],
+        canHost: "Yes",
+        hostingCost: "Split",
+        requirements: "Must be tech-savvy, comfortable with high-end equipment",
+        sceneSummary: "Technology-focused studio creating innovative adult content with cutting-edge equipment.",
+        shootDates: "June 1-30, 2024",
+        shootMonth: "2024-06",
+        socialLinks: {
+            instagram: "@techsolutions"
+        }
+    },
+    {
+        id: 8,
+        creator: "Maya Rodriguez",
+        type: "Creator",
+        platforms: ["Fansly", "Clips4Sale"],
+        gender: "Trans Man", // Updated from "Trans Male"
+        location: "Mexico City, Mexico",
+        followers: "1k-10k",
+        followerCount: 3500,
+        experience: "Just Starting",
+        contentTypes: ["Solo", "Educational"],
+        lookingFor: ["Woman", "Trans Woman"],
+        sceneTypes: ["No Sex", "👀"],
+        tags: ["vanilla"],
+        canHost: "No",
+        hostingCost: "N/A",
+        requirements: "LGBTQ+ friendly, educational focus preferred",
+        sceneSummary: "New creator focusing on educational and inclusive content for the LGBTQ+ community.",
+        shootDates: "July 15-25, 2024",
+        shootMonth: "2024-07",
+        socialLinks: {
+            instagram: "@maya_educator"
+        }
+    },
+    {
+        id: 9,
+        creator: "Zoe & Blake Productions",
+        type: "Couple",
+        platforms: ["OnlyFans", "ManyVids", "Pornhub"],
+        gender: "Couple",
+        location: "Austin, TX",
+        followers: "100k+",
+        followerCount: 120000,
+        experience: "Veteran",
+        contentTypes: ["B/G", "Couple", "Amateur"],
+        lookingFor: ["Woman", "Man", "Couple"],
+        sceneTypes: ["Sex", "PIV", "Anal"],
+        tags: ["bg", "couple", "vanilla"],
+        canHost: "Yes",
+        hostingCost: "Covered",
+        requirements: "Must be comfortable with couple dynamics, willing to sign content release forms, recent STI testing required",
+        sceneSummary: "Established couple creating authentic, passionate content. Looking for singles or other couples for threesome/foursome content with focus on real chemistry and connection.",
+        shootDates: "August 5-12, 2024",
+        shootMonth: "2024-08",
+        socialLinks: {
+            instagram: "@zoeblakeproductions",
+            twitter: "@zoeblake_xxx"
+        }
+    },
+    {
+        id: 10,
+        creator: "Phoenix Rising Studio",
+        type: "Studio",
+        platforms: ["OnlyFans", "JustForFans", "LoyalFans"],
+        gender: "Mixed",
+        location: "Phoenix, AZ",
+        followers: "250k+",
+        followerCount: 275000,
+        experience: "Veteran",
+        contentTypes: ["B/G", "G/G", "Group", "Fetish"],
+        tags: ["bg", "gg", "group", "fetish", "kinky"],
+        canHost: "Yes",
+        hostingCost: "Covered",
+        requirements: "Professional experience required, must have 25k+ followers, portfolio review necessary, exclusive 6-month contract",
+        sceneSummary: "Premium adult content studio specializing in high-production value scenes. State-of-the-art facility with professional lighting, multiple sets, and experienced crew. Seeking established creators for ongoing collaboration series.",
+        shootDates: "Available year-round",
+        shootMonth: "ongoing",
+        isOngoing: true,
+        socialLinks: {
+            instagram: "@phoenixrisingstudio",
+            twitter: "@phoenixrising_xxx"
+        }
+    },
+    {
+        id: 11,
+        creator: "Sage Wilde",
+        type: "Creator",
+        platforms: ["Fansly", "OnlyFans"],
+        gender: "Non-binary",
+        location: "Portland, OR",
+        followers: "15k-25k",
+        followerCount: 18500,
+        experience: "Experienced",
+        contentTypes: ["Solo", "Artistic", "Alternative"],
+        lookingFor: ["Woman", "Non-binary", "Trans Woman"],
+        sceneTypes: ["No Sex", "👀"],
+        tags: ["fetish", "kinky", "vanilla"],
+        canHost: "Yes",
+        hostingCost: "Split",
+        requirements: "Open to alternative expressions, body-positive mindset, comfortable with artistic nudity and creative direction",
+        sceneSummary: "Alternative artist creating boundary-pushing content that blends eroticism with fine art. Interested in collaborative pieces that challenge conventional adult content norms while maintaining sensual appeal.",
+        shootDates: "September 10-20, 2024",
+        shootMonth: "2024-09",
+        socialLinks: {
+            instagram: "@sagewilde_art",
+            twitter: "@sagewilde"
+        }
+    },
+    {
+        id: 12,
+        creator: "Velvet Dreams Collective",
+        type: "Agency",
+        platforms: ["OnlyFans", "ManyVids", "Fansly"],
+        gender: "Mixed",
+        location: "Miami, FL",
+        followers: "500k+",
+        followerCount: 650000,
+        experience: "Veteran",
+        contentTypes: ["B/G", "G/G", "Group", "Luxury"],
+        lookingFor: ["Woman", "Man"],
+        sceneTypes: ["Sex", "PIV", "No PIV"],
+        tags: ["bg", "gg", "group", "vanilla"],
+        canHost: "Yes",
+        hostingCost: "Covered",
+        requirements: "Professional models only, must have 50k+ followers, exclusive representation preferred, wardrobe and styling provided",
+        sceneSummary: "Elite adult entertainment collective specializing in luxury lifestyle content. We offer ongoing partnerships with top-tier creators for premium brand collaborations, yacht shoots, international travel content, and high-end production series.",
+        shootDates: "Flexible scheduling - ongoing opportunities",
+        shootMonth: "ongoing",
+        isOngoing: true,
+        socialLinks: {
+            instagram: "@velvetdreamscollective",
+            twitter: "@velvetdreams_vip"
+        }
+    }
+];
 
         let filteredLinkUps = [...linkUps];
         let activeFilter = null;
