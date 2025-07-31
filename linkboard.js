@@ -823,7 +823,6 @@
 
         // Form submission
         document.getElementById('interestForm').addEventListener('submit', function(e) {
-            e.preventDefault();
             
             // Here you would typically send the form data to your backend
             const formData = new FormData(e.target);
@@ -868,7 +867,7 @@
 
         // Newsletter Form Submission
         document.getElementById('newsletterForm').addEventListener('submit', function(e) {
-            e.preventDefault();
+        // e.preventDefault();  ← this stops the real submission
             
             const email = this.querySelector('.newsletter-input').value;
             const gdprConsent = document.getElementById('gdprConsent').checked;
@@ -896,8 +895,7 @@
 
         // Shoot Your Shot form submission
         document.getElementById('shootShotForm').addEventListener('submit', function(e) {
-            e.preventDefault();
-            
+     
             const formData = new FormData(e.target);
             const data = Object.fromEntries(formData);
             
