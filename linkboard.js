@@ -821,17 +821,6 @@
             applyAllFilters();
         });
 
-        // Form submission
-        document.getElementById('interestForm').addEventListener('submit', function(e) {
-            
-            // Here you would typically send the form data to your backend
-            const formData = new FormData(e.target);
-            const data = Object.fromEntries(formData);
-            
-            // For demo purposes, just show an alert
-            alert('Interest submitted successfully! The creator will be notified.');
-            closeModal();
-        });
 
         // Close modal when clicking outside
         window.addEventListener('click', function(e) {
