@@ -932,6 +932,11 @@ h3 {
     padding: 0 24px 24px 24px;
 }
 
+  .hidden {
+            visibility: hidden;
+           }
+
+
 .form-group {
     margin-bottom: 20px;
 }
