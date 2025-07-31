@@ -42,7 +42,7 @@
     </form>
 
     <form name="shoot-your-shot" netlify netlify-honeypot="bot-field" hidden>
-        <input type="text" name="projectTitle" />
+       <-- <input type="text" name="projectTitle" /> -->
         <input type="text" name="shootName" />
         <input type="email" name="shootEmail" />
         <select name="shootGender"></select>
@@ -364,6 +364,8 @@
                         </div>
                     </div>
 
+                    
+
                     <div class="form-row">
                         <div class="form-group">
                             <label class="form-label" for="yourFollowers">Follower Count</label>
@@ -523,10 +525,10 @@
                         <label>Don't fill this out: <input name="bot-field" /></label>
                     </p>
                     
-                    <div class="form-group">
+                  <!--  <div class="form-group">
                         <label class="form-label" for="projectTitle">Project Title</label>
                         <input type="text" id="projectTitle" name="projectTitle" class="form-input" placeholder="What's your project called?" required>
-                    </div>
+                    </div>   -->
 
                     <div class="form-row">
                         <div class="form-group">
@@ -633,7 +635,7 @@
                     <div class="form-row">
                         <div class="form-group">
                             <label class="form-label" for="shootAge">Age</label>
-                            <select id="shootAge" name="shootAge" class="form-select" required>
+                            <select id="shootAge" name="shootAge" class="form-select">
                                 <option value="">Select...</option>
                                 <option value="18">18</option>
                                 <option value="19">19</option>
