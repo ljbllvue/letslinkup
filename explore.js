@@ -1,29 +1,31 @@
  // Sample data for Link Ups
         const linkUps = [
-            {
-                id: 1,
-                creator: "Miss Kiskeya",
-                type: "Creator",
-                platforms: ["Clips4Sale", "Loyalfans", "ManyVids"],
-                gender: "Female",
-                location: "Berlin",
-                followers: "1200",
-                followerCount: 1000,
-                experience: "Experienced",
-                contentTypes: ["G/G", "Femdom", "Fetish"],
-                lookingFor: ["Woman", "Non-binary"],
-                sceneTypes: ["No PIV"? "No sex"],
-                tags: ["kinky", "gg", "fetish", "femdom"],
-                canHost: "Yes",
-                hostingCost: "Covered",
-                requirements: , 
-                sceneSummary: "Looking to film hot femdom scenes with queer women involving roleplay, lesbian sex but also soft and sensual domination with practices like orgasm control, pussy denial, spanking and a lot of titties action"
-                shootDates: "Available from 25th September - 21th October",
-                shootMonth: "2025-10",
-                socialLinks: {
-                    twitter: "@misskiskeya"
-                }
-            },
+ {
+  id: 1,
+  creator: "Miss Kiskeya",
+  type: "Creator",
+  platforms: ["Clips4Sale", "Loyalfans", "ManyVids"],
+  gender: "Female",
+  location: "Berlin",
+  followers: "1200",
+  followerCount: 1000,
+  experience: "Experienced",
+  contentTypes: ["G/G", "Femdom", "Fetish"],
+  lookingFor: ["Woman", "Non-binary"],
+  sceneTypes: ["No PIV", "No sex"],          // ← fixed
+  tags: ["kinky", "gg", "fetish", "femdom"],
+  canHost: "Yes",
+  hostingCost: "Covered",
+  requirements: "",                          // ← fixed
+  sceneSummary:
+    "Looking to film hot femdom scenes with queer women involving role-play...",
+  shootDates: "Available from 25 Sept – 21 Oct", // ← comma added above
+  shootMonth: "2025-10",
+  socialLinks: {
+    twitter: "@misskiskeya"
+  }
+},
+
             {
                 id: 2,
                 creator: "Alex Chen",
