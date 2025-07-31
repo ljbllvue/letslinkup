@@ -1072,84 +1072,47 @@ h3 {
     font-style: italic;
 }
 
-.preference-item {
-    display: flex;
-    align-items: flex-start;
-    margin-bottom: 16px;
-    cursor: pointer;
-}
 
-.preference-item:last-child {
-    margin-bottom: 0;
-}
+ .preference-checkbox:checked + .preference-label .checkmark {
+            background-color: #000000;
+            border-color: #000000;
+        }
 
-.preference-checkbox {
-    display: none;
-}
+        .preference-checkbox:checked + .preference-label .checkmark::after {
+            content: '';
+            position: absolute;
+            left: 6px;
+            top: 2px;
+            width: 6px;
+            height: 10px;
+            border: solid #ffffff;
+            border-width: 0 2px 2px 0;
+            transform: rotate(45deg);
+        }
 
-.preference-label {
-    display: flex;
-    align-items: flex-start;
-    cursor: pointer;
-    user-select: none;
-    gap: 12px;
-    width: 100%;
-}
+        .preference-label:hover .checkmark {
+            border-color: #9ca3af;
+        }
 
-.checkmark {
-    flex-shrink: 0;
-    width: 20px;
-    height: 20px;
-    border: 2px solid #d1d5db;
-    border-radius: 4px;
-    background-color: #ffffff;
-    position: relative;
-    transition: all 0.2s ease;
-    margin-top: 2px;
-}
+        .preference-text {
+            flex: 1;
+            line-height: 1.4;
+        }
 
-.preference-checkbox:checked + .preference-label .checkmark {
-    background-color: #000000;
-    border-color: #000000;
-}
+        .preference-text strong {
+            display: block;
+            font-weight: 600;
+            color: #000000;
+            margin-bottom: 2px;
+            font-size: 0.95rem;
+        }
 
-.preference-checkbox:checked + .preference-label .checkmark::after {
-    content: '';
-    position: absolute;
-    left: 6px;
-    top: 2px;
-    width: 6px;
-    height: 10px;
-    border: solid #ffffff;
-    border-width: 0 2px 2px 0;
-    transform: rotate(45deg);
-}
-
-.preference-label:hover .checkmark {
-    border-color: #9ca3af;
-}
-
-.preference-text {
-    flex: 1;
-    line-height: 1.4;
-    font-size: 0.7rem;
-    font-weight: 300;
-}
-
-.preference-text strong {
-    display: block;
-    font-weight: 300;
-    color: #000000;
-    margin-bottom: 2px;
-    font-size: 0.7rem;
-}
-
-.preference-text small {
-    display: block;
-    color: #666666;
-    font-size: 0.7rem;
-    font-weight: 300;
-}
+        .preference-text small {
+            display: block;
+            color: #666666;
+            font-size: 0.85rem;
+            font-weight: 400;
+        }
 
 .gdpr-text {
             font-size: 0.8rem;
