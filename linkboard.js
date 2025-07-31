@@ -893,48 +893,10 @@
             initializeDatePicker();
         }
 
-        // Shoot Your Shot form submission
-        document.getElementById('shootShotForm').addEventListener('submit', function(e) {
-     
-            const formData = new FormData(e.target);
-            const data = Object.fromEntries(formData);
-            
-            // Handle platform checkboxes - get all checked platforms
-            const platformCheckboxes = document.querySelectorAll('input[name="shootPlatforms"]:checked');
-            const selectedPlatforms = Array.from(platformCheckboxes).map(cb => cb.value);
-            data.shootPlatforms = selectedPlatforms;
-            
-            // Handle looking for checkboxes
-            const lookingForCheckboxes = document.querySelectorAll('input[name="shootLookingFor"]:checked');
-            const selectedLookingFor = Array.from(lookingForCheckboxes).map(cb => cb.value);
-            data.shootLookingFor = selectedLookingFor;
-            
-            // Handle scene type checkboxes
-            const sceneTypeCheckboxes = document.querySelectorAll('input[name="shootSceneType"]:checked');
-            const selectedSceneTypes = Array.from(sceneTypeCheckboxes).map(cb => cb.value);
-            data.shootSceneType = selectedSceneTypes;
-            
-            // Handle niche checkboxes
-            const nicheCheckboxes = document.querySelectorAll('input[name="shootNiche"]:checked');
-            const selectedNiches = Array.from(nicheCheckboxes).map(cb => cb.value);
-            data.shootNiche = selectedNiches;
-            
-            // Handle hosting checkboxes
-            const hostingCheckboxes = document.querySelectorAll('input[name="shootHosting"]:checked');
-            const selectedHosting = Array.from(hostingCheckboxes).map(cb => cb.value);
-            data.shootHosting = selectedHosting;
-            
-            // Handle email preferences and remember me
-            const emailUpdates = document.getElementById('shootEmailUpdates').checked;
-            const rememberMe = document.getElementById('shootRememberMe').checked;
-            
-            data.shootEmailUpdates = emailUpdates;
-            data.shootRememberMe = rememberMe;
-            
-            console.log('Shoot Your Shot submission:', data);
-            alert('Link Up submitted successfully! We\'ll review your submission and get back to you soon.');
-            closeShootShotModal();
-        });
+
+
+
+
 
         // Set current month/year for shoot verification
         function setShootCurrentMonthYear() {
