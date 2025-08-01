@@ -1522,6 +1522,20 @@ h3 {
         margin: 0;
     }
     
+    /* Fix order for reverse cards on mobile */
+    .collab-card.reverse {
+        display: flex;
+        flex-direction: column;
+    }
+    
+    .collab-card.reverse .collab-content {
+        order: 1;
+    }
+    
+    .collab-card.reverse .collab-image {
+        order: 2;
+    }
+    
     .collab-content {
         padding: 0;
         text-align: center;
