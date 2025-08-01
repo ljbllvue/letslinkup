@@ -1547,11 +1547,6 @@ h3 {
     .collab-card.reverse .collab-content {
         order: 2; /* Always second */
     }
-
-
-    .collab-card:hover .collab-image {
-        transform: none !important;
-    } 
     
     
     /* Success Stories */
@@ -1869,6 +1864,7 @@ h3 {
         max-width: none;
     }
 }
+
 
 
 
