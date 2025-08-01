@@ -746,6 +746,19 @@ function renderLinkUps(linkUpsToRender = filteredLinkUps) {
     
     grid.innerHTML = '';
 
+
+       // IMPORTANT : empty-state  //
+    if (linkUpsToRender.length === 0) {
+        grid.innerHTML = `
+            <div class="no-results">
+                <p>No results for your search.</p>
+                <a href="linkboard.html" class="browse-link">
+                    Browse the full Link Board
+                </a>
+            </div>
+        `;
+    
+
     linkUpsToRender.forEach(linkUp => {
         const card = document.createElement('div');
         card.className = 'link-up-card';
