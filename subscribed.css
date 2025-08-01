@@ -95,8 +95,8 @@
             text-decoration: none;
             display: inline-block;
             border: none;
-            background: linear-gradient(135deg, #c7aee9, #b794f6);
-            color: #000000;
+            background: #000;
+            color: #fff;
             box-shadow: 0 4px 15px rgba(199, 174, 233, 0.2);
             animation: fadeInUp 0.8s ease-out 0.8s both;
         }
@@ -104,7 +104,8 @@
         .action-button:hover {
             transform: translateY(-2px);
             box-shadow: 0 8px 25px rgba(199, 174, 233, 0.3);
-            background: linear-gradient(135deg, #b794f6, #a78bfa);
+            background: #000;
+            color: #fff;
         }
 
         @keyframes fadeInUp {
