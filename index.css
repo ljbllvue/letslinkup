@@ -757,6 +757,8 @@ h3 {
 
         .footer-links a:hover {
             opacity: 0.7;
+            color: #c7aee9;
+            font-weight: 600;
         }
 
         /* Newsletter Section */
