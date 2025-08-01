@@ -1,6 +1,3 @@
-// =============================================================================
-// RESSOURCES.JS - Complete JavaScript file for The Link Board
-// =============================================================================
 
 // Accordion toggle functionality
 function toggleAccordion(element) {
@@ -533,20 +530,10 @@ function initializeNewsletterForm() {
     validateForm();
 }
 
-// =============================================================================
-// MODAL MANAGEMENT
-// =============================================================================
+
 
 // Close modal when clicking outside
-function initializeModalCloseHandlers() {
-    window.addEventListener('click', function(e) {
-        const shootShotModal = document.getElementById('shootShotModal');
-        
-        if (e.target === shootShotModal) {
-            closeShootShotModal();
-        }
-    });
-}
+
 
 // =============================================================================
 // WINDOW RESIZE HANDLER
