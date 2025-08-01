@@ -254,7 +254,7 @@ a {
 .feature-icon {
     width: 225px;
     height: 140px;
-    background: #000;
+    background: transparent;
     border-radius: 30%;
     margin: 0 auto 20px;
     display: flex;
@@ -1865,6 +1865,7 @@ h3 {
         max-width: none;
     }
 }
+
 
 
 
