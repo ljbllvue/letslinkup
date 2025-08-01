@@ -345,8 +345,6 @@ a {
     object-fit: cover;
     transition: transform 0.3s ease;
     display: flex;
-    
-    max-height: 140px;
 }
 
 .collab-card:hover .collab-image img {
@@ -1866,6 +1864,7 @@ h3 {
         max-width: none;
     }
 }
+
 
 
 
