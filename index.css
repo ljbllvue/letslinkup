@@ -1741,6 +1741,12 @@ h3 {
         padding: 20px 10px;
         margin: 0;
     }
+
+    .collab-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
     
     /* Success Stories */
     .success-stories {
@@ -1853,3 +1859,4 @@ h3 {
         max-width: none;
     }
 }
+
