@@ -1441,16 +1441,17 @@ h3 {
     /* Hero Section */
     
     .hero-image {
-      width: 100%;      /* respects the container’s padding */
-      max-width: 100%;
-      margin: 20px 0;
-  }
-        
-    /* Previous HERO IMAGE changes
       width: 100vw;     
       max-width: 100%;   
-      margin: 20px 0;    
-    /*
+      margin: 20px 0;  
+    }
+        
+    /* PREVIOUS HERO CHANGES 
+    width: 100%;      /* respects the container’s padding 
+      max-width: 100%;
+      margin: 20px 0; */
+  
+        
 
         
   }
@@ -1871,6 +1872,7 @@ h3 {
         max-width: none;
     }
 }
+
 
 
 
