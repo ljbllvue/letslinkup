@@ -336,6 +336,18 @@ if (typeof module !== 'undefined' && module.exports) {
         }
 
 
+
+        // Shoot Your Shot form submission
+        document.getElementById('shootShotForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const formData = new FormData(e.target);
+            const data = Object.fromEntries(formData);
+            
+            console.log('Shoot Your Shot submission:', data);
+        });
+
+
  // Close modal when clicking outside
         window.addEventListener('click', function(e) {
             const interestModal = document.getElementById('interestModal');
