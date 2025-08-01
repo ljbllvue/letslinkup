@@ -988,28 +988,9 @@ function initializeSearch() {
 }
 
 // Close modal when clicking outside
-function initializeModalHandlers() {
-    window.addEventListener('click', function(e) {
-        const interestModal = document.getElementById('interestModal');
-        const shootShotModal = document.getElementById('shootShotModal');
-        
-        if (e.target === interestModal) {
-            closeModal();
-        }
-        if (e.target === shootShotModal) {
-            closeShootShotModal();
-        }
-    });
 
-    // Handle escape key
-    document.addEventListener('keydown', function(e) {
-        if (e.key === 'Escape') {
-            closeModal();
-            closeShootShotModal();
-            closeLinkUpDetails();
-        }
-    });
-}
+
+
 
 // Handle browser back/forward buttons
 function initializeRouting() {
@@ -1367,7 +1348,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
 
 
-
+// Search function for index 
 (function () {
   const params = new URLSearchParams(window.location.search);
   const incomingCity = params.get('city'); 
