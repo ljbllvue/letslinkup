@@ -1524,7 +1524,6 @@ h3 {
     }
     
     /* Fix order for reverse cards on mobile */
-   @media (max-width: 768px) {
     .collab-card,
     .collab-card.reverse {
         display: flex;
@@ -1541,6 +1540,9 @@ h3 {
     .collab-card.reverse .collab-content {
         order: 2; /* Always second */
     }
+}
+
+  .collab-card:hover .collab-image img { transform: none; }
 }
     
     /* Success Stories */
@@ -1858,5 +1860,6 @@ h3 {
         max-width: none;
     }
 }
+
 
 
