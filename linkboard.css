@@ -148,16 +148,24 @@
         }
 
 
-         .no-results{
-              text-align:center;
-              padding:3rem 1rem;
-              font-size:1.1rem;
-            }
-            .no-results .browse-link{
-              display:inline-block;
-              margin-top:1rem;
-              text-decoration:underline;
-            }
+      
+.no-results{
+  text-align:center;
+  padding:3rem 1rem;
+  font-size:1.1rem;
+  grid-column:1 / -1;    
+  justify-self:center;  
+  display:flex;          
+  flex-direction:column;
+  align-items:center;
+}
+
+.no-results .browse-link{
+  display:inline-block;
+  margin-top:1rem;
+  text-decoration:underline;
+}
+
 
 
 
