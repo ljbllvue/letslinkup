@@ -1,4 +1,3 @@
-
 // =============================================================================
 // RESSOURCES.JS - Complete JavaScript file for The Link Board
 // =============================================================================
@@ -131,6 +130,9 @@ function initializeServiceButtons() {
     
     serviceButtons.forEach(button => {
         button.addEventListener('click', function(e) {
+            // Skip ripple effect for form submit buttons to avoid interference
+            if (this.type === 'submit') return;
+            
             // Add ripple effect
             const ripple = document.createElement('span');
             const rect = this.getBoundingClientRect();
@@ -304,7 +306,110 @@ function updateCurrentMonth() {
     });
 }
 
-// Initialize checkbox groups for Shoot Your Shot form
+// FIXED: Handle Shoot Your Shot form submission with proper checkbox handling
+function initializeShootYourShotForm() {
+    const form = document.getElementById('shootShotForm');
+    if (!form) return;
+
+    // Function to update checkbox groups - collect checked values into hidden inputs
+    function updateCheckboxGroups() {
+        // Define checkbox groups with their specific selectors
+        const checkboxGroups = [
+            {
+                selector: 'input[id^="shoot-platform-"]',
+                hiddenId: 'shootPlatformsHidden'
+            },
+            {
+                selector: 'input[id^="shoot-looking-"]',
+                hiddenId: 'shootLookingForHidden'
+            },
+            {
+                selector: 'input[id^="shoot-scene-"]',
+                hiddenId: 'shootSceneTypeHidden'
+            },
+            {
+                selector: 'input[id^="shoot-niche-"]',
+                hiddenId: 'shootNicheHidden'
+            },
+            {
+                selector: 'input[id^="shoot-hosting-"]',
+                hiddenId: 'shootHostingHidden'
+            }
+        ];
+
+        checkboxGroups.forEach(group => {
+            const checkboxes = document.querySelectorAll(group.selector);
+            const hiddenField = document.getElementById(group.hiddenId);
+            
+            if (hiddenField) {
+                const selectedValues = Array.from(checkboxes)
+                    .filter(cb => cb.checked)
+                    .map(cb => cb.value);
+                hiddenField.value = selectedValues.join(', ');
+            }
+        });
+    }
+
+    // Update checkbox groups when any checkbox changes
+    form.addEventListener('change', function(e) {
+        if (e.target.classList.contains('platform-checkbox')) {
+            updateCheckboxGroups();
+        }
+    });
+
+    // Set current month for verification
+    const monthElement = document.getElementById('shootCurrentMonth');
+    if (monthElement) {
+        const currentMonth = new Date().toLocaleString('default', { month: 'long' });
+        monthElement.textContent = currentMonth;
+    }
+
+    // Handle form submission
+    form.addEventListener('submit', function(e) {
+        e.preventDefault();
+        
+        // Update checkbox groups before submission
+        updateCheckboxGroups();
+        
+        // Show loading state
+        const submitButton = form.querySelector('button[type="submit"]');
+        const originalText = submitButton.textContent;
+        submitButton.textContent = 'Submitting...';
+        submitButton.disabled = true;
+
+        // Create FormData object
+        const formData = new FormData(form);
+        
+        console.log('Shoot Your Shot submission:', Object.fromEntries(formData));
+        
+        // Submit to Netlify
+        fetch('/', {
+            method: 'POST',
+            headers: { "Content-Type": "application/x-www-form-urlencoded" },
+            body: new URLSearchParams(formData).toString()
+        })
+        .then(response => {
+            if (response.ok) {
+                // Success - close modal and redirect to success page
+                closeShootShotModal();
+                window.location.href = '/success';
+            } else {
+                throw new Error('Network response was not ok');
+            }
+        })
+        .catch(error => {
+            console.error('Error:', error);
+            alert('Something went wrong. Please try again.');
+        })
+        .finally(() => {
+            // Reset button state
+            submitButton.textContent = originalText;
+            submitButton.disabled = false;
+        });
+    });
+}
+
+// Initialize checkbox groups for real-time updates
 function initializeShootYourShotCheckboxes() {
     const checkboxGroups = [
         { prefix: 'shoot-platform-', hiddenId: 'shootPlatformsHidden' },
@@ -327,73 +432,6 @@ function initializeShootYourShotCheckboxes() {
                     hiddenField.value = selectedValues.join(', ');
                 });
             });
-        }
-    });
-}
-
-// Handle Shoot Your Shot form submission
-function initializeShootYourShotForm() {
-    const form = document.getElementById('shootShotForm');
-    if (!form) return;
-
-    form.addEventListener('submit', function(e) {
-        e.preventDefault();
-        
-        // Update hidden fields with checkbox values before submission
-        updateCheckboxHiddenFields();
-        
-        // Show loading state
-        const submitButton = form.querySelector('button[type="submit"]');
-        const originalText = submitButton.textContent;
-        submitButton.textContent = 'Submitting...';
-        submitButton.disabled = true;
-
-        // Create FormData object
-        const formData = new FormData(form);
-        
-        // Submit to Netlify
-        fetch('/', {
-            method: 'POST',
-            headers: { "Content-Type": "application/x-www-form-urlencoded" },
-            body: new URLSearchParams(formData).toString()
-        })
-        .then(response => {
-            if (response.ok) {
-                // Success - redirect to thank you page
-                window.location.href = '/success';
-            } else {
-                throw new Error('Network response was not ok');
-            }
-        })
-        .catch(error => {
-            console.error('Error:', error);
-            alert('Something went wrong. Please try again.');
-        })
-        .finally(() => {
-            // Reset button state
-            submitButton.textContent = originalText;
-            submitButton.disabled = false;
-        });
-    });
-}
-
-// Update hidden fields for checkboxes before form submission
-function updateCheckboxHiddenFields() {
-    const checkboxGroups = [
-        { prefix: 'shoot-platform-', hiddenId: 'shootPlatformsHidden' },
-        { prefix: 'shoot-looking-', hiddenId: 'shootLookingForHidden' },
-        { prefix: 'shoot-scene-', hiddenId: 'shootSceneTypeHidden' },
-        { prefix: 'shoot-niche-', hiddenId: 'shootNicheHidden' },
-        { prefix: 'shoot-hosting-', hiddenId: 'shootHostingHidden' }
-    ];
-
-    checkboxGroups.forEach(group => {
-        const checkboxes = document.querySelectorAll(`input[id^="${group.prefix}"]:checked`);
-        const hiddenField = document.getElementById(group.hiddenId);
-        
-        if (hiddenField) {
-            const selectedValues = Array.from(checkboxes).map(cb => cb.value);
-            hiddenField.value = selectedValues.join(', ');
         }
     });
 }
@@ -488,7 +526,6 @@ function initializeNewsletterForm() {
         .finally(() => {
             // Reset button state
             submitButton.disabled = false;
-            submitButton.textContent = originalText;
         });
     });
 
