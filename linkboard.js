@@ -747,7 +747,10 @@ function renderLinkUps(linkUpsToRender = filteredLinkUps) {
     grid.innerHTML = '';
 
 
-       // IMPORTANT : empty-state  //
+
+
+    
+       // IMPORTANT : empty-state 
     if (linkUpsToRender.length === 0) {
         grid.innerHTML = `
             <div class="no-results">
@@ -757,6 +760,22 @@ function renderLinkUps(linkUpsToRender = filteredLinkUps) {
                 </a>
             </div>
         `;
+
+        /* optional: hide pagination when nothing to paginate */
+        const pagination = document.getElementById('pagination');
+        if (pagination) pagination.style.display = 'none';
+        return;                     // ⬅️ stop here, nothing else to render
+    }
+
+    /* show pagination again if it was hidden */
+    const pagination = document.getElementById('pagination');
+    if (pagination) pagination.style.display = '';
+
+    /* normal card loop (unchanged) */
+    linkUpsToRender.forEach(linkUp => {
+        …
+    });
+}
     
 
     linkUpsToRender.forEach(linkUp => {
