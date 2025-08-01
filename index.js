@@ -1,4 +1,4 @@
-// CLEANED UP JAVASCRIPT FOR SOFTLY LINKED
+// CLEANED UP JAVASCRIPT FOR SOFTLY LINKED WITH WORKING NETLIFY FORMS
 
 // Scroll progress indicator
 function updateScrollIndicator() {
@@ -243,37 +243,49 @@ function initializeSmoothScrolling() {
     });
 }
 
-// Form submission with Netlify support
+// FIXED: Form submission that works with Netlify Forms
 function initializeForm() {
     const form = document.getElementById('shootShotForm');
     if (!form) return;
     
-    form.addEventListener('submit', async function(e) {
+    form.addEventListener('submit', function(e) {
         e.preventDefault();
         
+        // Get form data
         const formData = new FormData(e.target);
         const data = Object.fromEntries(formData);
         
         console.log('Shoot Your Shot submission:', data);
         
-        try {
-            // Submit to Netlify
-            const response = await fetch('/', {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-                body: new URLSearchParams(formData).toString()
-            });
-                
-                // Close modal and reset form
-                closeShootShotModal();
-                form.reset();
-                
-            } else {
-                throw new Error('Network response was not ok');
-            }
-        } catch (error) {
-            console.error('Submission error:', error);
+        // Show loading state (optional)
+        const submitBtn = form.querySelector('button[type="submit"], .submit-btn');
+        const originalText = submitBtn ? submitBtn.textContent : '';
+        if (submitBtn) {
+            submitBtn.textContent = 'Submitting...';
+            submitBtn.disabled = true;
         }
+        
+        // Submit to Netlify
+        fetch('/', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+            body: new URLSearchParams(formData).toString()
+        })
+        .then(() => {
+            // Close modal and redirect to success page
+            closeShootShotModal();
+            window.location.href = '/subscribed';
+        })
+        .catch((error) => {
+            console.error('Form submission error:', error);
+            alert('There was an error submitting your form. Please try again.');
+            
+            // Reset button state
+            if (submitBtn) {
+                submitBtn.textContent = originalText;
+                submitBtn.disabled = false;
+            }
+        });
     });
 }
 
@@ -281,8 +293,8 @@ function initializeForm() {
 function initializeButtonEffects() {
     document.querySelectorAll('button, .submit-btn').forEach(button => {
         button.addEventListener('click', function(e) {
-            // Skip ripple effect for disabled buttons
-            if (this.disabled) return;
+            // Skip ripple effect for form submit buttons to avoid interference
+            if (this.type === 'submit') return;
             
             // Create ripple effect
             const ripple = document.createElement('span');
@@ -291,18 +303,15 @@ function initializeButtonEffects() {
             const x = e.clientX - rect.left - size / 2;
             const y = e.clientY - rect.top - size / 2;
             
-            ripple.style.cssText = `
-                position: absolute;
-                width: ${size}px;
-                height: ${size}px;
-                left: ${x}px;
-                top: ${y}px;
-                border-radius: 50%;
-                background: rgba(255, 255, 255, 0.3);
-                transform: scale(0);
-                animation: ripple 0.6s linear;
-                pointer-events: none;
-            `;
+            ripple.style.width = ripple.style.height = size + 'px';
+            ripple.style.left = x + 'px';
+            ripple.style.top = y + 'px';
+            ripple.style.position = 'absolute';
+            ripple.style.borderRadius = '50%';
+            ripple.style.background = 'rgba(255, 255, 255, 0.3)';
+            ripple.style.transform = 'scale(0)';
+            ripple.style.animation = 'ripple 0.6s linear';
+            ripple.style.pointerEvents = 'none';
             
             this.style.position = 'relative';
             this.style.overflow = 'hidden';
@@ -321,54 +330,15 @@ function initializeButtonEffects() {
 function initializeSearch() {
     const searchInput = document.querySelector('.search-input');
     if (searchInput) {
-        let searchTimeout;
-        
         searchInput.addEventListener('input', function() {
-            const query = this.value.trim();
-            
-            // Clear previous timeout
-            clearTimeout(searchTimeout);
-            
-            // Debounce search
-            searchTimeout = setTimeout(() => {
-                if (query.length > 2) {
-                    console.log('Searching for:', query);
-                    performSearch(query);
-                }
-            }, 300);
+            console.log('Searching for:', this.value);
+            // Add your search functionality here
         });
-    }
-}
-
-// Search implementation
-function performSearch(query) {
-    // Add your search logic here
-    // This could search through stories, content, etc.
-    console.log('Performing search for:', query);
-}
-
-// Add CSS for ripple animation if not already present
-function addRippleCSS() {
-    if (!document.querySelector('#ripple-styles')) {
-        const style = document.createElement('style');
-        style.id = 'ripple-styles';
-        style.textContent = `
-            @keyframes ripple {
-                to {
-                    transform: scale(4);
-                    opacity: 0;
-                }
-            }
-        `;
-        document.head.appendChild(style);
     }
 }
 
 // Initialize everything when DOM is loaded
 document.addEventListener('DOMContentLoaded', function() {
-    // Add necessary CSS
-    addRippleCSS();
-    
     // Core functionality
     createCursorTrail();
     initializeMobileMenu();
