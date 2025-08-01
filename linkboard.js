@@ -751,7 +751,7 @@ function renderLinkUps(linkUpsToRender = filteredLinkUps) {
 
     
        // IMPORTANT : empty-state 
-    if (linkUpsToRender.length === 0) {
+     if (!Array.isArray(linkUpsToRender) || linkUpsToRender.length === 0) {
         grid.innerHTML = `
             <div class="no-results">
                 <p>No results for your search.</p>
@@ -761,20 +761,19 @@ function renderLinkUps(linkUpsToRender = filteredLinkUps) {
             </div>
         `;
 
-        /* optional: hide pagination when nothing to paginate */
+        /* hide pagination while empty */
         const pagination = document.getElementById('pagination');
         if (pagination) pagination.style.display = 'none';
-        return;                     // ⬅️ stop here, nothing else to render
+        return;                       // ⬅️ stop here when nothing to render
     }
 
-    /* show pagination again if it was hidden */
+    /* show pagination again (if it exists) */
     const pagination = document.getElementById('pagination');
     if (pagination) pagination.style.display = '';
-
-    });
-}
     
 
+
+    
     linkUpsToRender.forEach(linkUp => {
         const card = document.createElement('div');
         card.className = 'link-up-card';
