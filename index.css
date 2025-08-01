@@ -810,7 +810,8 @@ h3 {
     transform: translateY(-1px);
 }
 
-/* GDPR Consent */
+
+/* GDPR Consent - CSS corrigé */
 .gdpr-consent {
     display: flex;
     align-items: flex-start;
@@ -842,12 +843,14 @@ h3 {
     margin-top: 2px;
 }
 
-.gdpr-checkbox:checked + .gdpr-label .gdpr-checkmark {
+.gdpr-checkbox:checked ~ .gdpr-checkmark,
+#gdprConsent:checked + .gdpr-label .gdpr-checkmark {
     background-color: #ffffff;
     border-color: #ffffff;
 }
 
-.gdpr-checkbox:checked + .gdpr-label .gdpr-checkmark::after {
+.gdpr-checkbox:checked ~ .gdpr-checkmark::after,
+#gdprConsent:checked + .gdpr-label .gdpr-checkmark::after {
     content: '';
     position: absolute;
     left: 4px;
@@ -873,6 +876,8 @@ h3 {
 .privacy-link:hover {
     opacity: 0.8;
 }
+
+
 
 /* Modal Styles */
 .modal {
