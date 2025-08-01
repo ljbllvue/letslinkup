@@ -1,4 +1,3 @@
-// CLEANED UP JAVASCRIPT FOR SOFTLY LINKED WITH WORKING NETLIFY FORMS
 
 // Scroll progress indicator
 function updateScrollIndicator() {
@@ -208,24 +207,10 @@ function closeShootShotModal() {
     }
 }
 
-// Modal close on outside click and escape key
-function initializeModalEvents() {
-    // Close modal when clicking outside
-    window.addEventListener('click', function(e) {
-        const shootShotModal = document.getElementById('shootShotModal');
-        
-        if (e.target === shootShotModal) {
-            closeShootShotModal();
-        }
-    });
 
-    // Handle escape key
-    document.addEventListener('keydown', function(e) {
-        if (e.key === 'Escape') {
-            closeShootShotModal();
-        }
-    });
-}
+// Modal close on outside click and escape key
+
+
 
 // Smooth scrolling for navigation links
 function initializeSmoothScrolling() {
