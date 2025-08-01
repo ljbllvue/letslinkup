@@ -62,7 +62,7 @@
 
         .newsletter-subtitle {
             font-size: 1.1rem;
-            color: #666666;
+            color: #000;
             font-weight: 400;
             margin-bottom: 32px;
             animation: fadeInUp 0.8s ease-out 0.4s both;
