@@ -263,9 +263,6 @@ function initializeForm() {
                 headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
                 body: new URLSearchParams(formData).toString()
             });
-            
-            if (response.ok) {
-                console.log('Form submitted successfully to Netlify!');
                 
                 // Close modal and reset form
                 closeShootShotModal();
