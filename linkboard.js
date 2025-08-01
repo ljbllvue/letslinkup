@@ -1364,3 +1364,23 @@ document.addEventListener('DOMContentLoaded', function() {
         showCollabPopup();
     }, 3000);
 });
+
+
+
+
+(function () {
+  const params = new URLSearchParams(window.location.search);
+  const incomingCity = params.get('city'); 
+
+  if (incomingCity) {
+    const cityInput = document.getElementById('citySearch');
+    if (cityInput) cityInput.value = incomingCity;
+      
+    if (typeof applyAllFilters === 'function') {
+      applyAllFilters();
+    }
+  }
+})();
+
+
+
