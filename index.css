@@ -1540,10 +1540,11 @@ h3 {
     .collab-card.reverse .collab-content {
         order: 2; /* Always second */
     }
-}
 
-  .collab-card:hover .collab-image img { transform: none; }
-}
+
+    .collab-card:hover .collab-image img {
+        transform: none;
+    } 
     
     /* Success Stories */
     .success-stories {
@@ -1860,6 +1861,7 @@ h3 {
         max-width: none;
     }
 }
+
 
 
 
