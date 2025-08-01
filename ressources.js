@@ -1,3 +1,4 @@
+
 // Accordion toggle functionality
 function toggleAccordion(element) {
     const isActive = element.classList.contains('active');
@@ -336,7 +337,6 @@ if (typeof module !== 'undefined' && module.exports) {
         }
 
 
-
         // Shoot Your Shot form submission
         document.getElementById('shootShotForm').addEventListener('submit', function(e) {
             e.preventDefault();
@@ -345,8 +345,11 @@ if (typeof module !== 'undefined' && module.exports) {
             const data = Object.fromEntries(formData);
             
             console.log('Shoot Your Shot submission:', data);
+            
+            // For demo purposes, just show an alert
+            alert('Link Up submitted successfully! We\'ll review your submission and get back to you soon.');
+            closeShootShotModal();
         });
-
 
  // Close modal when clicking outside
         window.addEventListener('click', function(e) {
