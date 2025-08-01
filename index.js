@@ -185,7 +185,7 @@ function initializeStoriesCarousel() {
     window.addEventListener('resize', handleStoriesResize);
 }
 
-// Modal Functions (if you have a modal in your HTML)
+// Modal Functions
 function openShootShotModal() {
     const modal = document.getElementById('shootShotModal');
     if (modal) {
@@ -206,25 +206,6 @@ function closeShootShotModal() {
         const form = document.getElementById('shootShotForm');
         if (form) form.reset();
     }
-}
-
-// Form submission (if form exists)
-function initializeForm() {
-    const form = document.getElementById('shootShotForm');
-    if (!form) return;
-    
-    form.addEventListener('submit', function(e) {
-        e.preventDefault();
-        
-        const formData = new FormData(e.target);
-        const data = Object.fromEntries(formData);
-        
-        console.log('Shoot Your Shot submission:', data);
-        
-        // For demo purposes, just show an alert
-        alert('Link Up submitted successfully! We\'ll review your submission and get back to you soon.');
-        closeShootShotModal();
-    });
 }
 
 // Modal close on outside click and escape key
@@ -262,10 +243,50 @@ function initializeSmoothScrolling() {
     });
 }
 
+// Form submission with Netlify support
+function initializeForm() {
+    const form = document.getElementById('shootShotForm');
+    if (!form) return;
+    
+    form.addEventListener('submit', async function(e) {
+        e.preventDefault();
+        
+        const formData = new FormData(e.target);
+        const data = Object.fromEntries(formData);
+        
+        console.log('Shoot Your Shot submission:', data);
+        
+        try {
+            // Submit to Netlify
+            const response = await fetch('/', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+                body: new URLSearchParams(formData).toString()
+            });
+            
+            if (response.ok) {
+                console.log('Form submitted successfully to Netlify!');
+                
+                // Close modal and reset form
+                closeShootShotModal();
+                form.reset();
+                
+            } else {
+                throw new Error('Network response was not ok');
+            }
+        } catch (error) {
+            console.error('Submission error:', error);
+        }
+    });
+}
+
 // Interactive button effects
 function initializeButtonEffects() {
     document.querySelectorAll('button, .submit-btn').forEach(button => {
         button.addEventListener('click', function(e) {
+            // Skip ripple effect for disabled buttons
+            if (this.disabled) return;
+            
             // Create ripple effect
             const ripple = document.createElement('span');
             const rect = this.getBoundingClientRect();
@@ -273,15 +294,18 @@ function initializeButtonEffects() {
             const x = e.clientX - rect.left - size / 2;
             const y = e.clientY - rect.top - size / 2;
             
-            ripple.style.width = ripple.style.height = size + 'px';
-            ripple.style.left = x + 'px';
-            ripple.style.top = y + 'px';
-            ripple.style.position = 'absolute';
-            ripple.style.borderRadius = '50%';
-            ripple.style.background = 'rgba(255, 255, 255, 0.3)';
-            ripple.style.transform = 'scale(0)';
-            ripple.style.animation = 'ripple 0.6s linear';
-            ripple.style.pointerEvents = 'none';
+            ripple.style.cssText = `
+                position: absolute;
+                width: ${size}px;
+                height: ${size}px;
+                left: ${x}px;
+                top: ${y}px;
+                border-radius: 50%;
+                background: rgba(255, 255, 255, 0.3);
+                transform: scale(0);
+                animation: ripple 0.6s linear;
+                pointer-events: none;
+            `;
             
             this.style.position = 'relative';
             this.style.overflow = 'hidden';
@@ -300,15 +324,54 @@ function initializeButtonEffects() {
 function initializeSearch() {
     const searchInput = document.querySelector('.search-input');
     if (searchInput) {
+        let searchTimeout;
+        
         searchInput.addEventListener('input', function() {
-            console.log('Searching for:', this.value);
-            // Add your search functionality here
+            const query = this.value.trim();
+            
+            // Clear previous timeout
+            clearTimeout(searchTimeout);
+            
+            // Debounce search
+            searchTimeout = setTimeout(() => {
+                if (query.length > 2) {
+                    console.log('Searching for:', query);
+                    performSearch(query);
+                }
+            }, 300);
         });
+    }
+}
+
+// Search implementation
+function performSearch(query) {
+    // Add your search logic here
+    // This could search through stories, content, etc.
+    console.log('Performing search for:', query);
+}
+
+// Add CSS for ripple animation if not already present
+function addRippleCSS() {
+    if (!document.querySelector('#ripple-styles')) {
+        const style = document.createElement('style');
+        style.id = 'ripple-styles';
+        style.textContent = `
+            @keyframes ripple {
+                to {
+                    transform: scale(4);
+                    opacity: 0;
+                }
+            }
+        `;
+        document.head.appendChild(style);
     }
 }
 
 // Initialize everything when DOM is loaded
 document.addEventListener('DOMContentLoaded', function() {
+    // Add necessary CSS
+    addRippleCSS();
+    
     // Core functionality
     createCursorTrail();
     initializeMobileMenu();
