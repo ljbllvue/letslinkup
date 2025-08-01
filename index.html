@@ -49,7 +49,10 @@
         <section class="search-section">
             <h1>Search for your next collaboration</h1>
             <div class="search-container">
-                <input type="text" class="search-input" placeholder="Search..." list="cities">
+
+<form action="linkboard.html" method="get" class="search-container" id="homeSearch">
+                
+                <input type="text" name= "city" class="search-input" placeholder="Search..." list="cities" required>
                 <datalist id="cities">
                     <option value="Amsterdam">
                     <option value="Barcelona">
@@ -64,8 +67,9 @@
                     <option value="Paris">
                     <option value="Prague">
                 </datalist>
-            </div>
-            <a href="explore.html" class="explore-button">Explore The Link Board</a>
+            <button type="submit" class="explore-button">
+            </form>
+                 </div>
         </section>
 
         <!-- Features Section -->
