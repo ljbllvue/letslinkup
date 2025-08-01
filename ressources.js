@@ -481,7 +481,7 @@ function initializeNewsletterForm() {
         .then(response => {
             if (response.ok) {
                 // Success - redirect to thank you page
-                window.location.href = '/newsletter-subscribed';
+                window.location.href = '/subscribed';
             } else {
                 throw new Error('Network response was not ok');
             }
