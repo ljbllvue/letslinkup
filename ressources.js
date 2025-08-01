@@ -461,11 +461,6 @@ function initializeNewsletterForm() {
             return;
         }
 
-        // Show loading state
-        const originalText = submitButton.textContent;
-        submitButton.disabled = true;
-        submitButton.textContent = 'Subscribing...';
-
         // Create FormData object
         const formData = new FormData(form);
         
