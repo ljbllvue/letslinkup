@@ -1549,19 +1549,9 @@ h3 {
     }
 
 
-    .collab-card:hover .collab-image img {
+    .collab-card:hover .collab-image {
         transform: none !important;
     } 
-
-    .collab-image {
-      width: 100%;          /* full width of the card */
-      aspect-ratio: 4/3;    
-      object-fit: cover;    /* use 'contain' if you never want cropping */
-      display: block;       /* removes a tiny inline gap in some browsers */
-  }
-
-    
-
     
     
     /* Success Stories */
@@ -1879,6 +1869,7 @@ h3 {
         max-width: none;
     }
 }
+
 
 
 
