@@ -193,6 +193,7 @@ a {
     color: #000;
     border: none;
     border-radius: 50px;
+    font-size: 1rem; 
     padding: 16px 24px;
     margin-top: 10px;
     font-weight: 600;
