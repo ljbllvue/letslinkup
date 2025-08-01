@@ -85,7 +85,7 @@
             transition: all 0.3s ease;
             text-decoration: none;
             display: inline-block;
-            border: 1px solid #000;
+            border: 2px solid #000;
             color: #fff;
             animation: fadeInUp 0.8s ease-out 0.8s both;
         }
@@ -93,8 +93,8 @@
         .action-button:hover {
             transform: translateY(-2px);
             box-shadow: 0 8px 25px rgba(199, 174, 233, 0.3);
-            background: #000;
-            color: #fff;
+            border: 2px solid #000;
+            color: #000;
         }
 
         @keyframes fadeInUp {
