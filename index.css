@@ -253,7 +253,7 @@ a {
 
 .feature-icon {
     width: 225px;
-    height: 150px;
+    height: 140px;
     background: #000;
     border-radius: 30%;
     margin: 0 auto 20px;
@@ -266,9 +266,6 @@ a {
     max-width: 100%;
 }
 
-.feature-icon img {
-    objet-fit: cover;
-}
 
 .feature-card h2 {
     font-size: 1.5rem;
@@ -1868,6 +1865,7 @@ h3 {
         max-width: none;
     }
 }
+
 
 
 
