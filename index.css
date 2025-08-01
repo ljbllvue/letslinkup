@@ -1439,10 +1439,20 @@ h3 {
     }
     
     /* Hero Section */
+    
     .hero-image {
-      width: 100vw;      /* edge-to-edge */
-      max-width: 100%;   /* never wider than the screen */
-      margin: 20px 0;    /* keep some breathing room */
+      width: 100%;      /* respects the container’s padding */
+      max-width: 100%;
+      margin: 20px 0;
+  }
+        
+    /* Previous HERO IMAGE changes
+      width: 100vw;     
+      max-width: 100%;   
+      margin: 20px 0;    
+    /*
+
+        
   }
     
     /* Search Section */
@@ -1861,6 +1871,7 @@ h3 {
         max-width: none;
     }
 }
+
 
 
 
