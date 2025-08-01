@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Link & Match - Creator Matchmaking</title>
+    <link rel="icon" type="icon" href="images/logo3.png">
+    <link rel="stylesheet" href="css/matchmaker.css">
+</head>
+
+<body>
+
+ <!-- Header -->
+        <header class="header-menu">
+            <nav class="nav-container">
+                 <div class="logo"><img src="images/logo3.png" alt="Logo"></div>
+                <ul class="nav-menu" id="navMenu">
+                    <li><a href="#home" class="nav-link">Home</a></li>
+                    <li><a href="#about" class="nav-link">Explore</a></li>
+                    <li><a href="#contact" class="nav-link">Contact</a></li>
+                </ul>
+                <div class="mobile-toggle" id="mobileToggle">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </nav>
+        </header>
+
+
+    <div class="container">
+        <header class="header">
+            <h1>Link & <span class="typewriter" id="typewriter">Match</span></h1>
+            <p>Connect with compatible content creators for collaboration</p>
+            <div class="header-image"><img src="images/linkandmatch.png"></div>
+        </header>
+
+        <div class="tabs">
+            <button class="tab active" onclick="switchTab('profile')">Submit Profile</button>
+            <button class="tab" onclick="switchTab('search')">Find Matches</button>
+        </div>
+
+        <div id="success-message" class="success-message">
+            Profile submitted successfully! Switch to "Find Matches" to search for collaborators.
+        </div>
+
+        <!-- Creator Profile Form -->
+        <div id="profile-section" class="form-section active">
+            <h2>Submit your profile</h2>
+
+            <form id="profile-form" name="profile-form" action="/submitted" method="POST" data-netlify="true" netlify-honeypot="bot-field">
+                <!-- Honeypot field for spam protection -->
+                <p style="display: none;">
+                    <label>Don't fill this out if you're human: <input name="bot-field" /></label>
+                </p>
+
+                <div class="form-group">
+                    <label for="name">Name <span class="required">*</span></label>
+                    <input type="text" id="name" name="name" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="social-link">Social Media Link <span class="required">*</span></label>
+                    <input type="url" id="social-link" name="socialLink" placeholder="https://onlyfans.com/yourname" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="twitter-handle">Twitter Handle (Optional)</label>
+                    <input type="text" id="twitter-handle" name="twitterHandle" placeholder="@yourhandle (for collaboration tweets)">
+                </div>
+
+                <div class="form-group">
+                    <label for="gender">Gender <span class="required">*</span></label>
+                    <div class="multiselect-container">
+                        <input type="text" class="multiselect-input" id="gender-input" placeholder="Select Gender" readonly onclick="toggleDropdown('gender-select')" required>
+                        <!-- Hidden input for Netlify form submission -->
+                        <input type="hidden" name="gender" id="gender-hidden">
+                        <div class="multiselect-dropdown" id="gender-select-dropdown">
+                            <div class="multiselect-option" data-value="Woman">Woman</div>
+                            <div class="multiselect-option" data-value="Man">Man</div>
+                            <div class="multiselect-option" data-value="Trans Woman">Trans woman</div>
+                            <div class="multiselect-option" data-value="Trans Man">Trans man</div>
+                            <div class="multiselect-option" data-value="Nonbinary">Non binary/Genderfluid</div>
+                            <div class="multiselect-option" data-value="Couple">Couple</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="city">City <span class="required">*</span></label>
+                    <div class="multiselect-container">
+                        <input type="text" class="multiselect-input" id="city-input" placeholder="Select City" readonly onclick="toggleDropdown('city-select')" required>
+                        <!-- Hidden input for Netlify form submission -->
+                        <input type="hidden" name="city" id="city-hidden">
+                        <div class="multiselect-dropdown" id="city-select-dropdown">
+                            <div class="multiselect-option" data-value="Amsterdam">Amsterdam</div>
+                            <div class="multiselect-option" data-value="Barcelona">Barcelona</div>
+                            <div class="multiselect-option" data-value="Berlin">Berlin</div>
+                            <div class="multiselect-option" data-value="Bruxelles">Bruxelles</div>
+                            <div class="multiselect-option" data-value="Budapest">Budapest</div>
+                            <div class="multiselect-option" data-value="Dublin">Dublin</div>
+                            <div class="multiselect-option" data-value="London">London</div>
+                            <div class="multiselect-option" data-value="Madrid">Madrid</div>
+                            <div class="multiselect-option" data-value="Paris">Paris</div>
+                            <div class="multiselect-option" data-value="Prague">Prague</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="platform">Main Platform <span class="required">*</span></label>
+                    <div class="multiselect-container">
+                        <input type="text" class="multiselect-input" id="platform-input" placeholder="Select Platform" readonly onclick="toggleDropdown('platform-select')" required>
+                        <!-- Hidden input for Netlify form submission -->
+                        <input type="hidden" name="platform" id="platform-hidden">
+                        <div class="multiselect-dropdown" id="platform-select-dropdown">
+                            <div class="multiselect-option" data-value="OnlyFans">OnlyFans</div>
+                            <div class="multiselect-option" data-value="Fansly">Fansly</div>
+                            <div class="multiselect-option" data-value="JustForFans">JustForFans</div>
+                            <div class="multiselect-option" data-value="LoyalFans">LoyalFans</div>
+                            <div class="multiselect-option" data-value="Clips4Sale">Clips4Sale</div>
+                            <div class="multiselect-option" data-value="ManyVids">ManyVids</div>
+                            <div class="multiselect-option" data-value="Pornhub">Pornhub</div>
+                            <div class="multiselect-option" data-value="Other">Other</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label>Category <span class="required">*</span></label>
+                    <div class="multiselect-container">
+                        <input type="text" class="multiselect-input" placeholder="Select categories..." readonly onclick="toggleDropdown('category')">
+                        <!-- Hidden input for Netlify form submission -->
+                        <input type="hidden" name="category" id="category-hidden">
+                        <div class="multiselect-dropdown" id="category-dropdown">
+                            <div class="multiselect-option" data-value="BDSM">BDSM</div>
+                            <div class="multiselect-option" data-value="Cosplay">Cosplay</div>
+                            <div class="multiselect-option" data-value="Hardcore">Hardcore</div>
+                            <div class="multiselect-option" data-value="Femdom">Femdom</div>
+                            <div class="multiselect-option" data-value="Fetish">Fetish</div>
+                            <div class="multiselect-option" data-value="Romantic">Romantic</div>
+                            <div class="multiselect-option" data-value="Roleplay">Roleplay</div>
+                            <div class="multiselect-option" data-value="Taboo">Taboo</div>
+                            <div class="multiselect-option" data-value="Parody">Parody</div>
+                            <div class="multiselect-option" data-value="Group">Group</div>
+                            <div class="multiselect-option" data-value="Vanilla">Vanilla</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label>Aesthetic (Optional)</label>
+                    <div class="multiselect-container">
+                        <input type="text" class="multiselect-input" placeholder="Select aesthetics..." readonly onclick="toggleDropdown('aesthetic')">
+                        <!-- Hidden input for Netlify form submission -->
+                        <input type="hidden" name="aesthetic" id="aesthetic-hidden">
+                        <div class="multiselect-dropdown" id="aesthetic-dropdown">
+                            <div class="multiselect-option" data-value="Androgynous">Androgynous</div>
+                            <div class="multiselect-option" data-value="BBW">BBW</div>
+                            <div class="multiselect-option" data-value="Babe">Babe</div>
+                            <div class="multiselect-option" data-value="Big Ass">Big ass</div>
+                            <div class="multiselect-option" data-value="Big Dick">Big dick</div>
+                            <div class="multiselect-option" data-value="Big Tits">Big tits</div>
+                            <div class="multiselect-option" data-value="Bimbo">Bimbo</div>
+                            <div class="multiselect-option" data-value="Gamer">Gamer</div>
+                            <div class="multiselect-option" data-value="Girl Next Door">Girl next door</div>
+                            <div class="multiselect-option" data-value="Hairy">Hairy</div>
+                            <div class="multiselect-option" data-value="Goth/Alt">Goth/Alt</div>
+                            <div class="multiselect-option" data-value="MILF">MILF</div>
+                            <div class="multiselect-option" data-value="Muscular">Muscular</div>
+                            <div class="multiselect-option" data-value="Natural">Natural</div>
+                            <div class="multiselect-option" data-value="Small Tits">Small tits</div>
+                            <div class="multiselect-option" data-value="Tattooed">Tattooed</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label>Production/Camera Style <span class="required">*</span></label>
+                    <div class="multiselect-container">
+                        <input type="text" class="multiselect-input" placeholder="Select content types..." readonly onclick="toggleDropdown('contentType')">
+                        <!-- Hidden input for Netlify form submission -->
+                        <input type="hidden" name="contentType" id="contentType-hidden">
+                        <div class="multiselect-dropdown" id="contentType-dropdown">
+                            <div class="multiselect-option" data-value="Amateur">Homemade/Amateur</div>
+                            <div class="multiselect-option" data-value="Studio">Studio</div>
+                            <div class="multiselect-option" data-value="Standard">Standard/3rd person</div>
+                            <div class="multiselect-option" data-value="POV">POV</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label>Looking For <span class="required">*</span></label>
+                    <div class="multiselect-container">
+                        <input type="text" class="multiselect-input" placeholder="Select genders you're looking for..." readonly onclick="toggleDropdown('lookingFor')">
+                        <!-- Hidden input for Netlify form submission -->
+                        <input type="hidden" name="lookingFor" id="lookingFor-hidden">
+                        <div class="multiselect-dropdown" id="lookingFor-dropdown">
+                            <div class="multiselect-option" data-value="Men">Men</div>
+                            <div class="multiselect-option" data-value="Women">Women</div>
+                            <div class="multiselect-option" data-value="Non Binary">Non binary</div>
+                            <div class="multiselect-option" data-value="Trans Men">Trans men</div>
+                            <div class="multiselect-option" data-value="Trans Women">Trans women</div>
+                            <div class="multiselect-option" data-value="Couples">Couples</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label>Experience Level <span class="required">*</span></label>
+                    <div class="multiselect-container">
+                        <input type="text" class="multiselect-input" placeholder="Select your experience level..." readonly onclick="toggleDropdown('experienceLevel')">
+                        <!-- Hidden input for Netlify form submission -->
+                        <input type="hidden" name="experienceLevel" id="experienceLevel-hidden">
+                        <div class="multiselect-dropdown" id="experienceLevel-dropdown">
+                            <div class="multiselect-option" data-value="New">New</div>
+                            <div class="multiselect-option" data-value="Medium">Medium</div>
+                            <div class="multiselect-option" data-value="Experienced">Experienced</div>
+                            <div class="multiselect-option" data-value="Veteran">Veteran</div>
+                        </div>
+                    </div>
+                </div>
+
+                <button type="submit" class="submit-btn">Submit Profile</button>
+            </form>
+        </div>
+
+        <!-- Match Intent Form -->
+        <div id="search-section" class="form-section">
+            <h2>Find Your Match</h2>
+            <form id="search-form">
+                <div class="form-group">
+                    <label for="your-gender">Your Gender <span class="required">*</span></label>
+                    <div class="multiselect-container">
+                        <input type="text" class="multiselect-input" id="your-gender-input" placeholder="Select Your Gender" readonly onclick="toggleDropdown('your-gender-select')" required>
+                        <div class="multiselect-dropdown" id="your-gender-select-dropdown">
+                            <div class="multiselect-option" data-value="Man">Man</div>
+                            <div class="multiselect-option" data-value="Woman">Woman</div>
+                            <div class="multiselect-option" data-value="Non Binary">Non binary</div>
+                            <div class="multiselect-option" data-value="Trans Man">Trans man</div>
+                            <div class="multiselect-option" data-value="Trans Woman">Trans woman</div>
+                            <div class="multiselect-option" data-value="Couple">Couple</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="desired-gender">Desired Gender <span class="required">*</span></label>
+                    <div class="multiselect-container">
+                        <input type="text" class="multiselect-input" id="desired-gender-input" placeholder="Select Desired Gender" readonly onclick="toggleDropdown('desired-gender-select')" required>
+                        <div class="multiselect-dropdown" id="desired-gender-select-dropdown">
+                            <div class="multiselect-option" data-value="Woman">Woman</div>
+                            <div class="multiselect-option" data-value="Man">Man</div>
+                            <div class="multiselect-option" data-value="Trans Woman">Trans woman</div>
+                            <div class="multiselect-option" data-value="Trans Man">Trans man</div>
+                            <div class="multiselect-option" data-value="Non Binary">Non binary</div>
+                            <div class="multiselect-option" data-value="Any">Any</div>
+                            <div class="multiselect-option" data-value="Mixed (couple)">Mixed (couple)</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="desired-city">City <span class="required">*</span></label>
+                    <div class="multiselect-container">
+                        <input type="text" class="multiselect-input" id="desired-city-input" placeholder="Select City" readonly onclick="toggleDropdown('desired-city-select')" required>
+                        <div class="multiselect-dropdown" id="desired-city-select-dropdown">
+                            <div class="multiselect-option" data-value="Amsterdam">Amsterdam</div>
+                            <div class="multiselect-option" data-value="Barcelona">Barcelona</div>
+                            <div class="multiselect-option" data-value="Berlin">Berlin</div>
+                            <div class="multiselect-option" data-value="Bruxelles">Bruxelles</div>
+                            <div class="multiselect-option" data-value="Budapest">Budapest</div>
+                            <div class="multiselect-option" data-value="Dublin">Dublin</div>
+                            <div class="multiselect-option" data-value="London">London</div>
+                            <div class="multiselect-option" data-value="Madrid">Madrid</div>
+                            <div class="multiselect-option" data-value="Paris">Paris</div>
+                            <div class="multiselect-option" data-value="Prague">Prague</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="platform-preference">Platform Preference (Optional)</label>
+                    <div class="multiselect-container">
+                        <input type="text" class="multiselect-input" id="platform-preference-input" placeholder="Any Platform" readonly onclick="toggleDropdown('platform-preference-select')">
+                        <div class="multiselect-dropdown" id="platform-preference-select-dropdown">
+                            <div class="multiselect-option" data-value="">Any Platform</div>
+                            <div class="multiselect-option" data-value="OnlyFans">OnlyFans</div>
+                            <div class="multiselect-option" data-value="JustForFans">JustForFans</div>
+                            <div class="multiselect-option" data-value="LoyalFans">LoyalFans</div>
+                            <div class="multiselect-option" data-value="ManyVids">ManyVids</div>
+                            <div class="multiselect-option" data-value="Fansly">Fansly</div>
+                            <div class="multiselect-option" data-value="Other">Other</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label>Desired Category <span class="required">* (Select exactly 2)</span></label>
+                    <div class="multiselect-container">
+                        <input type="text" class="multiselect-input" placeholder="Select exactly 2 desired categories..." readonly onclick="toggleDropdown('desiredCategory')">
+                        <div class="multiselect-dropdown" id="desiredCategory-dropdown">
+                            <div class="multiselect-option" data-value="BDSM">BDSM</div>
+                            <div class="multiselect-option" data-value="Cosplay">Cosplay</div>
+                            <div class="multiselect-option" data-value="Hardcore">Hardcore</div>
+                            <div class="multiselect-option" data-value="Femdom">Femdom</div>
+                            <div class="multiselect-option" data-value="Fetish">Fetish</div>
+                            <div class="multiselect-option" data-value="Romantic">Romantic</div>
+                            <div class="multiselect-option" data-value="Roleplay">Roleplay</div>
+                            <div class="multiselect-option" data-value="Taboo">Taboo</div>
+                            <div class="multiselect-option" data-value="Parody">Parody</div>
+                            <div class="multiselect-option" data-value="Vanilla">Vanilla</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label>Desired Aesthetic (Optional)</label>
+                    <div class="multiselect-container">
+                        <input type="text" class="multiselect-input" placeholder="Select desired aesthetics..." readonly onclick="toggleDropdown('desiredAesthetic')">
+                        <div class="multiselect-dropdown" id="desiredAesthetic-dropdown">
+                            <div class="multiselect-option" data-value="Androgynous">Androgynous</div>
+                            <div class="multiselect-option" data-value="BBW">BBW</div>
+                            <div class="multiselect-option" data-value="Babe">Babe</div>
+                            <div class="multiselect-option" data-value="Big Ass">Big ass</div>
+                            <div class="multiselect-option" data-value="Big Dick">Big dick</div>
+                            <div class="multiselect-option" data-value="Big Tits">Big tits</div>
+                            <div class="multiselect-option" data-value="Bimbo">Bimbo</div>
+                            <div class="multiselect-option" data-value="Gamer">Gamer</div>
+                            <div class="multiselect-option" data-value="Girl Next Door">Girl next door</div>
+                            <div class="multiselect-option" data-value="Hairy">Hairy</div>
+                            <div class="multiselect-option" data-value="Goth/Alt">Goth/Alt</div>
+                            <div class="multiselect-option" data-value="MILF">MILF</div>
+                            <div class="multiselect-option" data-value="Muscular">Muscular</div>
+                            <div class="multiselect-option" data-value="Natural">Natural</div>
+                            <div class="multiselect-option" data-value="Small Tits">Small tits</div>
+                            <div class="multiselect-option" data-value="Tattooed">Tattooed</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label>Production/Camera Style <span class="required">* (Select exactly 2)</span></label>
+                    <div class="multiselect-container">
+                        <input type="text" class="multiselect-input" placeholder="Select exactly 2 desired content types..." readonly onclick="toggleDropdown('desiredContentType')">
+                        <div class="multiselect-dropdown" id="desiredContentType-dropdown">
+                            <div class="multiselect-option" data-value="Amateur">Homemade/Amateur</div>
+                            <div class="multiselect-option" data-value="Studio/Clip">Pro/Studio</div>
+                            <div class="multiselect-option" data-value="Standard">Standard/3rd person</div>
+                            <div class="multiselect-option" data-value="POV">POV</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label>Desired Experience Level <span class="required">* (Select up to 2)</span></label>
+                    <div class="multiselect-container">
+                        <input type="text" class="multiselect-input" placeholder="Select desired experience levels..." readonly onclick="toggleDropdown('desiredExperienceLevel')">
+                        <div class="multiselect-dropdown" id="desiredExperienceLevel-dropdown">
+                            <div class="multiselect-option" data-value="New">New</div>
+                            <div class="multiselect-option" data-value="Medium">Medium</div>
+                            <div class="multiselect-option" data-value="Experienced">Experienced</div>
+                            <div class="multiselect-option" data-value="Veteran">Veteran</div>
+                        </div>
+                    </div>
+                </div>
+
+                <button type="button" class="submit-btn" onclick="performSearch()">Get Matched</button>
+            </form>
+
+            <div id="matches-container" class="matches-container">
+                <div class="no-matches">Click "Get Matched" to find compatible creators</div>
+            </div>
+        </div>
+
+        <!-- Match Modal -->
+        <div id="match-modal" class="match-modal">
+            <div class="match-content">
+                <button class="match-close" onclick="closeMatchModal()">&times;</button>
+                <div class="confetti-piece"></div>
+                <div class="confetti-piece"></div>
+                <div class="confetti-piece"></div>
+                <div class="confetti-piece"></div>
+                <div class="confetti-piece"></div>
+                <div class="confetti-piece"></div>
+                <div class="confetti-piece"></div>
+                <div class="confetti-piece"></div>
+                
+                <div class="match-celebration">🎉</div>
+                <h2 class="match-title">This is your match!</h2>
+                
+                <div class="match-info-card" id="match-details">
+                    <!-- Match details will be inserted here -->
+                </div>
+                
+                <a href="#" id="twitter-share" class="twitter-btn" target="_blank">
+                   Share your match
+                </a>
+            </div>
+        </div>
+    </div>
+
+
+ <script src="js/matchmaker.js"></script>
+
+</body>
+</html>
