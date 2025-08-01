@@ -248,8 +248,78 @@ function initializeForm() {
     const form = document.getElementById('shootShotForm');
     if (!form) return;
     
+    // Handle checkbox groups - collect checked values into hidden inputs
+    function updateCheckboxGroups() {
+        // Platforms
+        const platformCheckboxes = document.querySelectorAll('#shootShotForm .platform-checkbox');
+        const platformsHidden = document.getElementById('shootPlatformsHidden');
+        if (platformsHidden) {
+            const checkedPlatforms = Array.from(platformCheckboxes)
+                .filter(cb => cb.checked && cb.closest('.form-group').querySelector('label').textContent.includes('Your Platforms'))
+                .map(cb => cb.value);
+            platformsHidden.value = checkedPlatforms.join(', ');
+        }
+        
+        // Looking For
+        const lookingForCheckboxes = document.querySelectorAll('#shootShotForm .platform-checkbox');
+        const lookingForHidden = document.getElementById('shootLookingForHidden');
+        if (lookingForHidden) {
+            const checkedLookingFor = Array.from(lookingForCheckboxes)
+                .filter(cb => cb.checked && cb.closest('.form-group').querySelector('label').textContent.includes('Looking for'))
+                .map(cb => cb.value);
+            lookingForHidden.value = checkedLookingFor.join(', ');
+        }
+        
+        // Scene Type
+        const sceneTypeCheckboxes = document.querySelectorAll('#shootShotForm .platform-checkbox');
+        const sceneTypeHidden = document.getElementById('shootSceneTypeHidden');
+        if (sceneTypeHidden) {
+            const checkedSceneType = Array.from(sceneTypeCheckboxes)
+                .filter(cb => cb.checked && cb.closest('.form-group').querySelector('label').textContent.includes('What type of scenes'))
+                .map(cb => cb.value);
+            sceneTypeHidden.value = checkedSceneType.join(', ');
+        }
+        
+        // Niche
+        const nicheCheckboxes = document.querySelectorAll('#shootShotForm .platform-checkbox');
+        const nicheHidden = document.getElementById('shootNicheHidden');
+        if (nicheHidden) {
+            const checkedNiche = Array.from(nicheCheckboxes)
+                .filter(cb => cb.checked && cb.closest('.form-group').querySelector('label').textContent.includes('What type of niche'))
+                .map(cb => cb.value);
+            nicheHidden.value = checkedNiche.join(', ');
+        }
+        
+        // Hosting
+        const hostingCheckboxes = document.querySelectorAll('#shootShotForm .platform-checkbox');
+        const hostingHidden = document.getElementById('shootHostingHidden');
+        if (hostingHidden) {
+            const checkedHosting = Array.from(hostingCheckboxes)
+                .filter(cb => cb.checked && cb.closest('.form-group').querySelector('label').textContent.includes('Hosting'))
+                .map(cb => cb.value);
+            hostingHidden.value = checkedHosting.join(', ');
+        }
+    }
+    
+    // Update checkbox groups when any checkbox changes
+    form.addEventListener('change', function(e) {
+        if (e.target.classList.contains('platform-checkbox')) {
+            updateCheckboxGroups();
+        }
+    });
+    
+    // Set current month for verification
+    const monthElement = document.getElementById('shootCurrentMonth');
+    if (monthElement) {
+        const currentMonth = new Date().toLocaleString('default', { month: 'long' });
+        monthElement.textContent = currentMonth;
+    }
+    
     form.addEventListener('submit', function(e) {
         e.preventDefault();
+        
+        // Update checkbox groups before submission
+        updateCheckboxGroups();
         
         // Get form data
         const formData = new FormData(e.target);
@@ -257,7 +327,7 @@ function initializeForm() {
         
         console.log('Shoot Your Shot submission:', data);
         
-        // Show loading state (optional)
+        // Show loading state
         const submitBtn = form.querySelector('button[type="submit"], .submit-btn');
         const originalText = submitBtn ? submitBtn.textContent : '';
         if (submitBtn) {
