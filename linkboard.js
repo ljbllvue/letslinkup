@@ -771,9 +771,6 @@ function renderLinkUps(linkUpsToRender = filteredLinkUps) {
     const pagination = document.getElementById('pagination');
     if (pagination) pagination.style.display = '';
 
-    /* normal card loop (unchanged) */
-    linkUpsToRender.forEach(linkUp => {
-        …
     });
 }
     
