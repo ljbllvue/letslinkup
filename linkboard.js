@@ -1311,7 +1311,6 @@ function copyLinkUpURL(linkUpId) {
     });
 }
 
-/// OLD COLLAB POP UP ///
 
 // Collaboration Knowledge Pop-up Functions
 function showCollabPopup() {
@@ -1328,11 +1327,6 @@ function closeCollabPopup() {
         collabPopup.style.display = 'none';
         document.body.style.overflow = 'auto';
     }
-}
-
-function redirectToCollabGuide() {
-    alert('Redirecting to Collaboration Package purchase page...');
-    closeCollabPopup();
 }
 
 
