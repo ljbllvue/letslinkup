@@ -274,7 +274,7 @@ function initializeForm() {
         .then(() => {
             // Close modal and redirect to success page
             closeShootShotModal();
-            window.location.href = '/subscribed';
+            window.location.href = '/success';
         })
         .catch((error) => {
             console.error('Form submission error:', error);
