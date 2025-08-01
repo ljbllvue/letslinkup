@@ -1523,31 +1523,24 @@ h3 {
     }
     
     /* Fix order for reverse cards on mobile */
+   @media (max-width: 768px) {
+    .collab-card,
     .collab-card.reverse {
         display: flex;
         flex-direction: column;
+        /* ... other styles ... */
     }
     
-    .collab-card.reverse .collab-content {
-        order: 1;
-    }
-    
+    .collab-card .collab-image,
     .collab-card.reverse .collab-image {
-        order: 2;
+        order: 1; /* Always first */
     }
     
-    .collab-content {
-        padding: 0;
-        text-align: center;
+    .collab-card .collab-content,
+    .collab-card.reverse .collab-content {
+        order: 2; /* Always second */
     }
-    
-    .collab-content h3 {
-        font-size: 1.3rem;
-    }
-    
-    .collab-content p {
-        font-size: 0.95rem;
-    }
+}
     
     /* Success Stories */
     .success-stories {
