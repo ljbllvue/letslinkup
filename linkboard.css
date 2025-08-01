@@ -147,6 +147,20 @@
             margin-bottom: 24px;
         }
 
+
+         .no-results{
+              text-align:center;
+              padding:3rem 1rem;
+              font-size:1.1rem;
+            }
+            .no-results .browse-link{
+              display:inline-block;
+              margin-top:1rem;
+              text-decoration:underline;
+            }
+
+
+
         /* Advanced Filter Bar */
         .filter-bar {
             background: linear-gradient(
