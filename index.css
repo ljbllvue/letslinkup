@@ -713,8 +713,11 @@ h3 {
     border-color: #000;
 }
 
-/* Footer */
+
+
+  /* Footer */
         .footer {
+            width: 100%;
             background-color: #000000;
             color: #ffffff;
             padding: 4rem 0 2rem;
@@ -915,6 +918,8 @@ h3 {
                 padding: 12px 20px;
             }
         }
+
+
 
 
 /* Modal Styles */
@@ -1552,6 +1557,9 @@ h3 {
         max-width: 250px;
         text-align: center;
     }
+
+
+
     
     /* Footer */
     .footer-content {
