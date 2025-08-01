@@ -1549,12 +1549,9 @@ h3 {
     }
 
 
-    .collab-card:hover collab-image img {
-        transform: none;
+    .collab-card:hover .collab-image img {
+        transform: none !important;
     } 
-
-
-    
 
     .collab-image {
       width: 100%;          /* full width of the card */
@@ -1882,6 +1879,7 @@ h3 {
         max-width: none;
     }
 }
+
 
 
 
