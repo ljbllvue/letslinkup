@@ -277,6 +277,7 @@ body {
     font-size: 1rem; 
     color: #c7aee9;
     line-height: 1.4rem;
+}
 
 .accordion-title p {
     color: #666;
@@ -1116,6 +1117,7 @@ html {
         gap: 1rem;
     }
 }
+
 
 
 
