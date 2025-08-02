@@ -1,0 +1,605 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/png" href="logos3.png">
+    <link rel="apple-touch-icon" href="logos3.png">
+    <link rel="shortcut icon" href="logos3.png">
+    <title>Terms of Use - Softly Linked</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html, body {
+            width: 100%;
+            overflow-x: hidden;
+        }
+
+        body {
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+            background: #fff;
+            min-height: 100vh;
+            color: #000;
+            line-height: 1.6;
+            font-size: 16px;
+        }
+
+        a {
+            text-decoration: none;
+            color: #000;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            margin-top: 100px;
+            padding: 0 20px;
+            width: 100%;
+        }
+
+        /* Header */
+        .header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: #fff;
+            backdrop-filter: blur(20px);
+            z-index: 1000;
+            transition: all 0.3s ease;
+            width: 100%;
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 24px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 80px;
+            width: 100%;
+        }
+
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            gap: 40px;
+            align-items: center;
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+        }
+
+        .nav-link {
+            text-decoration: none;
+            color: #000000;
+            border: none;
+            font-weight: 500;
+            font-size: 16px;
+            transition: all 0.2s ease;
+            position: relative;
+        }
+
+        .nav-link:hover {
+            color: #c7aee9;
+        }
+
+        .nav-link.cta {
+            background: #A860FF;
+            background: linear-gradient(rgba(168, 96, 255, 1) 0%, rgba(171, 154, 239, 1) 0%, rgba(192, 172, 237, 0.26) 42%, rgba(206, 183, 236, 0.49) 70%, rgba(242, 232, 254, 1) 100%);
+            color: #000;
+            padding: 12px 24px;
+            border-radius: 50px;
+            font-weight: 500;
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+        }
+
+        .nav-link.cta:hover {
+            background: #000;
+            color: #fff;
+        }
+
+        /* Mobile toggle */
+        .mobile-toggle {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+            padding: 8px;
+            background: none;
+            border: none;
+        }
+
+        .mobile-toggle span {
+            width: 24px;
+            height: 2px;
+            background: #37352f;
+            margin: 3px 0;
+            transition: 0.3s ease;
+            border-radius: 1px;
+            transform-origin: center;
+        }
+
+        /* Terms Content */
+        .terms-content {
+            background: rgba(255, 255, 255, 0.9);
+            backdrop-filter: blur(10px);
+            border: 2px solid rgba(0, 0, 0, 0.1);
+            border-radius: 24px;
+            padding: 60px;
+            margin-bottom: 60px;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .terms-header {
+            text-align: center;
+            margin-bottom: 40px;
+            padding-bottom: 30px;
+            border-bottom: 2px solid rgba(199, 174, 233, 0.3);
+        }
+
+        .terms-header h1 {
+            font-size: 2.5rem;
+            font-weight: 300;
+            margin-bottom: 15px;
+            color: #000;
+        }
+
+        .last-updated {
+            color: #666;
+            font-size: 1rem;
+            font-style: italic;
+        }
+
+        .intro-text {
+            font-size: 1.1rem;
+            color: #333;
+            margin-bottom: 40px;
+            text-align: center;
+            font-style: italic;
+            padding: 20px;
+            background: rgba(199, 174, 233, 0.1);
+            border-radius: 16px;
+        }
+
+        .agreement-notice {
+            background: rgba(168, 96, 255, 0.1);
+            border: 2px solid rgba(168, 96, 255, 0.3);
+            border-radius: 12px;
+            padding: 20px;
+            margin-bottom: 30px;
+            text-align: center;
+        }
+
+        .agreement-notice p {
+            margin: 0;
+            color: #000;
+            font-weight: 500;
+            font-size: 1.1rem;
+        }
+
+        .section {
+            margin-bottom: 40px;
+        }
+
+        .section h2 {
+            font-size: 1.4rem;
+            font-weight: 500;
+            margin-bottom: 15px;
+            color: #c7aee9;
+            border-left: 4px solid #c7aee9;
+            padding-left: 15px;
+        }
+
+        .section h3 {
+            font-size: 1.2rem;
+            font-weight: 500;
+            margin-bottom: 10px;
+            margin-top: 20px;
+            color: #000;
+        }
+
+        .section p {
+            margin-bottom: 15px;
+            color: #333;
+            line-height: 1.7;
+        }
+
+        .section ul {
+            margin-left: 20px;
+            margin-bottom: 15px;
+        }
+
+        .section li {
+            margin-bottom: 8px;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        .highlight-box {
+            background: rgba(168, 96, 255, 0.1);
+            border: 1px solid rgba(168, 96, 255, 0.3);
+            border-radius: 12px;
+            padding: 20px;
+            margin: 20px 0;
+        }
+
+        .highlight-box p {
+            margin-bottom: 0;
+            color: #000;
+            font-weight: 500;
+        }
+
+        .warning-box {
+            background: rgba(255, 193, 7, 0.1);
+            border: 2px solid rgba(255, 193, 7, 0.4);
+            border-radius: 12px;
+            padding: 20px;
+            margin: 20px 0;
+        }
+
+        .warning-box h4 {
+            color: #856404;
+            margin-bottom: 10px;
+            font-size: 1.1rem;
+        }
+
+        .warning-box ul {
+            margin-left: 20px;
+        }
+
+        .warning-box li {
+            color: #856404;
+            font-weight: 500;
+        }
+
+        .contact-info {
+            background: rgba(199, 174, 233, 0.1);
+            border-radius: 16px;
+            padding: 25px;
+            margin-top: 30px;
+            text-align: center;
+        }
+
+        .contact-info h3 {
+            color: #c7aee9;
+            margin-bottom: 15px;
+        }
+
+        .placeholder {
+            color: #999;
+            font-style: italic;
+            background: rgba(255, 255, 255, 0.8);
+            padding: 4px 8px;
+            border-radius: 4px;
+            border: 1px dashed #ccc;
+        }
+
+        /* Footer */
+        .footer {
+            width: 100%;
+            background-color: #000000;
+            color: #ffffff;
+            padding: 4rem 0 2rem;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            flex-wrap: wrap;
+            gap: 2rem;
+            font-size: 16px;
+            font-weight: 300;
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+            width: 100%;
+            box-sizing: border-box;
+        }
+
+        .footer-links {
+            display: flex;
+            gap: 2rem;
+        }
+
+        .footer-links a {
+            color: #ffffff;
+            text-decoration: none;
+            transition: opacity 0.3s ease;
+        }
+
+        .footer-links a:hover {
+            opacity: 0.7;
+            color: #c7aee9;
+            font-weight: 600;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .container {
+                padding: 0 15px;
+                margin-top: 90px;
+            }
+
+            .nav-menu {
+                position: fixed;
+                top: 80px;
+                left: -100vw;
+                width: 100vw;
+                height: calc(100vh - 80px);
+                background: rgba(255, 255, 255, 0.98);
+                backdrop-filter: blur(20px);
+                flex-direction: column;
+                justify-content: flex-start;
+                padding-top: 60px;
+                gap: 40px;
+                transition: left 0.3s ease;
+                border-top: 1px solid #e5e5e5;
+                z-index: 999;
+                box-sizing: border-box;
+            }
+
+            .nav-menu.active {
+                left: 0;
+            }
+
+            .mobile-toggle {
+                display: flex !important;
+            }
+
+            .terms-content {
+                padding: 40px 25px;
+                margin: 20px 10px;
+            }
+
+            .terms-header h1 {
+                font-size: 2rem;
+            }
+
+            .intro-text {
+                font-size: 1rem;
+                padding: 15px;
+            }
+
+            .section h2 {
+                font-size: 1.2rem;
+            }
+
+            .footer-content {
+                flex-direction: column;
+                text-align: center;
+                gap: 2rem;
+                font-weight: 600;
+                padding: 0 15px;
+            }
+
+            .footer-links {
+                flex-direction: row !important;
+                justify-content: center;
+                gap: 1rem;
+                flex-wrap: wrap;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .terms-content {
+                padding: 30px 20px;
+                margin: 15px 5px;
+            }
+
+            .terms-header h1 {
+                font-size: 1.8rem;
+            }
+
+            .section h2 {
+                font-size: 1.1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <nav class="nav-container">
+            <div class="logo"><a href="/"><img src="logo3.png" alt="Softly Linked Logo"></a></div>
+            <ul class="nav-menu" id="navMenu">
+                <li><a href="/" class="nav-link">Home</a></li>
+                <li><a href="/linkboard" class="nav-link">Explore</a></li>
+                <li><a href="/ressources" class="nav-link">Read this</a></li>
+                <li><a href="mailto:contact@softlylinked.net" class="nav-link">Contact</a></li>
+                <li><button class="nav-link cta" onclick="openShootShotModal()">Submit a Link Up</button></li>
+            </ul>
+            <div class="mobile-toggle" id="mobileToggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </nav>
+    </header>
+
+    <div class="container">
+        <div class="terms-content">
+            <div class="terms-header">
+                <h1>Terms of Use</h1>
+                <div class="last-updated">Last updated: 2 August 2025</div>
+            </div>
+
+            <div class="agreement-notice">
+                <p>By using the Softly Linked website or services, you agree to the terms below. Please read them carefully before signing up or submitting any content.<br><strong>If you do not agree, do not use the site.</strong></p>
+            </div>
+
+            <div class="section">
+                <h2>1. Who we are</h2>
+                <p>Softly Linked is operated by:</p>
+                <div class="highlight-box">
+                    <p><strong>SOFT POWER CREATORS</strong><br>
+                    <span class="placeholder">1 rue de Stockholm, 75008 Paris, FRANCE</span><br>
+                    SIREN: <span class="placeholder">0000000000</span><br>
+                    Email: <span class="placeholder">contact@softlylinked.net</span></p>
+                </div>
+                <p>These terms apply to all visitors and users of the site.</p>
+            </div>
+
+            <div class="section">
+                <h2>2. Eligibility</h2>
+                <p>You must be at least 18 years old and legally allowed to view and submit adult-oriented content in your country.</p>
+                <p>By using the platform, you confirm that:</p>
+                <ul>
+                    <li>You are 18 or older.</li>
+                    <li>You have full legal capacity to enter into a binding contract.</li>
+                    <li>You are not using the platform in violation of any laws.</li>
+                </ul>
+            </div>
+
+            <div class="section">
+                <h2>3. Description of the service</h2>
+                <p>Softly Linked is a platform for adult creators and professionals to:</p>
+                <ul>
+                    <li>Submit collaboration requests ("Link Ups")</li>
+                    <li>Share scene ideas, collaborations proposals</li>
+                    <li>Be matched with adult content creators</li>
+                    <li>Facilitate collaborations between adult content creators</li>
+                </ul>
+            </div>
+
+            <div class="section">
+                <h2>4. Your responsibilities</h2>
+                <p>When creating a profile or submitting content, you agree to:</p>
+                <ul>
+                    <li>Provide accurate and truthful information</li>
+                    <li>Never impersonate another person or agency</li>
+                </ul>
+                <p>You remain fully responsible for everything you submit.</p>
+            </div>
+
+            <div class="section">
+                <h2>5. Content and usage rules</h2>
+                    <h4>Forbidden Content:</h4>
+                    <ul>
+                        <li>Any content involving minors (even fictional)</li>
+                        <li>Non-consensual content or revenge porn (even fictional)</li>
+                        <li>Criminal acts (even fictional)</li>
+                        <li>Animal abuse, necrophilia (even fictional)</li>
+                        <li>Personal information of others without consent (even fictional)</li>
+                    </ul>
+            </div>
+
+            <div class="section">
+                <h2>6. Moderation and takedowns</h2>
+                <p>We moderate all public collaboration submissions manually. We may:</p>
+                <ul>
+                    <li>Refuse to post your submission</li>
+                </ul>
+            </div>
+
+            <div class="section">
+                <h2>7. Matchmaking and visibility</h2>
+                <p>Matchmaking is done manually. Your submission may be:</p>
+                <ul>
+                    <li>Shown publicly on the Link Board</li>
+                    <li>Sent privately to another creator for review</li>
+                    <li>Stored temporarily for future matching</li>
+                </ul>
+                <p>We do not use algorithmic ranking or automated decisions.</p>
+            </div>
+
+            <div class="section">
+                <h2>8. Intellectual property</h2>
+                <p>You retain full ownership of the content you submit. By submitting it, you grant us a limited, non-exclusive right to:</p>
+                <ul>
+                    <li>Host and display your content on the site</li>
+                    <li>Share it with potential collaborators</li>
+                    <li>Promote the site using your public submission (with credit)</li>
+                </ul>
+                <p>You may withdraw this permission anytime by contacting us or deleting your submission.</p>
+            </div>
+
+            <div class="section">
+                <h2>9. Limitation of liability</h2>
+                <p>We provide the platform "as is," with no guarantee of success, income, or results.</p>
+                <p>We are not liable for:</p>
+                <ul>
+                    <li>Failed matches</li>
+                    <li>Disputes between creators</li>
+                    <li>Any harm caused by offline meetups</li>
+                    <li>Content shared by third parties</li>
+                </ul>
+            </div>
+
+            <div class="section">
+                <h2>10. Governing law</h2>
+                <p>These terms are governed by French law.</p>
+            </div>
+
+            <div class="section">
+                <h2>11. Contact</h2>
+                <p>If you have any questions or concerns:</p>
+                    <h3>Contact Information</h3>
+                    <p>Email: contact@softlylinked.net</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-links">
+                <a href="/">Home</a>
+                <a href="/linkboard">The Link Board</a>
+                <a href="/ressources">Resources</a>
+                <a href="/privacy-policy">Privacy Policy</a>
+                <a href="/terms-of-use">Terms of Use</a>
+                <a href="mailto:contact@softlylinked.net">Contact</a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu toggle
+        function initializeMobileMenu() {
+            const mobileToggle = document.getElementById('mobileToggle');
+            const navMenu = document.getElementById('navMenu');
+            
+            if (!mobileToggle || !navMenu) return;
+            
+            mobileToggle.addEventListener('click', () => {
+                mobileToggle.classList.toggle('active');
+                navMenu.classList.toggle('active');
+            });
+            
+            // Close mobile menu when clicking outside
+            document.addEventListener('click', (e) => {
+                if (!mobileToggle.contains(e.target) && !navMenu.contains(e.target)) {
+                    mobileToggle.classList.remove('active');
+                    navMenu.classList.remove('active');
+                }
+            });
+            
+            // Close mobile menu when clicking a nav link
+            document.querySelectorAll('.nav-link').forEach(link => {
+                link.addEventListener('click', () => {
+                    mobileToggle.classList.remove('active');
+                    navMenu.classList.remove('active');
+                });
+            });
+        }
+
+        // Placeholder for modal function
+        function openShootShotModal() {
+            alert('Submit a Link Up modal would open here');
+        }
+
+        // Initialize when DOM is loaded
+        document.addEventListener('DOMContentLoaded', function() {
+            initializeMobileMenu();
+            console.log('Terms of Use page initialized');
+        });
+    </script>
+</body>
+</html>
