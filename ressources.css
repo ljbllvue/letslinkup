@@ -325,7 +325,7 @@ body {
 }
 
 .accordion-item.active .accordion-content {
-    max-height: 1500px; 
+    max-height: 1800px; 
 }
 
 .content-text {
@@ -1111,6 +1111,7 @@ html {
         gap: 1rem;
     }
 }
+
 
 
 
