@@ -1,3 +1,5 @@
+
+
 // Age Gate Protection Script for all pages
 (function() {
     'use strict';
@@ -140,33 +142,32 @@
 
 
 
-
 // Accordion toggle functionality
-function toggleAccordion(item) {
-  const content = item.querySelector('.accordion-content');
-  const isOpen  = item.classList.contains('active');
-
-  // close all others
-  document.querySelectorAll('.accordion-item.active').forEach(el => {
-    if (el !== item) {
-      el.classList.remove('active');
-      const c = el.querySelector('.accordion-content');
-      if (c) c.style.maxHeight = null;
+function toggleAccordion(element) {
+    const isActive = element.classList.contains('active');
+    
+    // Close all other accordion items with smooth animation
+    document.querySelectorAll('.accordion-item.active').forEach(item => {
+        if (item !== element) {
+            item.classList.remove('active');
+        }
+    });
+    
+    // Toggle current item
+    if (isActive) {
+        element.classList.remove('active');
+    } else {
+        element.classList.add('active');
+        
+        // Smooth scroll to center the opened item
+        setTimeout(() => {
+            element.scrollIntoView({
+                behavior: 'smooth',
+                block: 'center'
+            });
+        }, 100);
     }
-  });
-
-  if (isOpen) {
-    item.classList.remove('active');
-    if (content) content.style.maxHeight = null;
-  } else {
-    item.classList.add('active');
-    if (content) content.style.maxHeight = content.scrollHeight + 'px';
-    // optional small delay so the panel has height before we scroll
-    setTimeout(() =>
-      item.scrollIntoView({ behavior: 'smooth', block: 'center' }), 150);
-  }
 }
-
 
 // Mobile menu functionality
 function initializeMobileMenu() {
@@ -232,9 +233,7 @@ function initializeKeyboardNavigation() {
 }
 
 // Add accessibility support to accordion items
-function initializeAccordionAccessibility() 
-initializeAccordionClicks()        // ← added
-{
+function initializeAccordionAccessibility() {
     const accordionItems = document.querySelectorAll('.accordion-item');
     
     accordionItems.forEach((item, index) => {
@@ -245,27 +244,6 @@ initializeAccordionClicks()        // ← added
                 toggleAccordion(item);
             }
         });
-
-
-// add this right after initializeAccordionAccessibility()
-function initializeAccordionClicks() {
-  document.querySelectorAll('.accordion-header').forEach(header => {
-    const item = header.closest('.accordion-item');
-    if (!item) return;
-
-    header.addEventListener('click', () => toggleAccordion(item));
-    header.addEventListener('keydown', e => {
-      if (e.key === 'Enter' || e.key === ' ') {
-        e.preventDefault();
-        toggleAccordion(item);
-      }
-    });
-  });
-}
-
-
-
-        
         
         // Make items focusable for accessibility
         item.setAttribute('tabindex', '0');
@@ -298,8 +276,7 @@ function initializeServiceButtons() {
             // Add ripple effect
             const ripple = document.createElement('span');
             const rect = this.getBoundingClientRect();
-       
-     const size = Math.max(rect.width, rect.height);
+            const size = Math.max(rect.width, rect.height);
             const x = e.clientX - rect.left - size / 2;
             const y = e.clientY - rect.top - size / 2;
             
@@ -316,7 +293,8 @@ function initializeServiceButtons() {
                 pointer-events: none;
             `;
             
-            this.style.position = 'relative';
+            this.style.position
+ = 'relative';
             this.style.overflow = 'hidden';
             this.appendChild(ripple);
             
@@ -590,7 +568,6 @@ function initializeShootYourShotCheckboxes() {
             checkboxes.forEach(checkbox => {
                 checkbox.addEventListener('change', () => {
                     const selectedValues = Array.from(checkboxes)
-
                         .filter(cb => cb.checked)
                         .map(cb => cb.value);
                     hiddenField.value = selectedValues.join(', ');
@@ -610,6 +587,7 @@ function initializeNewsletterForm() {
 
     const emailInput = form.querySelector('input[name="email"]');
     const gdprCheckbox = document.getElementById('gdprConsent');
+
     const submitButton = form.querySelector('button[type="submit"]');
 
     if (!emailInput || !gdprCheckbox || !submitButton) return;
@@ -785,15 +763,5 @@ if (typeof module !== 'undefined' && module.exports) {
         initializeShootYourShotForm
     };
 }
-
-
-
-
-
-
-
-
-
-
 
 
