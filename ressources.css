@@ -265,7 +265,7 @@ body {
 }
 
 .accordion-title h3 {
-    font-size: 1.1rem;
+    font-size: 1.4rem;
     font-weight: 500;
     margin: 0;
     margin-bottom: 0.25rem;
@@ -274,7 +274,7 @@ body {
 }
 
 .accordion-title h4 {
-    font-size: 1rem; 
+    font-size: 1.2rem; 
     color: #c7aee9;
     line-height: 1.4rem;
 }
@@ -1117,6 +1117,7 @@ html {
         gap: 1rem;
     }
 }
+
 
 
 
