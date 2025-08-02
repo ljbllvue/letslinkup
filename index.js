@@ -1,16 +1,34 @@
-// Age Gate Protection Script
 
+// Age Gate Protection Script got all pages
 (function() {
     'use strict';
     
     // Configuration
     const AGE_GATE_CONFIG = {
         ageGatePage: '/age-gate',      // Clean URL without .html
-        mainPage: '/',                 // Clean URL for homepage
         sessionKey: 'ageVerified',     // SessionStorage key
         cookieKey: 'age_verified',     // Cookie key (optional, for longer persistence)
-        cookieExpiryDays: 30          // Cookie expiry in days
+        cookieExpiryDays: 30,          // Cookie expiry in days
+        returnUrl: 'age_gate_return'   // SessionStorage key for return URL
     };
+
+    // Get current page URL (for returning after verification)
+    function getCurrentPageUrl() {
+        return window.location.pathname + window.location.search;
+    }
+
+    // Store where user should return after age verification
+    function storeReturnUrl() {
+        sessionStorage.setItem(AGE_GATE_CONFIG.returnUrl, getCurrentPageUrl());
+    }
+
+    // Get stored return URL
+    function getReturnUrl() {
+        const returnUrl = sessionStorage.getItem(AGE_GATE_CONFIG.returnUrl);
+        // Clear it after getting it
+        sessionStorage.removeItem(AGE_GATE_CONFIG.returnUrl);
+        return returnUrl || '/'; // Default to homepage if no return URL
+    }
 
     // Check if current page is the age gate itself
     function isAgeGatePage() {
@@ -58,11 +76,14 @@
     // Clear age verification (useful for testing or logout)
     function clearAgeVerification() {
         sessionStorage.removeItem(AGE_GATE_CONFIG.sessionKey);
+        sessionStorage.removeItem(AGE_GATE_CONFIG.returnUrl);
         setCookie(AGE_GATE_CONFIG.cookieKey, '', -1); // Delete cookie
     }
 
     // Redirect to age gate
     function redirectToAgeGate() {
+        // Store current page so user can return here after verification
+        storeReturnUrl();
         window.location.href = AGE_GATE_CONFIG.ageGatePage;
     }
 
@@ -100,7 +121,8 @@
         check: checkAgeGate,
         setVerified: setAgeVerified,
         clearVerification: clearAgeVerification,
-        isVerified: isAgeVerified
+        isVerified: isAgeVerified,
+        getReturnUrl: getReturnUrl
     };
 
     // Auto-initialize when DOM is ready
@@ -110,12 +132,8 @@
         initAgeGate();
     }
 
-    console.log('Age gate protection initialized');
+    console.log('Age gate protection initialized for:', getCurrentPageUrl());
 })();
-
-
-
-
 
 
 
@@ -540,6 +558,7 @@ document.addEventListener('DOMContentLoaded', function() {
     
     console.log('Softly Linked website initialized successfully!');
 });
+
 
 
 
