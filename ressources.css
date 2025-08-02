@@ -324,9 +324,9 @@ body {
     background: rgba(0, 0, 0, 0.02);
 }
 
-.accordion-item.active .accordion-content {
+/*.accordion-item.active .accordion-content {
     max-height: 600px;
-}
+}*/
 
 .content-text {
     padding: 0 2rem 1.5rem 2rem;
@@ -1111,3 +1111,4 @@ html {
         gap: 1rem;
     }
 }
+
