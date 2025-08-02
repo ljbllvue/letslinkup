@@ -1,4 +1,4 @@
-// Age Gate Protection Script for all pages
+ Age Gate Protection Script for all pages
 (function() {
     'use strict';
     
@@ -134,105 +134,37 @@
     console.log('Age gate protection initialized for:', getCurrentPageUrl());
 })();
 
-// =============================================================================
-// ACCORDION FUNCTIONALITY - FIXED VERSION
-// =============================================================================
 
-// Main accordion toggle function
-function toggleAccordion(item) {
-    const content = item.querySelector('.accordion-content');
-    const isOpen = item.classList.contains('active');
 
-    // Close all other accordion items
-    document.querySelectorAll('.accordion-item.active').forEach(el => {
-        if (el !== item) {
-            el.classList.remove('active');
-            const c = el.querySelector('.accordion-content');
-            if (c) {
-                c.style.maxHeight = null;
-            }
+
+
+
+
+// Accordion toggle functionality
+function toggleAccordion(element) {
+    const isActive = element.classList.contains('active');
+    
+    // Close all other accordion items with smooth animation
+    document.querySelectorAll('.accordion-item.active').forEach(item => {
+        if (item !== element) {
+            item.classList.remove('active');
         }
     });
-
+    
     // Toggle current item
-    if (isOpen) {
-        item.classList.remove('active');
-        if (content) {
-            content.style.maxHeight = null;
-        }
+    if (isActive) {
+        element.classList.remove('active');
     } else {
-        item.classList.add('active');
-        if (content) {
-            content.style.maxHeight = content.scrollHeight + 'px';
-        }
-        // Scroll to view after opening
+        element.classList.add('active');
+        
+        // Smooth scroll to center the opened item
         setTimeout(() => {
-            item.scrollIntoView({ behavior: 'smooth', block: 'center' });
-        }, 150);
-    }
-}
-
-// Initialize accordion functionality
-function initializeAccordion() {
-    // Set up click handlers for accordion headers
-    document.querySelectorAll('.accordion-header').forEach(header => {
-        const item = header.closest('.accordion-item');
-        if (!item) return;
-
-        // Remove any existing event listeners by cloning the element
-        const newHeader = header.cloneNode(true);
-        header.parentNode.replaceChild(newHeader, header);
-
-        // Add click event listener
-        newHeader.addEventListener('click', (e) => {
-            e.preventDefault();
-            toggleAccordion(item);
-        });
-
-        // Add keyboard support
-        newHeader.addEventListener('keydown', (e) => {
-            if (e.key === 'Enter' || e.key === ' ') {
-                e.preventDefault();
-                toggleAccordion(item);
-            }
-        });
-    });
-
-    // Set up accessibility attributes
-    document.querySelectorAll('.accordion-item').forEach(item => {
-        // Make items focusable for accessibility
-        item.setAttribute('tabindex', '0');
-        item.setAttribute('role', 'button');
-        item.setAttribute('aria-expanded', 'false');
-        
-        // Update aria-expanded when accordion state changes
-        const observer = new MutationObserver((mutations) => {
-            mutations.forEach((mutation) => {
-                if (mutation.type === 'attributes' && mutation.attributeName === 'class') {
-                    const isActive = item.classList.contains('active');
-                    item.setAttribute('aria-expanded', isActive);
-                }
+            element.scrollIntoView({
+                behavior: 'smooth',
+                block: 'center'
             });
-        });
-        
-        observer.observe(item, { attributes: true });
-
-        // Add direct click handler to the item as well
-        item.addEventListener('click', (e) => {
-            // Only trigger if the click wasn't on the header (to avoid double triggering)
-            if (!e.target.closest('.accordion-header')) {
-                toggleAccordion(item);
-            }
-        });
-
-        // Add keyboard support to the item
-        item.addEventListener('keydown', (e) => {
-            if (e.key === 'Enter' || e.key === ' ') {
-                e.preventDefault();
-                toggleAccordion(item);
-            }
-        });
-    });
+        }, 100);
+    }
 }
 
 // Mobile menu functionality
@@ -281,10 +213,6 @@ function initializeKeyboardNavigation() {
             // Close all FAQ items
             document.querySelectorAll('.accordion-item.active').forEach(item => {
                 item.classList.remove('active');
-                const content = item.querySelector('.accordion-content');
-                if (content) {
-                    content.style.maxHeight = null;
-                }
             });
             
             // Close mobile menu
@@ -299,6 +227,38 @@ function initializeKeyboardNavigation() {
             // Close modals
             closeShootShotModal();
         }
+    });
+}
+
+// Add accessibility support to accordion items
+function initializeAccordionAccessibility() {
+    const accordionItems = document.querySelectorAll('.accordion-item');
+    
+    accordionItems.forEach((item, index) => {
+        // Add keyboard support
+        item.addEventListener('keydown', (e) => {
+            if (e.key === 'Enter' || e.key === ' ') {
+                e.preventDefault();
+                toggleAccordion(item);
+            }
+        });
+        
+        // Make items focusable for accessibility
+        item.setAttribute('tabindex', '0');
+        item.setAttribute('role', 'button');
+        item.setAttribute('aria-expanded', 'false');
+        
+        // Update aria-expanded when accordion state changes
+        const observer = new MutationObserver((mutations) => {
+            mutations.forEach((mutation) => {
+                if (mutation.type === 'attributes' && mutation.attributeName === 'class') {
+                    const isActive = item.classList.contains('active');
+                    item.setAttribute('aria-expanded', isActive);
+                }
+            });
+        });
+        
+        observer.observe(item, { attributes: true });
     });
 }
 
@@ -331,7 +291,8 @@ function initializeServiceButtons() {
                 pointer-events: none;
             `;
             
-            this.style.position = 'relative';
+            this.style.position
+ = 'relative';
             this.style.overflow = 'hidden';
             this.appendChild(ripple);
             
@@ -345,12 +306,15 @@ function initializeServiceButtons() {
                 case 'Get coaching':
                 case 'Get Coaching':
                     console.log('Coaching service requested');
+                    // Add your coaching service logic here
                     break;
                 case 'Get Certified':
                     console.log('Certification requested');
+                    // Add your certification logic here
                     break;
                 case 'Learn More':
                     console.log('Learn more about intimacy coordination');
+                    // Add your learn more logic here
                     break;
                 default:
                     console.log('Service button clicked:', buttonText);
@@ -398,6 +362,29 @@ function initializeIntersectionObserver() {
     // Observe all animated elements
     document.querySelectorAll('.accordion-item, .service-card').forEach(el => {
         observer.observe(el);
+    });
+}
+
+// Smooth scrolling enhancement
+function enhanceScrolling() {
+    const accordionItems = document.querySelectorAll('.accordion-item');
+    
+    accordionItems.forEach(item => {
+        item.addEventListener('click', function() {
+            // Add a slight delay to ensure the accordion opens first
+            setTimeout(() => {
+                const rect = this.getBoundingClientRect();
+                const isInView = rect.top >= 0 && rect.bottom <= window.innerHeight;
+                
+                // Only scroll if the item is not fully in view
+                if (!isInView) {
+                    this.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'center'
+                    });
+                }
+            }, 300);
+        });
     });
 }
 
@@ -458,18 +445,7 @@ function updateCurrentMonth() {
     });
 }
 
-// Initialize modal close handlers
-function initializeModalCloseHandlers() {
-    // Close modal when clicking outside
-    document.addEventListener('click', (e) => {
-        const modal = document.getElementById('shootShotModal');
-        if (modal && e.target === modal) {
-            closeShootShotModal();
-        }
-    });
-}
-
-// Handle Shoot Your Shot form submission with proper checkbox handling
+// FIXED: Handle Shoot Your Shot form submission with proper checkbox handling
 function initializeShootYourShotForm() {
     const form = document.getElementById('shootShotForm');
     if (!form) return;
@@ -609,6 +585,7 @@ function initializeNewsletterForm() {
 
     const emailInput = form.querySelector('input[name="email"]');
     const gdprCheckbox = document.getElementById('gdprConsent');
+
     const submitButton = form.querySelector('button[type="submit"]');
 
     if (!emailInput || !gdprCheckbox || !submitButton) return;
@@ -696,6 +673,11 @@ function initializeNewsletterForm() {
     validateForm();
 }
 
+
+
+// Close modal when clicking outside
+
+
 // =============================================================================
 // WINDOW RESIZE HANDLER
 // =============================================================================
@@ -713,11 +695,6 @@ function handleWindowResize() {
                 document.body.style.overflow = '';
             }
         }
-        
-        // Recalculate accordion heights on resize
-        document.querySelectorAll('.accordion-item.active .accordion-content').forEach(content => {
-            content.style.maxHeight = content.scrollHeight + 'px';
-        });
     });
 }
 
@@ -732,12 +709,13 @@ document.addEventListener('DOMContentLoaded', function() {
     // Initialize core functionality
     initializeMobileMenu();
     initializeKeyboardNavigation();
-    initializeAccordion(); // Fixed accordion initialization
+    initializeAccordionAccessibility();
     initializeServiceButtons();
     
     // Initialize enhanced features
     initializeHeaderScrollEffects();
     initializeIntersectionObserver();
+    enhanceScrolling();
     handleWindowResize();
     
     // Initialize modal functionality
@@ -777,9 +755,31 @@ if (typeof module !== 'undefined' && module.exports) {
         closeShootShotModal,
         initializeMobileMenu,
         initializeKeyboardNavigation,
-        initializeAccordion,
+        initializeAccordionAccessibility,
         initializeServiceButtons,
         initializeNewsletterForm,
         initializeShootYourShotForm
     };
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
