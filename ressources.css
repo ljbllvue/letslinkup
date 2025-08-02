@@ -273,10 +273,15 @@ body {
     color: #000;
 }
 
+.accordion-title h4 {
+    font-size: 1rem; 
+    color: #c7aee9;
+    line-height: 1.4rem;
+
 .accordion-title p {
     color: #666;
     font-size: 0.9rem;
-    line-height: 1.4;
+    line-height: 1.2rem;
     margin: 0;
 }
 
@@ -325,7 +330,7 @@ body {
 }
 
 .accordion-item.active .accordion-content {
-    max-height: 1800px; 
+    max-height: 2000px; 
 }
 
 .content-text {
@@ -1111,6 +1116,7 @@ html {
         gap: 1rem;
     }
 }
+
 
 
 
