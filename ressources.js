@@ -1,5 +1,4 @@
 // Age Gate Protection Script
-// Add this to the beginning of your existing index.js or in a separate script tag
 
 (function() {
     'use strict';
@@ -743,5 +742,6 @@ if (typeof module !== 'undefined' && module.exports) {
         initializeShootYourShotForm
     };
 }
+
 
 
