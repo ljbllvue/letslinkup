@@ -7,7 +7,7 @@
     // Configuration
     const AGE_GATE_CONFIG = {
         ageGatePage: '/age-gate',      // Clean URL without .html
-        mainPage: '/',                 // Clean URL for homepage
+        mainPage: '/linkboard',                 // Clean URL for homepage
         sessionKey: 'ageVerified',     // SessionStorage key
         cookieKey: 'age_verified',     // Cookie key (optional, for longer persistence)
         cookieExpiryDays: 30          // Cookie expiry in days
