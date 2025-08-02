@@ -1,3 +1,135 @@
+// Age Gate Protection Script
+// Add this to the beginning of your existing index.js or in a separate script tag
+
+(function() {
+    'use strict';
+    
+    // Configuration
+    const AGE_GATE_CONFIG = {
+        ageGatePage: '/age-gate',      // Clean URL without .html
+        mainPage: '/',                 // Clean URL for homepage
+        sessionKey: 'ageVerified',     // SessionStorage key
+        cookieKey: 'age_verified',     // Cookie key (optional, for longer persistence)
+        cookieExpiryDays: 30          // Cookie expiry in days
+    };
+
+    // Check if current page is the age gate itself
+    function isAgeGatePage() {
+        return window.location.pathname.includes('age-gate') || 
+               window.location.pathname.includes('age_gate');
+    }
+
+    // Check if user has been age verified
+    function isAgeVerified() {
+        // Check sessionStorage first (expires when tab closes)
+        const sessionVerified = sessionStorage.getItem(AGE_GATE_CONFIG.sessionKey);
+        
+        // Optional: Check cookie for longer persistence
+        const cookieVerified = getCookie(AGE_GATE_CONFIG.cookieKey);
+        
+        return sessionVerified === 'true' || cookieVerified === 'true';
+    }
+
+    // Set age verification
+    function setAgeVerified() {
+        sessionStorage.setItem(AGE_GATE_CONFIG.sessionKey, 'true');
+        
+        // Optional: Set cookie for longer persistence
+        setCookie(AGE_GATE_CONFIG.cookieKey, 'true', AGE_GATE_CONFIG.cookieExpiryDays);
+    }
+
+    // Cookie helper functions
+    function setCookie(name, value, days) {
+        const expires = new Date();
+        expires.setTime(expires.getTime() + (days * 24 * 60 * 60 * 1000));
+        document.cookie = `${name}=${value};expires=${expires.toUTCString()};path=/;SameSite=Strict`;
+    }
+
+    function getCookie(name) {
+        const nameEQ = name + "=";
+        const ca = document.cookie.split(';');
+        for (let i = 0; i < ca.length; i++) {
+            let c = ca[i];
+            while (c.charAt(0) === ' ') c = c.substring(1, c.length);
+            if (c.indexOf(nameEQ) === 0) return c.substring(nameEQ.length, c.length);
+        }
+        return null;
+    }
+
+    // Clear age verification (useful for testing or logout)
+    function clearAgeVerification() {
+        sessionStorage.removeItem(AGE_GATE_CONFIG.sessionKey);
+        setCookie(AGE_GATE_CONFIG.cookieKey, '', -1); // Delete cookie
+    }
+
+    // Redirect to age gate
+    function redirectToAgeGate() {
+        window.location.href = AGE_GATE_CONFIG.ageGatePage;
+    }
+
+    // Main age gate check function
+    function checkAgeGate() {
+        // Skip check if we're already on the age gate page
+        if (isAgeGatePage()) {
+            return;
+        }
+
+        // Skip check if user is already verified
+        if (isAgeVerified()) {
+            return;
+        }
+
+        // Redirect to age gate if not verified
+        redirectToAgeGate();
+    }
+
+    // Initialize age gate protection
+    function initAgeGate() {
+        // Run check immediately
+        checkAgeGate();
+
+        // Also check when page becomes visible (tab switching)
+        document.addEventListener('visibilitychange', function() {
+            if (!document.hidden) {
+                checkAgeGate();
+            }
+        });
+    }
+
+    // Expose functions globally for manual control if needed
+    window.ageGate = {
+        check: checkAgeGate,
+        setVerified: setAgeVerified,
+        clearVerification: clearAgeVerification,
+        isVerified: isAgeVerified
+    };
+
+    // Auto-initialize when DOM is ready
+    if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', initAgeGate);
+    } else {
+        initAgeGate();
+    }
+
+    console.log('Age gate protection initialized');
+})();
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 // Sample data for Link Ups - UPDATED WITH CORRECT GENDER TERMINOLOGY
 const linkUps = [
     {
