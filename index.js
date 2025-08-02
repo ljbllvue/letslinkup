@@ -6,8 +6,8 @@
     
     // Configuration
     const AGE_GATE_CONFIG = {
-        ageGatePage: '/age-gate.html', // Path to your age gate page
-        mainPage: '/index.html',       // Your main page
+        ageGatePage: '/age-gate',      // Clean URL without .html
+        mainPage: '/',                 // Clean URL for homepage
         sessionKey: 'ageVerified',     // SessionStorage key
         cookieKey: 'age_verified',     // Cookie key (optional, for longer persistence)
         cookieExpiryDays: 30          // Cookie expiry in days
@@ -113,9 +113,6 @@
 
     console.log('Age gate protection initialized');
 })();
-
-
-
 
 
 
@@ -544,4 +541,5 @@ document.addEventListener('DOMContentLoaded', function() {
     
     console.log('Softly Linked website initialized successfully!');
 });
+
 
