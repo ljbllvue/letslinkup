@@ -273,8 +273,10 @@ body {
     color: #000;
 }
 
-.h4 {
-    font-size: 1.2rem; 
+
+
+.content-text h4 {
+    font-size: 1.2rem;
     color: #c7aee9;
     line-height: 1.4rem;
 }
@@ -1117,6 +1119,7 @@ html {
         gap: 1rem;
     }
 }
+
 
 
 
