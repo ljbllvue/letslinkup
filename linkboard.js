@@ -152,26 +152,26 @@
 const linkUps = [
     {
         id: 1,
-        creator: "Miss Kiskeya",
+        creator : "Miss Kiskeya",
         type: "Creator",
-        platforms: ["Clips4Sale", "LoyalFans", "ManyVids"],
-        gender: "Woman",
-        location: "Berlin",
-        followers: "1200",
-        followerCount: 1000,
-        experience: "Experienced",
-        contentTypes: ["G/G", "Femdom", "Fetish"],
-        lookingFor: ["Woman", "Non-binary"],
-        sceneTypes: ["No PIV", "No sex"],
-        tags: ["kinky", "gg", "fetish", "femdom"],
-        canHost: "Yes",
-        hostingCost: "Covered",
-        requirements: "",
-        sceneSummary: "Looking to film hot femdom scenes with queer women involving role-play...",
-        shootDates: "Available from 25 Sept – 21 Oct",
-        shootMonth: "2025-10",
-        socialLinks: {
-            twitter: "@misskiskeya"
+        platforms : ["Clips4Sale", "LoyalFans", "ManyVids"],
+        gender : "Woman",
+        location : "Berlin",
+        followers : "1200",
+        followerCount : 1000,
+        experience : "Experienced",
+        contentTypes : ["G/G", "Femdom", "Fetish"],
+        lookingFor : ["Woman", "Non-binary"],
+        sceneTypes : ["No PIV", "No sex"],
+        tags : ["kinky", "gg", "fetish", "femdom"],
+        canHost : "Yes",
+        hostingCost : "Covered",
+        requirements : "",
+        sceneSummary : "Looking to film hot femdom scenes with queer women involving role-play...",
+        shootDates : "Available from 25 Sept – 21 Oct",
+        shootMonth : "2025-10",
+        socialLinks : {
+        twitter : "@misskiskeya"
         }
     },
     {
