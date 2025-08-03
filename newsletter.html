@@ -1,0 +1,551 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Newsletter - Softly Linked</title>
+    <link rel="icon" type="image/png" href="logo1.png">
+    <link rel="apple-touch-icon" href="logo1.png">
+    <link rel="shortcut icon" href="logo1.png">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            background: radial-gradient(#ffffff 70%, #c5b0e5 100%);
+            color: #000000;
+            line-height: 1.6;
+            min-height: 100vh;
+            padding: 100px 20px 0;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header */
+        .header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(20px);
+            z-index: 1000;
+            border-bottom: 1px solid #e5e5e5;
+            transition: all 0.3s ease;
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 24px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 80px;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: 700;
+            letter-spacing: -0.02em;
+            text-decoration: none;
+            color: #000;
+            transition: opacity 0.2s ease;
+        }
+
+        .logo:hover {
+            opacity: 0.8;
+        }
+
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            gap: 40px;
+            align-items: center;
+        }
+
+        .nav-link {
+            text-decoration: none;
+            color: #000;
+            font-weight: 500;
+            font-size: 16px;
+            transition: all 0.2s ease;
+            position: relative;
+        }
+
+        .nav-link:hover {
+            color: #c5b0e5;
+        }
+
+        .nav-link.cta {
+            background: #A860FF;
+            background: linear-gradient(rgba(168, 96, 255, 1) 0%, rgba(171, 154, 239, 1) 0%, rgba(192, 172, 237, 0.26) 42%, rgba(206, 183, 236, 0.49) 70%, rgba(242, 232, 254, 1) 100%);
+            padding: 12px 24px;
+            border-radius: 24px;
+            border: transparent;
+            font-weight: 500;
+            cursor: pointer; 
+        }
+
+        .nav-link.cta:hover {
+            background: #333;
+            color: #fff;
+        }
+
+        /* Newsletter Section */
+        .newsletter-section {
+            margin-top: 2rem;
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeInUp 0.8s ease 0.4s forwards;
+            min-height: 70vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .newsletter-container {
+            max-width: 600px;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.9);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(0, 0, 0, 0.1);
+            border-radius: 24px;
+            padding: 3rem;
+            text-align: center;
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.1);
+            transform: translateY(20px);
+            opacity: 0;
+            animation: slideInUp 0.8s ease 0.2s forwards;
+        }
+
+        .newsletter-header h1 {
+            font-size: clamp(2rem, 4vw, 2.5rem);
+            font-weight: 700;
+            letter-spacing: -0.02em;
+            margin-bottom: 1rem;
+            color: #000000;
+        }
+
+        .newsletter-header p {
+            font-size: 1.1rem;
+            color: #666;
+            margin-bottom: 2rem;
+            line-height: 1.5;
+        }
+
+        .benefits-list {
+            text-align: left;
+            margin: 2rem 0;
+            background: #f9f9f9;
+            border-radius: 16px;
+            padding: 2rem;
+        }
+
+        .benefits-list h3 {
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            color: #c5b0e5;
+            text-align: center;
+        }
+
+        .benefit-item {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 1rem;
+            gap: 12px;
+        }
+
+        .benefit-item:last-child {
+            margin-bottom: 0;
+        }
+
+        .benefit-icon {
+            background: transparent;
+            border-radius: 50%;
+            width: 24px;
+            height: 24px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.8rem;
+            flex-shrink: 0;
+            margin-top: 2px;
+        }
+
+        .benefit-text {
+            color: #666;
+            font-size: 0.95rem;
+            line-height: 1.4;
+        }
+
+        /* Newsletter Form */
+        .newsletter-form {
+            margin-top: 2rem;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 500;
+            color: #000000;
+            text-align: left;
+        }
+
+        .form-input {
+            width: 100%;
+            padding: 14px 16px;
+            border: 2px solid #e5e5e5;
+            border-radius: 12px;
+            font-size: 1rem;
+            font-family: inherit;
+            transition: border-color 0.2s ease;
+        }
+
+        .form-input:focus {
+            outline: none;
+            border-color: #c5b0e5;
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 16px;
+        }
+
+        .submit-btn {
+            width: 100%;
+            background: #000000;
+            color: #ffffff;
+            border: none;
+            padding: 16px 24px;
+            border-radius: 12px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin-top: 1rem;
+        }
+
+        .submit-btn:hover {
+            background: #333333;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        /* GDPR Consent */
+        .gdpr-consent {
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+            margin-top: 1.5rem;
+            text-align: left;
+        }
+
+        .gdpr-checkbox {
+            display: none;
+        }
+
+        .gdpr-label {
+            display: flex;
+            align-items: flex-start;
+            cursor: pointer;
+            user-select: none;
+            gap: 12px;
+            line-height: 1.4;
+        }
+
+        .gdpr-checkmark {
+            flex-shrink: 0;
+            width: 20px;
+            height: 20px;
+            border: 2px solid #d1d5db;
+            border-radius: 4px;
+            background-color: #ffffff;
+            position: relative;
+            transition: all 0.2s ease;
+            margin-top: 2px;
+        }
+
+        .gdpr-checkbox:checked + .gdpr-label .gdpr-checkmark {
+            background-color: #000000;
+            border-color: #000000;
+        }
+
+        .gdpr-checkbox:checked + .gdpr-label .gdpr-checkmark::after {
+            content: '';
+            position: absolute;
+            left: 5px;
+            top: 1px;
+            width: 6px;
+            height: 10px;
+            border: solid #ffffff;
+            border-width: 0 2px 2px 0;
+            transform: rotate(45deg);
+        }
+
+        .gdpr-text {
+            font-size: 0.9rem;
+            color: #666666;
+            flex: 1;
+        }
+
+        .privacy-link {
+            color: #c5b0e5;
+            text-decoration: underline;
+        }
+
+        .privacy-link:hover {
+            opacity: 0.8;
+        }
+
+        /* Frequency Options */
+        .frequency-options {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+            gap: 12px;
+            margin-top: 8px;
+        }
+
+        .frequency-item {
+            display: flex;
+            align-items: center;
+        }
+
+        .frequency-radio {
+            display: none;
+        }
+
+        .frequency-label {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            user-select: none;
+            width: 100%;
+            padding: 12px 16px;
+            border: 2px solid #e5e5e5;
+            border-radius: 8px;
+            transition: all 0.2s ease;
+            background-color: #ffffff;
+            font-size: 0.9rem;
+            font-weight: 500;
+        }
+
+        .frequency-label:hover {
+            border-color: #d1d1d1;
+            background-color: #f9f9f9;
+        }
+
+        .frequency-radio:checked + .frequency-label {
+            background-color: #000000;
+            border-color: #000000;
+            color: #ffffff;
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes slideInUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Mobile Responsiveness */
+        @media (max-width: 768px) {
+            body {
+                padding: 80px 16px 0;
+            }
+
+            .newsletter-container {
+                padding: 2rem 1.5rem;
+                margin: 1rem;
+            }
+
+            .form-row {
+                grid-template-columns: 1fr;
+            }
+
+            .frequency-options {
+                grid-template-columns: 1fr;
+            }
+
+            .nav-menu {
+                display: none;
+            }
+        }
+
+        /* Footer */
+        .footer {
+            background-color: #000000;
+            color: #ffffff;
+            padding: 4rem 0 2rem;
+            width: 100vw;
+            margin-left: calc(-50vw + 50%);
+            margin-bottom: 0;
+            margin-top: 2rem;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 2rem;
+        }
+
+        .footer-links {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            flex-wrap: wrap;
+            text-decoration: none; 
+            gap: 2rem;
+        }
+
+        .footer-links a {
+            color: #ffffff;
+            text-decoration: none;
+            transition: opacity 0.3s ease;
+        }
+
+        .footer-links a:hover {
+            opacity: 0.7;
+            color: #c5b0e5;
+        }
+
+        @media (max-width: 768px) {
+            .footer-content {
+                text-align: center;
+            }
+
+            .footer-links {
+                flex-direction: row;
+                justify-content: center;
+                gap: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <div class="container">
+        <header class="header">
+            <nav class="nav-container">
+                <div class="logo">
+                    <a href="index.html"><img src="logo1.png"></a>
+                </div>
+                <ul class="nav-menu">
+                    <li><a href="index.html" class="nav-link">Home</a></li>
+                    <li><a href="linkboard.html" class="nav-link">Explore</a></li>
+                    <li><a href="ressources.html" class="nav-link">Read this</a></li>
+                    <li><a href="mailto:contact@softlylinked.net" class="nav-link">Contact</a></li>
+                    <li><button class="nav-link cta">Submit a Link Up</button></li>
+                </ul>
+            </nav>
+        </header>
+
+        <!-- Newsletter Section -->
+        <section class="newsletter-section">
+            <div class="newsletter-container">
+                <div class="newsletter-header">
+                    <h1>Join the community</h1>
+                </div>
+
+                <div class="benefits-list">
+                    <h3>Receive in your inbox :</h3>
+                    <div class="benefit-item">
+                        <div class="benefit-icon">🟣</div>
+                        <div class="benefit-text">
+                            <strong>Exclusive collaboration strategies</strong> - Pro tips for successful adult content partnerships
+                        </div>
+                    </div>
+                    <div class="benefit-item">
+                        <div class="benefit-icon">🟣</div>
+                        <div class="benefit-text">
+                            <strong>Industry insights</strong> - Latest trends and opportunities in adult content creation
+                        </div>
+                    </div>
+                    <div class="benefit-item">
+                        <div class="benefit-icon">🟣</div>
+                        <div class="benefit-text">
+                            <strong>Safety & business tips</strong> - Essential guidance for professional content creation
+                        </div>
+                    </div>
+                </div>
+
+                <form class="newsletter-form" name="newsletter-signup" method="POST" action="/subscribed" data-netlify="true" netlify-honeypot="bot-field">
+                    <input type="hidden" name="form-name" value="newsletter-signup" />
+                    
+                    <div style="display: none;">
+                        <label>Don't fill this out if you're human: 
+                            <input name="bot-field" />
+                        </label>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label class="form-label" for="firstName">First Name</label>
+                            <input type="text" id="firstName" name="firstName" class="form-input" required>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label" for="email">Email Address</label>
+                        <input type="email" id="email" name="email" class="form-input" placeholder="your@email.com" required>
+                    </div>
+                  
+                    <div class="gdpr-consent">
+                        <input type="checkbox" id="gdprConsent" name="gdprConsent" class="gdpr-checkbox" required>
+                        <label for="gdprConsent" class="gdpr-label">
+                            <span class="gdpr-checkmark"></span>
+                            <span class="gdpr-text">I agree to receive marketing emails and understand I can unsubscribe at any time. View our <a href="/privacy-policy" class="privacy-link">Privacy Policy</a></span>
+                        </label>
+                    </div>
+
+                    <button type="submit" class="submit-btn">Subscribe to Newsletter</button>
+                </form>
+            </div>
+        </section>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-links">
+                <a href="/">Home</a>
+                <a href="/linkboard">The Link Board</a>
+                <a href="/linkandmatch">Link & Match</a>
+                <a href="/privacy-policy">Privacy Policy</a>
+                <a href="/terms-of-service">Terms of Service</a>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
