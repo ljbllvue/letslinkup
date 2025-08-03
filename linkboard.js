@@ -152,26 +152,26 @@
 const linkUps = [
     {
         id: 1,
-        creator : "Miss Kiskeya",
+        creator: "Miss Kiskeya",
         type: "Creator",
-        platforms : ["Clips4Sale", "LoyalFans", "ManyVids"],
-        gender : "Woman",
-        location : "Berlin",
-        followers : "1200",
-        followerCount : 1000,
-        experience : "Experienced",
-        contentTypes : ["G/G", "Femdom", "Fetish"],
-        lookingFor : ["Woman", "Non-binary"],
-        sceneTypes : ["No PIV", "No sex"],
-        tags : ["kinky", "gg", "fetish", "femdom"],
-        canHost : "Yes",
-        hostingCost : "Covered",
-        requirements : "",
-        sceneSummary : "Looking to film hot femdom scenes with queer women involving role-play...",
-        shootDates : "Available from 25 Sept – 21 Oct",
-        shootMonth : "2025-10",
-        socialLinks : {
-        twitter : "@misskiskeya"
+        platforms: ["Clips4Sale", "LoyalFans", "ManyVids"],
+        gender: "Woman",
+        location: "Berlin",
+        followers: "1200",
+        followerCount: 1000,
+        experience: "Experienced",
+        contentTypes: ["G/G", "Femdom", "Fetish"],
+        lookingFor: ["Woman", "Non-binary"],
+        sceneTypes: ["No PIV", "No sex"],
+        tags: ["kinky", "gg", "fetish", "femdom"],
+        canHost: "Yes",
+        hostingCost: "Covered",
+        requirements: "",
+        sceneSummary: "Looking to film hot femdom scenes with queer women involving role-play...",
+        shootDates: "Available from 25 Sept – 21 Oct",
+        shootMonth: "2025-10",
+        socialLinks: {
+        twitter: "@misskiskeya"
         }
     },
     {
@@ -954,7 +954,7 @@ function renderLinkUps(linkUpsToRender = filteredLinkUps) {
                 </div>
                 <div class="card-info">
                     <div class="info-row">
-                        <span class="info-label">Platforms:</span>
+                        <span class="info-label">Platforms :</span>
                         <div class="info-value">
                             <div class="platforms">
                                 ${linkUp.platforms.map(platform => `<span class="platform-tag">${platform}</span>`).join('')}
@@ -962,23 +962,23 @@ function renderLinkUps(linkUpsToRender = filteredLinkUps) {
                         </div>
                     </div>
                     <div class="info-row">
-                        <span class="info-label">Gender:</span>
+                        <span class="info-label">Gender :</span>
                         <span class="info-value">${linkUp.gender}</span>
                     </div>
                     <div class="info-row">
-                        <span class="info-label">Location:</span>
+                        <span class="info-label">Location :</span>
                         <span class="info-value">${linkUp.location}</span>
                     </div>
                     <div class="info-row">
-                        <span class="info-label">Can Host?</span>
+                        <span class="info-label">Can Host ?</span>
                         <span class="info-value">${linkUp.canHost}</span>
                     </div>
                     <div class="info-row">
-                        <span class="info-label">Hosting Cost:</span>
+                        <span class="info-label">Hosting Cost :</span>
                         <span class="info-value">${linkUp.hostingCost}</span>
                     </div>
                     <div class="info-row">
-                        <span class="info-label">Content:</span>
+                        <span class="info-label">Content :</span>
                         <div class="info-value">
                             <div class="content-types">
                                 ${linkUp.contentTypes.map(type => `<span class="content-tag">${type}</span>`).join('')}
@@ -986,7 +986,7 @@ function renderLinkUps(linkUpsToRender = filteredLinkUps) {
                         </div>
                     </div>
                     <div class="info-row">
-                        <span class="info-label">Looking For:</span>
+                        <span class="info-label">Looking For :</span>
                         <div class="info-value">
                             <div class="content-types">
                                 ${(linkUp.lookingFor || []).map(type => `<span class="looking-tag">${type}</span>`).join('')}
@@ -994,7 +994,7 @@ function renderLinkUps(linkUpsToRender = filteredLinkUps) {
                         </div>
                     </div>
                     <div class="info-row">
-                        <span class="info-label">Scene Types:</span>
+                        <span class="info-label">Scene Types :</span>
                         <div class="info-value">
                             <div class="content-types">
                                 ${(linkUp.sceneTypes || []).map(type => `<span class="scene-tag">${type}</span>`).join('')}
