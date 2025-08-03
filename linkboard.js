@@ -157,7 +157,7 @@ const linkUps = [
         platforms: ["Clips4Sale", "LoyalFans", "ManyVids"],
         gender: "Woman",
         location: "Berlin",
-        followers: "1200",
+        followers: "1.2k",
         followerCount: 1000,
         experience: "Experienced",
         contentTypes: ["G/G", "Femdom", "Fetish"],
