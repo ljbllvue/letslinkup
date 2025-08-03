@@ -33,6 +33,7 @@
     border-bottom: 1px solid #e5e5e5;
     transition: all 0.3s ease;
     padding-bottom: 50px;
+    margin-bottom: 50px;
 }
 
 .nav-container {
@@ -1137,6 +1138,7 @@
         gap: 1rem;
     }
 }
+
 
 
 
