@@ -433,14 +433,14 @@
 
             /* FIXED: Even higher max-height for mobile to accommodate text wrapping */
             .accordion-item.active .accordion-content {
-                max-height: 4000px; /* Increased specifically for mobile */
+                max-height: 5000px; /* Increased specifically for mobile */
             }
         }
 
         /* For very small screens */
         @media (max-width: 480px) {
             .accordion-item.active .accordion-content {
-                max-height: 5000px; /* Even higher for very small screens */
+                max-height: 7000px; /* Even higher for very small screens */
             }
             
             .content-text {
@@ -1138,6 +1138,7 @@
         gap: 1rem;
     }
 }
+
 
 
 
