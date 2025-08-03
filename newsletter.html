@@ -497,7 +497,7 @@
                     </div>
                 </div>
 
-                <form class="newsletter-form" name="newsletter-signup" method="POST" action="/subscribed" data-netlify="true" netlify-honeypot="bot-field">
+                 <form class="newsletter-form" name="newsletter-signup" method="POST" action="/subscribed" data-netlify="true" netlify-honeypot="bot-field">
                     <input type="hidden" name="form-name" value="newsletter-signup" />
                     
                     <div style="display: none;">
@@ -511,13 +511,17 @@
                             <label class="form-label" for="firstName">First Name</label>
                             <input type="text" id="firstName" name="firstName" class="form-input" required>
                         </div>
+                        <div class="form-group">
+                            <label class="form-label" for="lastName">Last Name</label>
+                            <input type="text" id="lastName" name="lastName" class="form-input" required>
+                        </div>
                     </div>
 
                     <div class="form-group">
                         <label class="form-label" for="email">Email Address</label>
                         <input type="email" id="email" name="email" class="form-input" placeholder="your@email.com" required>
                     </div>
-                  
+
                     <div class="gdpr-consent">
                         <input type="checkbox" id="gdprConsent" name="gdprConsent" class="gdpr-checkbox" required>
                         <label for="gdprConsent" class="gdpr-label">
@@ -544,5 +548,164 @@
             </div>
         </div>
     </footer>
+
+
+     <script>
+        // Newsletter form submission handler
+        document.addEventListener('DOMContentLoaded', function() {
+            const newsletterForm = document.querySelector('form[name="newsletter-signup"]');
+            const submitBtn = document.querySelector('.submit-btn');
+            const originalBtnText = submitBtn.textContent;
+
+            if (newsletterForm) {
+                newsletterForm.addEventListener('submit', function(e) {
+                    e.preventDefault();
+                    
+                    // Change button state to loading
+                    submitBtn.textContent = 'Subscribing...';
+                    submitBtn.disabled = true;
+                    submitBtn.style.opacity = '0.7';
+                    
+                    // Get form data
+                    const formData = new FormData(newsletterForm);
+                    
+                    // Submit to Netlify
+                    fetch('/', {
+                        method: 'POST',
+                        headers: { "Content-Type": "application/x-www-form-urlencoded" },
+                        body: new URLSearchParams(formData).toString()
+                    })
+                    .then(response => {
+                        if (response.ok) {
+                            // Success - redirect to subscribed page
+                            window.location.href = '/subscribed';
+                        } else {
+                            throw new Error('Network response was not ok');
+                        }
+                    })
+                    .catch(error => {
+                        console.error('Error:', error);
+                        
+                        // Show error state
+                        submitBtn.textContent = 'Error - Try Again';
+                        submitBtn.style.backgroundColor = '#dc2626';
+                        
+                        // Reset button after 3 seconds
+                        setTimeout(() => {
+                            submitBtn.textContent = originalBtnText;
+                            submitBtn.disabled = false;
+                            submitBtn.style.opacity = '1';
+                            submitBtn.style.backgroundColor = '#000000';
+                        }, 3000);
+                    });
+                });
+            }
+        });
+
+        // Form validation enhancement
+        function validateEmail(email) {
+            const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            return re.test(email);
+        }
+
+        // Real-time email validation
+        document.addEventListener('DOMContentLoaded', function() {
+            const emailInput = document.getElementById('email');
+            
+            if (emailInput) {
+                emailInput.addEventListener('blur', function() {
+                    const email = this.value;
+                    if (email && !validateEmail(email)) {
+                        this.style.borderColor = '#dc2626';
+                        this.style.backgroundColor = '#fef2f2';
+                    } else {
+                        this.style.borderColor = '#e5e5e5';
+                        this.style.backgroundColor = '#ffffff';
+                    }
+                });
+
+                emailInput.addEventListener('input', function() {
+                    // Reset styles on input
+                    this.style.borderColor = '#e5e5e5';
+                    this.style.backgroundColor = '#ffffff';
+                });
+            }
+        });
+
+        // Enhanced form interaction
+        document.addEventListener('DOMContentLoaded', function() {
+            // Add focus animations to form inputs
+            const formInputs = document.querySelectorAll('.form-input');
+            
+            formInputs.forEach(input => {
+                input.addEventListener('focus', function() {
+                    this.style.transform = 'scale(1.02)';
+                    this.style.transition = 'all 0.2s ease';
+                });
+                
+                input.addEventListener('blur', function() {
+                    this.style.transform = 'scale(1)';
+                });
+            });
+
+            // Add click animation to submit button
+            const submitBtn = document.querySelector('.submit-btn');
+            if (submitBtn) {
+                submitBtn.addEventListener('click', function() {
+                    if (!this.disabled) {
+                        this.style.transform = 'scale(0.98)';
+                        setTimeout(() => {
+                            this.style.transform = 'scale(1)';
+                        }, 150);
+                    }
+                });
+            }
+        });
+
+        // GDPR consent validation
+        document.addEventListener('DOMContentLoaded', function() {
+            const form = document.querySelector('form[name="newsletter-signup"]');
+            const gdprCheckbox = document.getElementById('gdprConsent');
+            const submitBtn = document.querySelector('.submit-btn');
+
+            function updateSubmitButton() {
+                if (gdprCheckbox && submitBtn) {
+                    if (gdprCheckbox.checked) {
+                        submitBtn.style.opacity = '1';
+                        submitBtn.disabled = false;
+                    } else {
+                        submitBtn.style.opacity = '0.5';
+                        submitBtn.disabled = true;
+                    }
+                }
+            }
+
+            if (gdprCheckbox) {
+                // Initial state
+                updateSubmitButton();
+                
+                // Update on change
+                gdprCheckbox.addEventListener('change', updateSubmitButton);
+            }
+        });
+
+        // Smooth scroll for any anchor links (if needed)
+        document.addEventListener('DOMContentLoaded', function() {
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    const target = document.querySelector(this.getAttribute('href'));
+                    if (target) {
+                        target.scrollIntoView({
+                            behavior: 'smooth',
+                            block: 'start'
+                        });
+                    }
+                });
+            });
+        });
+    </script>
+
+    
 </body>
 </html>
