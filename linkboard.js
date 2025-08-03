@@ -1004,7 +1004,7 @@ function renderLinkUps(linkUpsToRender = filteredLinkUps) {
                 </div>
                 <div class="scene-summary">${linkUp.sceneSummary}</div>
                 <div class="requirements-section">
-                    <strong>Requirements:</strong> ${linkUp.requirements}
+                    <strong>Requirements :</strong> ${linkUp.requirements}
                 </div>
                 <div class="shoot-dates"><strong>Shoot Dates :</strong> ${linkUp.shootDates}</div>
                 <button class="interested-btn" onclick="event.stopPropagation(); openInterestModal(${linkUp.id})">I'm Interested</button>
