@@ -177,7 +177,8 @@
             letter-spacing: -0.02em;
             margin-bottom: 1rem;
             color: #000000;
-            padding-bottom: 50px;
+            padding-top: 50px;
+            margin-top: 50px;
         }
 
         .help-subtitle {
@@ -1137,6 +1138,7 @@
         gap: 1rem;
     }
 }
+
 
 
 
