@@ -548,7 +548,7 @@
 .service-content p {
     color: #000000;
     line-height: 1.6;
-    margin-bottom: 2rem;
+    margin-bottom: 0.7rem;
     font-size: 0.95rem;
     text-align: center;
 }
@@ -1139,6 +1139,7 @@
         gap: 1rem;
     }
 }
+
 
 
 
