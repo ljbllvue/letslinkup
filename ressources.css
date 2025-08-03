@@ -11,24 +11,14 @@
             line-height: 1.6;
             min-height: calc(100vh - 80px); /* 80 px = header height */
             padding: 100px 20px 20px;       /* top padding ≥ header height */
-
-            flex-direction: column;
         }
 
         .container {
             max-width: 1200px;
             margin: 0 auto;
             padding: 0 20px;
-
-            flex: 1; /* This makes the container grow to fill available space */
         }
 
-
-@media (max-width: 768px) {
-    body {
-        padding: 80px 16px 0; /* No bottom padding on mobile either */
-    }
-}
 
 
         /* Header */
@@ -946,7 +936,7 @@
     background-color: #000000;
     color: #ffffff;
     padding: 4rem 0 0rem;
-    width: 100%; /* FIXED: Full viewport width */
+    width: 100vw; /* FIXED: Full viewport width */
     margin-left: calc(-50vw + 50%); /* FIXED: Break out of container constraints */
     margin-top: auto;
     margin-bottom: 0;
@@ -1154,6 +1144,7 @@
         gap: 1rem;
     }
 }
+
 
 
 
