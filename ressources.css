@@ -20,6 +20,12 @@
         }
 
 
+@media (max-width: 768px) {
+    body {
+        padding: 80px 16px 0; /* No bottom padding on mobile either */
+    }
+}
+
 
         /* Header */
 .header {
@@ -149,12 +155,6 @@
 
     .container {
         padding: 0 16px;
-    }
-}
-
-@media (max-width: 768px) {
-    body {
-        padding: 80px 16px 0; /* No bottom padding on mobile either */
     }
 }
 
@@ -1147,6 +1147,7 @@
         gap: 1rem;
     }
 }
+
 
 
 
