@@ -264,7 +264,7 @@ const linkUps = [
         canHost: "No",
         hostingCost: "Split",
         requirements: "Consent aware, high quality aesthetic artistic content only (no vulgarity), queer women and NB are more than welcome !",
-        sceneSummary: ,
+        sceneSummary: "Asthetically and cinematic lesbian scenes with a focus on capturing raw intimacy and sharing real pleasure on camera. I am also a photographer so I would love to take some professional erotic or sensual photos that you will be able to keep. I can do all the editing if you want.", 
         shootDates: "End of August",
         shootMonth: "2025-08",
         socialLinks: {
