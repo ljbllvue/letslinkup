@@ -150,6 +150,7 @@
 
 // Sample data for Link Ups - UPDATED WITH CORRECT GENDER TERMINOLOGY
 const linkUps = [
+    
     {
         id: 1,
         creator: "Miss Kiskeya",
@@ -157,7 +158,7 @@ const linkUps = [
         platforms: ["Clips4Sale", "LoyalFans", "ManyVids"],
         gender: "Woman",
         location: "Berlin",
-        followers: "1.2k",
+        followers: "1k",
         followerCount: 1000,
         experience: "Experienced",
         contentTypes: ["G/G", "Femdom", "Fetish"],
@@ -253,7 +254,7 @@ const linkUps = [
         type: "Creator",
         platforms: ["OnlyFans", "Pornhub"],
         gender: "Man",
-        location: "Dublin",
+        location: "London",
         followers: "3k",
         followerCount: 3000,
         experience: "New",
@@ -273,27 +274,27 @@ const linkUps = [
     },
     {
         id: 6,
-        creator: "Scarlett Moon",
+        creator: "Ms Erin Ireland",
         type: "Creator",
-        platforms: ["OnlyFans", "ManyVids"],
-        gender: "Trans Woman",
-        location: "London", "Dublin", 
-        followers: "8k",
-        followerCount: 8500,
-        experience: "Experienced",
-        contentTypes: ["Cosplay", "Taboo"],
-        lookingFor: ["Woman", "Trans Woman"],
-        sceneTypes: ["No Sex", "👀"],
-        tags: ["gg", "fetish", "bg", "group"],
-        canHost: "No",
+        platforms: ["OnlyFans", "ManyVids", "Clips4Sale", "Loyalfans", "Fansly"],
+        gender: "Woman",
+        location: "Dublin", 
+        followers: "1,2k",
+        followerCount: 1200,
+        experience: "New",
+        contentTypes: ["Femdom", "Fetish"],
+        lookingFor: ["Man"],
+        sceneTypes: ["👀"],
+        tags: ["fetish", "femdom", "kinky"],
+        canHost: "Yes",
         hostingCost: "N/A",
-        requirements: "Must provide own costumes/props, comfortable with character roleplay, anime knowledge preferred",
-        sceneSummary: "Cosplay specialist looking for themed collaborative content. Interested in fantasy, sci-fi, and anime-inspired productions.",
-        shootDates: "April 10-14, 2024",
-        shootMonth: "2024-04",
+        requirements: "Must be submissive or submissive leaning",
+        sceneSummary: "",
+        shootDates: "ongoing",
+        shootMonth: "2025-08", "2025-09", "2025-10", "2025-11", "2025-12", 
+        isOngoing: true,
         socialLinks: {
-            instagram: "@scarlett_moon_cos",
-            twitter: "@scarlettmooncos"
+            twitter: "ErinMistress
         }
     },
     {
