@@ -166,7 +166,7 @@ const linkUps = [
         tags: ["kinky", "gg", "fetish", "femdom"],
         canHost: "Yes",
         hostingCost: "Covered",
-        requirements: "",
+        requirements: "Must be willing to show face",
         sceneSummary: "Looking to film hot femdom scenes with queer women involving role-play...",
         shootDates: "Available from 25 Sept – 21 Oct",
         shootMonth: "2025-10",
