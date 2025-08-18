@@ -1295,12 +1295,14 @@ function loadSavedShootData() {
     setShootCurrentMonthYear();
 }
 
-// URL routing functions
+
+
+// Updated URL routing functions
 function updateURL(linkUpId = null) {
     const url = new URL(window.location);
     
     if (linkUpId) {
-        url.hash = `#linkup-${linkUpId}`;
+        url.hash = `#${linkUpId}`;  // Changed from #linkup-${linkUpId} to just #${linkUpId}
     } else {
         url.hash = '';
     }
@@ -1311,8 +1313,8 @@ function updateURL(linkUpId = null) {
 function handleURLChange() {
     const hash = window.location.hash;
     
-    if (hash.startsWith('#linkup-')) {
-        const linkUpId = parseInt(hash.replace('#linkup-', ''));
+    if (hash.startsWith('#') && hash.length > 1) {
+        const linkUpId = parseInt(hash.replace('#', ''));  // Changed to parse number directly after #
         if (linkUpId && linkUps.find(lu => lu.id === linkUpId)) {
             currentLinkUpId = linkUpId;
             const linkUp = linkUps.find(lu => lu.id === linkUpId);
@@ -1331,15 +1333,41 @@ function handleURLChange() {
     }
 }
 
-// Enhanced openLinkUpPage function with URL generation
-function openLinkUpPage(linkUpId) {
-    const linkUp = linkUps.find(lu => lu.id === linkUpId);
-    if (linkUp) {
-        currentLinkUpId = linkUpId;
-        updateURL(linkUpId);
-        showLinkUpDetails(linkUp);
-    }
+// Copy link functionality - updated to use new format
+function copyLinkUpURL(linkUpId) {
+    const url = `${window.location.origin}${window.location.pathname}#${linkUpId}`;  // Changed from #linkup-${linkUpId}
+    
+    navigator.clipboard.writeText(url).then(() => {
+        // Show feedback
+        const feedback = document.getElementById(`copyFeedback-${linkUpId}`);
+        if (feedback) {
+            feedback.style.display = 'inline';
+            setTimeout(() => {
+                feedback.style.display = 'none';
+            }, 2000);
+        }
+    }).catch(err => {
+        // Fallback for older browsers
+        const textArea = document.createElement('textarea');
+        textArea.value = url;
+        document.body.appendChild(textArea);
+        textArea.select();
+        document.execCommand('copy');
+        document.body.removeChild(textArea);
+        
+        // Show feedback
+        const feedback = document.getElementById(`copyFeedback-${linkUpId}`);
+        if (feedback) {
+            feedback.style.display = 'inline';
+            setTimeout(() => {
+                feedback.style.display = 'none';
+            }, 2000);
+        }
+    });
 }
+
+
+
 
 // Enhanced detailed view modal with URL support
 function showLinkUpDetails(linkUp) {
