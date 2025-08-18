@@ -134,11 +134,6 @@
     console.log('Age gate protection initialized for:', getCurrentPageUrl());
 })();
 
-
-
-
-
-
 // Sample data for Link Ups - UPDATED WITH CORRECT GENDER TERMINOLOGY
 const linkUps = [
   {
@@ -435,8 +430,6 @@ const linkUps = [
 }   
 ];
 
-
-
 let filteredLinkUps = [...linkUps];
 let activeFilter = null;
 let advancedFilters = {
@@ -456,7 +449,7 @@ const itemsPerPage = 9;
 let totalPages = 1;
 let currentLinkUpId = null;
 
-// FIXED: Checkbox to String Conversion Functions with proper error checking
+// Checkbox to String Conversion Functions
 function updateInterestPlatforms() {
     const checkboxes = document.querySelectorAll('#interestForm .platform-checkbox:checked');
     const hiddenField = document.getElementById('yourPlatformsHidden');
@@ -544,6 +537,8 @@ function updateShootHosting() {
 // Custom Dropdown Functions
 function toggleCustomDropdown(type) {
     const dropdown = document.getElementById(type + '-dropdown');
+    if (!dropdown) return;
+    
     const isVisible = dropdown.classList.contains('show');
     
     // Close all dropdowns
@@ -591,19 +586,24 @@ function toggleFilterBar() {
     const toggleBtn = document.querySelector('.filter-toggle-btn');
     const filterActions = document.querySelector('.filter-actions');
     
-    if (filterGrid.style.display === 'none') {
+    if (!filterGrid) return;
+    
+    if (filterGrid.style.display === 'none' || filterGrid.style.display === '') {
         filterGrid.style.display = 'grid';
-        filterActions.style.display = 'flex';
-        toggleBtn.textContent = 'Hide Filters';
+        if (filterActions) filterActions.style.display = 'flex';
+        if (toggleBtn) toggleBtn.textContent = 'Hide Filters';
     } else {
         filterGrid.style.display = 'none';
-        filterActions.style.display = 'none';
-        toggleBtn.textContent = 'Show Filters';
+        if (filterActions) filterActions.style.display = 'none';
+        if (toggleBtn) toggleBtn.textContent = 'Show Filters';
     }
 }
 
 // Initialize Flatpickr month picker
 function initializeDatePicker() {
+    const dateInput = document.getElementById('filterDate');
+    if (!dateInput) return;
+
     // Check if flatpickr and monthSelectPlugin are available
     if (typeof flatpickr !== 'undefined') {
         try {
@@ -633,15 +633,11 @@ function initializeDatePicker() {
             }
         } catch (error) {
             console.log('Flatpickr initialization failed, using native month input:', error);
-            document.getElementById('filterDate').addEventListener('change', function() {
-                applyAdvancedFilters();
-            });
+            dateInput.addEventListener('change', applyAdvancedFilters);
         }
     } else {
         console.log('Flatpickr not available, using native month input');
-        document.getElementById('filterDate').addEventListener('change', function() {
-            applyAdvancedFilters();
-        });
+        dateInput.addEventListener('change', applyAdvancedFilters);
     }
 }
 
@@ -649,10 +645,12 @@ function clearAllFilters() {
     // Clear advanced filters
     const dateInput = document.getElementById('filterDate');
     
-    // Clear both native month input and Flatpickr if present
-    dateInput.value = '';
-    if (dateInput._flatpickr) {
-        dateInput._flatpickr.clear();
+    if (dateInput) {
+        // Clear both native month input and Flatpickr if present
+        dateInput.value = '';
+        if (dateInput._flatpickr) {
+            dateInput._flatpickr.clear();
+        }
     }
     
     // Clear custom dropdowns
@@ -758,7 +756,14 @@ function matchesFollowerRange(followerCount, range) {
 
 function matchesDateFilter(shootMonth, filterDate) {
     if (!filterDate) return true;
-    return shootMonth === filterDate;
+    
+    // Handle array of months
+    if (Array.isArray(shootMonth)) {
+        return shootMonth.includes(filterDate);
+    }
+    
+    // Handle single month or ongoing
+    return shootMonth === filterDate || shootMonth === 'ongoing';
 }
 
 function matchesPlatformFilter(platforms, filterPlatform) {
@@ -882,12 +887,8 @@ function renderLinkUps(linkUpsToRender = filteredLinkUps) {
     
     grid.innerHTML = '';
 
-
-
-
-    
-       // IMPORTANT : empty-state 
-     if (!Array.isArray(linkUpsToRender) || linkUpsToRender.length === 0) {
+    // Empty state handling
+    if (!Array.isArray(linkUpsToRender) || linkUpsToRender.length === 0) {
         grid.innerHTML = `
             <div class="no-results">
                 <p>No results for your search.</p>
@@ -897,18 +898,15 @@ function renderLinkUps(linkUpsToRender = filteredLinkUps) {
             </div>
         `;
 
-        /* hide pagination while empty */
+        // Hide pagination while empty
         const pagination = document.getElementById('pagination');
         if (pagination) pagination.style.display = 'none';
-        return;                       // ⬅️ stop here when nothing to render
+        return;
     }
 
-    /* show pagination again (if it exists) */
+    // Show pagination again (if it exists)
     const pagination = document.getElementById('pagination');
     if (pagination) pagination.style.display = '';
-    
-
-
     
     linkUpsToRender.forEach(linkUp => {
         const card = document.createElement('div');
@@ -1084,9 +1082,7 @@ function closeShootShotModal() {
     });
 }
 
-/* MOBILE MENU - JavaScript for Mobile Menu Functionality */
-
-// Mobile menu toggle
+// Mobile Menu Functions
 function initializeMobileMenu() {
     const mobileToggle = document.getElementById('mobileToggle');
     const navMenu = document.getElementById('navMenu');
@@ -1151,23 +1147,6 @@ function initializeSearch() {
     }
 }
 
-// Close modal when clicking outside
-
-
-
-
-// Handle browser back/forward buttons
-function initializeRouting() {
-    window.addEventListener('popstate', function(e) {
-        handleURLChange();
-    });
-
-    // Handle direct URL access
-    window.addEventListener('load', function() {
-        handleURLChange();
-    });
-}
-
 // Newsletter Form Submission
 function initializeNewsletter() {
     const newsletterForm = document.getElementById('newsletterForm');
@@ -1191,7 +1170,7 @@ function initializeNewsletter() {
     }
 }
 
-// FIXED: Setup form event listeners for checkbox handling
+// Setup form event listeners for checkbox handling
 function setupFormEventListeners() {
     // Interest form platform checkboxes
     const interestPlatformCheckboxes = document.querySelectorAll('#interestForm .platform-checkbox');
@@ -1229,7 +1208,7 @@ function setupFormEventListeners() {
         checkbox.addEventListener('change', updateShootHosting);
     });
     
-    // FIXED: Form submission handlers
+    // Form submission handlers
     const interestForm = document.getElementById('interestForm');
     if (interestForm) {
         interestForm.addEventListener('submit', function(e) {
@@ -1288,21 +1267,19 @@ function setShootCurrentMonthYear() {
     }
 }
 
-// Load saved shoot your shot data (simplified version without localStorage)
+// Load saved shoot your shot data
 function loadSavedShootData() {
     // This would load from localStorage in a real implementation
     // For now, just set the current month/year
     setShootCurrentMonthYear();
 }
 
-
-
-// Updated URL routing functions
+// URL routing functions
 function updateURL(linkUpId = null) {
     const url = new URL(window.location);
     
     if (linkUpId) {
-        url.hash = `#${linkUpId}`;  // Changed from #linkup-${linkUpId} to just #${linkUpId}
+        url.hash = `#${linkUpId}`;
     } else {
         url.hash = '';
     }
@@ -1314,7 +1291,7 @@ function handleURLChange() {
     const hash = window.location.hash;
     
     if (hash.startsWith('#') && hash.length > 1) {
-        const linkUpId = parseInt(hash.replace('#', ''));  // Changed to parse number directly after #
+        const linkUpId = parseInt(hash.replace('#', ''));
         if (linkUpId && linkUps.find(lu => lu.id === linkUpId)) {
             currentLinkUpId = linkUpId;
             const linkUp = linkUps.find(lu => lu.id === linkUpId);
@@ -1333,8 +1310,16 @@ function handleURLChange() {
     }
 }
 
+function initializeRouting() {
+    window.addEventListener('popstate', function(e) {
+        handleURLChange();
+    });
 
-
+    // Handle direct URL access
+    window.addEventListener('load', function() {
+        handleURLChange();
+    });
+}
 
 // Enhanced detailed view modal with URL support
 function showLinkUpDetails(linkUp) {
@@ -1418,9 +1403,18 @@ function closeLinkUpDetails() {
     }
 }
 
+function openLinkUpPage(linkUpId) {
+    currentLinkUpId = linkUpId;
+    updateURL(linkUpId);
+    const linkUp = linkUps.find(lu => lu.id === linkUpId);
+    if (linkUp) {
+        showLinkUpDetails(linkUp);
+    }
+}
+
 // Copy link functionality
 function copyLinkUpURL(linkUpId) {
-    const url = `${window.location.origin}${window.location.pathname}#linkup-${linkUpId}`;
+    const url = `${window.location.origin}${window.location.pathname}#${linkUpId}`;
     
     navigator.clipboard.writeText(url).then(() => {
         // Show feedback
@@ -1451,7 +1445,6 @@ function copyLinkUpURL(linkUpId) {
     });
 }
 
-
 // Collaboration Knowledge Pop-up Functions
 function showCollabPopup() {
     const collabPopup = document.getElementById('collabPopup');
@@ -1469,6 +1462,45 @@ function closeCollabPopup() {
     }
 }
 
+// Modal handlers initialization
+function initializeModalHandlers() {
+    // Close modals when clicking outside
+    document.addEventListener('click', function(e) {
+        const modals = document.querySelectorAll('.modal');
+        modals.forEach(modal => {
+            if (e.target === modal) {
+                if (modal.id === 'interestModal') {
+                    closeModal();
+                } else if (modal.id === 'shootShotModal') {
+                    closeShootShotModal();
+                } else if (modal.id === 'collabPopup') {
+                    closeCollabPopup();
+                } else if (modal.id === 'linkUpDetailsModal') {
+                    closeLinkUpDetails();
+                }
+            }
+        });
+    });
+    
+    // Close modals with Escape key
+    document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape') {
+            const visibleModals = document.querySelectorAll('.modal[style*="display: block"], .modal[style*="display:block"]');
+            if (visibleModals.length > 0) {
+                const lastModal = visibleModals[visibleModals.length - 1];
+                if (lastModal.id === 'interestModal') {
+                    closeModal();
+                } else if (lastModal.id === 'shootShotModal') {
+                    closeShootShotModal();
+                } else if (lastModal.id === 'collabPopup') {
+                    closeCollabPopup();
+                } else if (lastModal.id === 'linkUpDetailsModal') {
+                    closeLinkUpDetails();
+                }
+            }
+        }
+    });
+}
 
 // Initialize everything
 function initializePage() {
@@ -1505,22 +1537,17 @@ document.addEventListener('DOMContentLoaded', function() {
     }, 3000);
 });
 
-
-
-// Search function for index 
+// Search function for index page
 (function () {
-  const params = new URLSearchParams(window.location.search);
-  const incomingCity = params.get('city'); 
+    const params = new URLSearchParams(window.location.search);
+    const incomingCity = params.get('city'); 
 
-  if (incomingCity) {
-    const cityInput = document.getElementById('citySearch');
-    if (cityInput) cityInput.value = incomingCity;
-      
-    if (typeof applyAllFilters === 'function') {
-      applyAllFilters();
+    if (incomingCity) {
+        const cityInput = document.getElementById('citySearch');
+        if (cityInput) cityInput.value = incomingCity;
+          
+        if (typeof applyAllFilters === 'function') {
+            applyAllFilters();
+        }
     }
-  }
 })();
-
-
-
