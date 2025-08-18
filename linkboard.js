@@ -1333,39 +1333,6 @@ function handleURLChange() {
     }
 }
 
-// Copy link functionality - updated to use new format
-function copyLinkUpURL(linkUpId) {
-    const url = `${window.location.origin}${window.location.pathname}#${linkUpId}`;  // Changed from #linkup-${linkUpId}
-    
-    navigator.clipboard.writeText(url).then(() => {
-        // Show feedback
-        const feedback = document.getElementById(`copyFeedback-${linkUpId}`);
-        if (feedback) {
-            feedback.style.display = 'inline';
-            setTimeout(() => {
-                feedback.style.display = 'none';
-            }, 2000);
-        }
-    }).catch(err => {
-        // Fallback for older browsers
-        const textArea = document.createElement('textarea');
-        textArea.value = url;
-        document.body.appendChild(textArea);
-        textArea.select();
-        document.execCommand('copy');
-        document.body.removeChild(textArea);
-        
-        // Show feedback
-        const feedback = document.getElementById(`copyFeedback-${linkUpId}`);
-        if (feedback) {
-            feedback.style.display = 'inline';
-            setTimeout(() => {
-                feedback.style.display = 'none';
-            }, 2000);
-        }
-    });
-}
-
 
 
 
