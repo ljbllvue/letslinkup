@@ -1934,23 +1934,6 @@ h3 {
 }
 
 
-Better content presentation: Improved padding, typography, and link styling
-Visual hierarchy: Clear separation between question and answer content
-Key Design Features:
-Consistent with your brand: Uses the same purple gradients (
-#c7aee9, 
-#a860ff) and glassmorphism effects
-Smooth animations: Fade-in effects and hover transitions
-Mobile responsive: Optimized layouts for all screen sizes
-Accessibility: Proper contrast ratios and keyboard navigation
-The new styling maintains your site's premium feel while making these sections more visually engaging and easier to interact with. The FAQ section now has a more polished accordion interface, and the Quick Choices tiles have a modern card-based design with subtle animations that encourage user interaction.
-
-
-
-
-
-
-
 /* Enhanced Quick Choices Section */
 .quick-choices {
   margin: 40px 0 80px;
@@ -2351,6 +2334,7 @@ The new styling maintains your site's premium feel while making these sections m
         max-width: none;
     }
 }
+
 
 
 
