@@ -538,207 +538,242 @@
         }
 
         /* Case Study Section */
-        .case-study {
-            padding: 80px 0;
-            background: #ffffff;
-        }
-
-        .case-study-content {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 60px;
-            align-items: center;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        .case-study-text h2 {
-            font-size: 2.5rem;
-            font-weight: 300;
-            margin-bottom: 20px;
-            color: #000;
-        }
-
-        .case-study-text h3 {
-            font-size: 1.5rem;
-            font-weight: 500;
-            margin-bottom: 20px;
-            color: #c7aee9;
-        }
-
-        .case-study-text p {
-            color: #666;
-            font-weight: 300;
-            line-height: 1.7;
-            margin-bottom: 20px;
-            font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-        }
-
-        .case-study-stats {
-            display: flex;
-            gap: 30px;
-            margin: 30px 0;
-            flex-wrap: wrap;
-        }
-
-        .stat-item {
-            text-align: center;
-        }
-
-        .stat-number {
-            font-size: 2.2rem;
-            font-weight: 600;
-            color: #c7aee9;
-            margin-bottom: 5px;
-        }
-
-        .stat-label {
-            font-size: 0.9rem;
-            color: #666;
-            font-weight: 400;
-        }
-
-        .case-study-quote {
-            font-style: italic;
-            color: #333 !important;
-            font-size: 1.1rem;
-            padding: 20px;
-            background: rgba(199, 174, 233, 0.05);
-            border-left: 4px solid #c7aee9;
-            border-radius: 8px;
-            margin: 30px 0 10px 0;
-        }
-
-        .quote-author {
-            color: #c7aee9;
-            font-weight: 500;
-            text-align: right;
-            margin-bottom: 30px;
-        }
-
-        .case-study-cta {
-            background: linear-gradient(135deg, #c7aee9 0%, rgba(199, 174, 233, 0.8) 100%);
-            color: #000;
-            border: none;
-            border-radius: 50px;
-            padding: 16px 32px;
-            font-size: 1.1rem;
-            font-weight: 600;
-            cursor: pointer;
-            transition: all 0.3s ease;
-        }
-
-        .case-study-cta:hover {
-            background: #000;
-            color: #fff;
-            transform: translateY(-2px);
-        }
-
-        .case-study-image {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
-
-        .linksquad-placeholder {
-            width: 100%;
-            max-width: 400px;
-            background: #ffffff;
-            border: 2px solid rgba(199, 174, 233, 0.3);
-            border-radius: 20px;
-            padding: 25px;
-            box-shadow: 0 15px 35px rgba(199, 174, 233, 0.2);
-            font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-        }
-
-        .placeholder-header {
+       /* Header Section */
+        .linksquad-placeholder .header {
             text-align: center;
             margin-bottom: 25px;
             padding-bottom: 20px;
             border-bottom: 1px solid rgba(199, 174, 233, 0.2);
         }
 
-        .placeholder-logo {
-            font-size: 1.2rem;
-            font-weight: 600;
-            color: #c7aee9;
-            margin-bottom: 8px;
-        }
-
-        .placeholder-title {
-            font-size: 1.1rem;
-            font-weight: 500;
-            color: #000;
-        }
-
-        .placeholder-creators {
+        .profile-image {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, #c7aee9 0%, rgba(199, 174, 233, 0.8) 100%);
+            border-radius: 50%;
+            margin: 0 auto 15px;
             display: flex;
-            flex-direction: column;
-            gap: 15px;
+            align-items: center;
+            justify-content: center;
+            color: #000;
+            font-weight: 600;
+            font-size: 1.5rem;
+        }
+
+        .profile-image::after {
+            content: "MA";
+        }
+
+        .creator-name {
+            font-size: 1.3rem;
+            font-weight: 600;
+            color: #000;
+            margin: 0 0 5px 0;
+        }
+
+        .creator-handle {
+            font-size: 0.9rem;
+            color: #c7aee9;
+            margin: 0 0 8px 0;
+            font-weight: 500;
+        }
+
+        .creator-bio {
+            font-size: 0.85rem;
+            color: #666;
+            margin: 0;
+            line-height: 1.4;
+        }
+
+        /* My Links Section */
+        .my-links {
+            margin-bottom: 25px;
+            text-align: center;
+        }
+
+        .section-title {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: #000;
+            margin: 0 0 12px 0;
+        }
+
+        .link-btn {
+            display: inline-block;
+            background: linear-gradient(135deg, #c7aee9 0%, rgba(199, 174, 233, 0.8) 100%);
+            color: #000;
+            padding: 12px 30px;
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.9rem;
+            transition: all 0.3s ease;
+        }
+
+        .link-btn:hover {
+            background: #000;
+            color: #fff;
+        }
+
+        /* Link Squad Section */
+        .link-squad {
+            margin-bottom: 25px;
+        }
+
+        .squad-header {
+            text-align: center;
             margin-bottom: 20px;
         }
 
-        .placeholder-creator {
-            display: flex;
-            align-items: center;
-            gap: 15px;
-            padding: 15px;
-            background: rgba(199, 174, 233, 0.03);
-            border-radius: 12px;
-            border: 1px solid rgba(199, 174, 233, 0.1);
+        .squad-title {
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: #000;
+            margin: 0 0 8px 0;
         }
 
-        .creator-avatar {
-            width: 50px;
-            height: 50px;
-            background: linear-gradient(135deg, #c7aee9 0%, rgba(199, 174, 233, 0.8) 100%);
+        .squad-description {
+            font-size: 0.8rem;
+            color: #666;
+            margin: 0 0 10px 0;
+            line-height: 1.4;
+        }
+
+        .squad-note {
+            background: rgba(199, 174, 233, 0.1);
+            color: #c7aee9;
+            padding: 6px 12px;
+            border-radius: 15px;
+            font-size: 0.75rem;
+            font-weight: 500;
+            display: inline-block;
+            border: 1px solid rgba(199, 174, 233, 0.3);
+        }
+
+        .friends-grid {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .friend-card {
+            background: rgba(199, 174, 233, 0.03);
+            border: 1px solid rgba(199, 174, 233, 0.2);
+            border-radius: 12px;
+            padding: 15px;
+        }
+
+        .friend-header {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 12px;
+        }
+
+        .friend-image {
+            width: 45px;
+            height: 45px;
+            background: linear-gradient(135deg, #c7aee9 0%, rgba(199, 174, 233, 0.6) 100%);
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-weight: 600;
             color: #000;
-            font-size: 1.2rem;
+            font-weight: 600;
+            font-size: 0.9rem;
         }
 
-        .creator-info {
+        .friend-card:first-child .friend-image::after {
+            content: "GS";
+        }
+
+        .friend-card:last-child .friend-image::after {
+            content: "QV";
+        }
+
+        .friend-info {
             flex: 1;
         }
 
-        .creator-name {
+        .friend-name {
+            font-size: 0.95rem;
             font-weight: 600;
             color: #000;
-            font-size: 1rem;
-            margin-bottom: 2px;
+            margin: 0 0 2px 0;
         }
 
-        .creator-desc {
-            font-size: 0.85rem;
-            color: #666;
-            margin-bottom: 8px;
+        .friend-handle {
+            font-size: 0.8rem;
+            color: #c7aee9;
+            margin: 0;
+            font-weight: 500;
         }
 
-        .creator-btn {
+        .friend-links {
+            display: flex;
+            gap: 8px;
+        }
+
+        .friend-link {
             background: #c7aee9;
             color: #000;
             padding: 6px 12px;
-            border-radius: 20px;
-            font-size: 0.8rem;
+            border-radius: 15px;
+            text-decoration: none;
+            font-size: 0.75rem;
             font-weight: 500;
-            display: inline-block;
+            transition: all 0.3s ease;
         }
 
-        .placeholder-footer {
+        .friend-link:hover {
+            background: #000;
+            color: #fff;
+        }
+
+        /* Trial Section */
+        .trial-section {
             text-align: center;
-            padding-top: 15px;
-            border-top: 1px solid rgba(199, 174, 233, 0.2);
+            margin-bottom: 25px;
+            background: rgba(199, 174, 233, 0.05);
+            padding: 20px;
+            border-radius: 12px;
+            border: 1px solid rgba(199, 174, 233, 0.2);
         }
 
-        .placeholder-text {
-            font-size: 0.8rem;
-            color: #999;
-            font-weight: 300;
+        .trial-section h3 {
+            font-size: 1rem;
+            font-weight: 600;
+            color: #000;
+            margin: 0 0 8px 0;
         }
+
+        .trial-description {
+            font-size: 0.8rem;
+            color: #666;
+            margin: 0 0 15px 0;
+        }
+
+        .contact-info {
+            background: #fff;
+            padding: 15px;
+            border-radius: 10px;
+            border: 1px solid rgba(199, 174, 233, 0.2);
+        }
+
+        .contact-label {
+            font-size: 0.8rem;
+            color: #666;
+            margin-bottom: 5px;
+        }
+
+        .contact-email {
+            font-size: 0.85rem;
+            color: #c7aee9;
+            font-weight: 600;
+        }
+
+
+        
 
         /* Comparison Table */
         .comparison-section {
@@ -814,42 +849,7 @@
             background: rgba(199, 174, 233, 0.05);
         }
 
-        /* FAQ Section */
-        .faq-section {
-            padding: 80px 0;
-            background: #fff;
-        }
-
-        .faq-section h2 {
-            text-align: center;
-            font-size: 2.5rem;
-            font-weight: 300;
-            margin-bottom: 60px;
-            color: #000;
-        }
-
-        .faq-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
-            gap: 30px;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        .faq-item {
-            background: rgba(255, 255, 255, 0.8);
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(199, 174, 233, 0.2);
-            border-radius: 24px;
-            padding: 30px;
-        }
-
-        .faq-item h3 {
-            font-size: 1.3rem;
-            font-weight: 400;
-            margin-bottom: 15px;
-            color: #c7aee9;
-        }
+       
 
         /* CTA Section */
         .cta-section {
