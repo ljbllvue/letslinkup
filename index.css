@@ -1823,6 +1823,132 @@ h3 {
     }
 }
 
+
+
+
+/* Reusable outline variant for explore buttons */
+.explore-button.outline {
+  background: transparent !important;
+  border: 1px solid #000;
+  color: #000;
+}
+.explore-button.outline:hover {
+  background: #000 !important;
+  color: #fff;
+}
+
+/* Align duo CTAs under hero */
+.cta-duo {
+  display:flex;
+  justify-content:center;
+  gap:20px;
+  flex-wrap:wrap;
+}
+
+/* Quick Choices */
+.quick-choices {
+  margin: 30px 0 60px;
+}
+.quick-grid {
+  display:grid;
+  grid-template-columns: repeat(2, minmax(220px, 1fr));
+  gap:20px;
+  max-width: 700px;
+  margin: 0 auto;
+}
+.quick-tile {
+  background: rgba(255,255,255,0.7);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(0,0,0,0.1);
+  border-radius: 16px;
+  padding: 20px;
+  text-align: center;
+  transition: transform .2s ease, box-shadow .2s ease;
+}
+.quick-tile:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 24px rgba(0,0,0,0.08);
+}
+.quick-tile h3 { margin-bottom: 6px; font-weight: 500; }
+.quick-tile p { color:#666; font-weight:300; }
+
+/* Steps Strip */
+.steps-strip {
+  margin: 10px auto 60px;
+  text-align:center;
+}
+.steps-inline {
+  list-style:none;
+  display:flex;
+  gap:16px;
+  justify-content:center;
+  flex-wrap:wrap;
+  padding:0;
+}
+.steps-inline li a {
+  display:block;
+  padding:10px 14px;
+  border:1px solid #e5e5e5;
+  border-radius: 24px;
+  background:#fff;
+  transition: all .2s ease;
+}
+.steps-inline li a:hover {
+  background:#000;
+  color:#fff;
+  border-color:#000;
+}
+
+/* Mini FAQ */
+.mini-faq {
+  max-width: 800px;
+  margin: 0 auto 60px;
+}
+.mini-faq details {
+  background: rgba(255,255,255,0.7);
+  border: 1px solid rgba(0,0,0,0.1);
+  border-radius: 12px;
+  padding: 16px 18px;
+}
+.mini-faq summary {
+  cursor:pointer;
+  font-weight:600;
+  outline:none;
+}
+.mini-faq p { margin-top:10px; }
+
+/* CTA Band */
+.cta-band {
+  background: linear-gradient(135deg, rgba(199,174,233,0.25), rgba(224,215,246,0.25));
+  border-radius: 16px;
+  padding: 28px 20px;
+  text-align:center;
+  margin-bottom: 60px;
+}
+.cta-band p { font-size:1.15rem; margin-bottom:12px; }
+.cta-band-actions {
+  display:flex;
+  justify-content:center;
+  gap:16px;
+  flex-wrap:wrap;
+}
+
+
+
+
+
+
+/* Responsive tweaks */
+@media (max-width: 640px) {
+  .quick-grid { grid-template-columns: 1fr; }
+}
+
+
+
+
+
+
+
 /* Landscape tablets */
 @media (min-width: 769px) and (max-width: 1024px) {
     .container {
@@ -1865,6 +1991,9 @@ h3 {
         max-width: none;
     }
 }
+
+
+
 
 
 
