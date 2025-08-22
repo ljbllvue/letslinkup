@@ -1934,6 +1934,366 @@ h3 {
 }
 
 
+Better content presentation: Improved padding, typography, and link styling
+Visual hierarchy: Clear separation between question and answer content
+Key Design Features:
+Consistent with your brand: Uses the same purple gradients (
+#c7aee9, 
+#a860ff) and glassmorphism effects
+Smooth animations: Fade-in effects and hover transitions
+Mobile responsive: Optimized layouts for all screen sizes
+Accessibility: Proper contrast ratios and keyboard navigation
+The new styling maintains your site's premium feel while making these sections more visually engaging and easier to interact with. The FAQ section now has a more polished accordion interface, and the Quick Choices tiles have a modern card-based design with subtle animations that encourage user interaction.
+
+
+
+
+
+
+
+/* Enhanced Quick Choices Section */
+.quick-choices {
+  margin: 40px 0 80px;
+  padding: 0 20px;
+  animation: fadeInUp 0.8s ease-out 0.3s both;
+}
+
+.quick-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(280px, 1fr));
+  gap: 30px;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.quick-tile {
+  background: rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(15px);
+  border: 1px solid rgba(199, 174, 233, 0.2);
+  border-radius: 24px;
+  padding: 40px 30px;
+  text-align: center;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+}
+
+.quick-tile:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 15px 40px rgba(199, 174, 233, 0.15);
+  border-color: rgba(199, 174, 233, 0.4);
+}
+
+/* Gradient overlay effect */
+.quick-tile::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(
+    135deg,
+    rgba(199, 174, 233, 0.05) 0%,
+    rgba(242, 232, 254, 0.05) 100%
+  );
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  z-index: 1;
+}
+
+.quick-tile:hover::before {
+  opacity: 1;
+}
+
+/* Floating particle effect */
+.quick-tile::after {
+  content: '';
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  width: 8px;
+  height: 8px;
+  background: rgba(199, 174, 233, 0.4);
+  border-radius: 50%;
+  opacity: 0;
+  animation: floatParticle 3s ease-in-out infinite;
+  transition: opacity 0.3s ease;
+}
+
+.quick-tile:hover::after {
+  opacity: 1;
+}
+
+.quick-tile:nth-child(2)::after {
+  background: rgba(168, 96, 255, 0.4);
+  animation-delay: 1.5s;
+}
+
+.quick-tile h3 {
+  margin-bottom: 12px;
+  font-weight: 600;
+  font-size: 1.3rem;
+  color: #000;
+  position: relative;
+  z-index: 2;
+  transition: color 0.3s ease;
+}
+
+.quick-tile:hover h3 {
+  color: #37352f;
+}
+
+.quick-tile p {
+  color: #666;
+  font-weight: 400;
+  font-size: 1rem;
+  line-height: 1.5;
+  position: relative;
+  z-index: 2;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+}
+
+/* Icon placeholders for quick tiles */
+.quick-tile h3::before {
+  content: '';
+  display: block;
+  width: 50px;
+  height: 50px;
+  margin: 0 auto 20px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, rgba(199, 174, 233, 0.2), rgba(168, 96, 255, 0.2));
+  border: 2px solid rgba(199, 174, 233, 0.3);
+  transition: all 0.3s ease;
+}
+
+.quick-tile:hover h3::before {
+  transform: scale(1.1);
+  background: linear-gradient(135deg, rgba(199, 174, 233, 0.3), rgba(168, 96, 255, 0.3));
+  border-color: rgba(199, 174, 233, 0.5);
+}
+
+/* Different icons for each tile */
+.quick-tile:first-child h3::before {
+  background: linear-gradient(135deg, rgba(199, 174, 233, 0.2), rgba(242, 232, 254, 0.3));
+}
+
+.quick-tile:last-child h3::before {
+  background: linear-gradient(135deg, rgba(168, 96, 255, 0.2), rgba(206, 183, 236, 0.3));
+}
+
+/* Enhanced Mini FAQ Section */
+.mini-faq {
+  max-width: 850px;
+  margin: 60px auto 80px;
+  padding: 0 20px;
+  animation: fadeInUp 0.8s ease-out 0.7s both;
+}
+
+.mini-faq details {
+  background: rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(15px);
+  border: 1px solid rgba(199, 174, 233, 0.2);
+  border-radius: 20px;
+  padding: 0;
+  margin-bottom: 20px;
+  transition: all 0.3s ease;
+  overflow: hidden;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+}
+
+.mini-faq details:hover {
+  border-color: rgba(199, 174, 233, 0.4);
+  box-shadow: 0 8px 30px rgba(199, 174, 233, 0.1);
+  transform: translateY(-2px);
+}
+
+.mini-faq details[open] {
+  border-color: rgba(168, 96, 255, 0.3);
+  box-shadow: 0 10px 40px rgba(168, 96, 255, 0.15);
+}
+
+.mini-faq summary {
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 1.2rem;
+  outline: none;
+  padding: 25px 30px;
+  position: relative;
+  transition: all 0.3s ease;
+  color: #000;
+  user-select: none;
+  border-radius: 20px;
+}
+
+.mini-faq summary:hover {
+  color: #37352f;
+  background: rgba(199, 174, 233, 0.05);
+}
+
+.mini-faq details[open] summary {
+  background: rgba(199, 174, 233, 0.08);
+  border-bottom: 1px solid rgba(199, 174, 233, 0.2);
+  border-radius: 20px 20px 0 0;
+}
+
+/* Custom dropdown arrow */
+.mini-faq summary::after {
+  content: '→';
+  position: absolute;
+  right: 30px;
+  top: 50%;
+  transform: translateY(-50%) rotate(90deg);
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: #c7aee9;
+  transition: transform 0.3s ease, color 0.3s ease;
+}
+
+.mini-faq details[open] summary::after {
+  transform: translateY(-50%) rotate(270deg);
+  color: #a860ff;
+}
+
+.mini-faq summary:hover::after {
+  color: #a860ff;
+  transform: translateY(-50%) rotate(90deg) scale(1.1);
+}
+
+.mini-faq details[open] summary:hover::after {
+  transform: translateY(-50%) rotate(270deg) scale(1.1);
+}
+
+/* FAQ Content */
+.mini-faq details div {
+  padding: 25px 30px 30px;
+  background: rgba(255, 255, 255, 0.5);
+  border-radius: 0 0 20px 20px;
+}
+
+.mini-faq p {
+  margin: 8px 0;
+  color: #444;
+  font-weight: 400;
+  line-height: 1.6;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+}
+
+.mini-faq p:last-child {
+  margin-top: 20px;
+  margin-bottom: 0;
+  padding-top: 15px;
+  border-top: 1px solid rgba(199, 174, 233, 0.2);
+}
+
+.mini-faq a {
+  color: #a860ff;
+  text-decoration: none;
+  font-weight: 500;
+  transition: all 0.2s ease;
+  position: relative;
+}
+
+.mini-faq a:hover {
+  color: #8b3fff;
+  text-decoration: underline;
+}
+
+.mini-faq a::before {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: linear-gradient(90deg, #a860ff, #c7aee9);
+  transition: width 0.3s ease;
+}
+
+.mini-faq a:hover::before {
+  width: 100%;
+}
+
+/* Separator between links */
+.mini-faq p:last-child a + span {
+  margin: 0 8px;
+  color: #c7aee9;
+  font-weight: 300;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .quick-choices {
+    margin: 30px 0 60px;
+    padding: 0 15px;
+  }
+  
+  .quick-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+    max-width: 400px;
+  }
+  
+  .quick-tile {
+    padding: 30px 20px;
+  }
+  
+  .quick-tile h3 {
+    font-size: 1.2rem;
+  }
+  
+  .mini-faq {
+    margin: 40px auto 60px;
+    padding: 0 15px;
+  }
+  
+  .mini-faq summary {
+    padding: 20px 20px;
+    font-size: 1.1rem;
+  }
+  
+  .mini-faq summary::after {
+    right: 20px;
+  }
+  
+  .mini-faq details div {
+    padding: 20px 20px 25px;
+  }
+}
+
+@media (max-width: 480px) {
+  .quick-choices {
+    padding: 0 10px;
+  }
+  
+  .quick-tile {
+    padding: 25px 15px;
+  }
+  
+  .quick-tile h3::before {
+    width: 40px;
+    height: 40px;
+    margin-bottom: 15px;
+  }
+  
+  .mini-faq {
+    padding: 0 10px;
+  }
+  
+  .mini-faq summary {
+    padding: 18px 15px;
+  }
+  
+  .mini-faq summary::after {
+    right: 15px;
+  }
+  
+  .mini-faq details div {
+    padding: 18px 15px 20px;
+  }
+}
 
 
 
@@ -1991,6 +2351,7 @@ h3 {
         max-width: none;
     }
 }
+
 
 
 
