@@ -43,6 +43,7 @@
             left: 0;
             right: 0;
             backdrop-filter: blur(20px);
+            background: rgba(255, 255, 255, 0.95);
             z-index: 1000;
             border-bottom: 1px solid rgba(199, 174, 233, 0.2);
         }
@@ -55,7 +56,6 @@
             justify-content: space-between;
             align-items: center;
             height: 80px;
-             background: transparent;
         }
 
         .logo {
@@ -87,7 +87,7 @@
         }
 
         .nav-link.cta {
-              background: linear-gradient(rgba(168, 96, 255, 1) 0%, rgba(171, 154, 239, 1) 0%, rgba(192, 172, 237, 0.26) 42%, rgba(206, 183, 236, 0.49) 70%, rgba(242, 232, 254, 1) 100%);
+            background: linear-gradient(rgba(168, 96, 255, 1) 0%, rgba(171, 154, 239, 1) 0%, rgba(192, 172, 237, 0.26) 42%, rgba(206, 183, 236, 0.49) 70%, rgba(242, 232, 254, 1) 100%);
             color: #000;
             padding: 12px 24px;
             border-radius: 50px;
@@ -104,7 +104,7 @@
             margin-top: 80px;
             text-align: center;
             margin-bottom: 40px;
-            padding-bottom: 40px;
+            padding: 80px 0;
         }
 
         .hero-image {
@@ -124,7 +124,6 @@
             position: relative;
             overflow: hidden;
         }
-
 
         .hero h1 {
             font-size: 3rem;
@@ -223,7 +222,7 @@
         /* Unique Value Proposition */
         .value-proposition {
             padding: 80px 0;
-           background: linear-gradient(135deg, #ffffff 0%, #f8fafc 50%, #f1f5f9 100%);
+            background: linear-gradient(135deg, #ffffff 0%, #f8fafc 50%, #f1f5f9 100%);
         }
 
         .value-proposition h2 {
@@ -271,6 +270,7 @@
             font-size: 0.9rem;
             font-weight: 300;
             text-align: center;
+            border-radius: 12px;
         }
 
         .value-content h3 {
@@ -326,13 +326,17 @@
             border-radius: 16px;
         }
 
+        .squad-types {
+            padding: 80px 0;
+            background: linear-gradient(135deg, #ffffff 0%, #f8fafc 50%, #f1f5f9 100%);
+        }
+
         .squad-types h2 {
             text-align: center;
             font-size: 2.5rem;
             font-weight: 300;
             margin-bottom: 60px;
             color: #000;
-            margin-top: 80px;
         }
 
         .squad-selector {
@@ -343,7 +347,7 @@
         }
 
         .squad-tab {
-            background: linear-gradient(135deg, #ffffff 0%, #f8fafc 50%, #f1f5f9 100%);
+            background: rgba(255, 255, 255, 0.8);
             border: 1px solid #c7aee9;
             border-radius: 50px;
             padding: 12px 24px;
@@ -355,7 +359,7 @@
         }
 
         .squad-tab.active,
-        .bundle-tab:hover {
+        .squad-tab:hover {
             background: #c7aee9;
             color: #000;
         }
@@ -364,12 +368,11 @@
             display: none;
             max-width: 800px;
             margin: 0 auto;
-            background: rgba(255, 255, 255, 0.8);
+            background: rgba(255, 255, 255, 0.9);
             backdrop-filter: blur(10px);
             border: 1px solid rgba(199, 174, 233, 0.2);
             border-radius: 24px;
             padding: 40px;
-            background: linear-gradient(135deg, #ffffff 0%, #f8fafc 50%, #f1f5f9 100%);
         }
 
         .squad-content.active {
@@ -456,7 +459,7 @@
         /* Creator Types */
         .creator-types {
             padding: 80px 0;
-           background: linear-gradient(135deg, #ffffff 0%, #f8fafc 50%, #f1f5f9 100%);
+            background: linear-gradient(135deg, #ffffff 0%, #f8fafc 50%, #f1f5f9 100%);
         }
 
         .creator-types h2 {
@@ -536,11 +539,7 @@
         /* Comparison Table */
         .comparison-section {
             padding: 80px 0;
-          background: linear-gradient(
-            135deg,
-         rgba(199,174,233,0.35) 0%,
-         rgba(224,215,246,0.35) 50%,
-         rgba(255,255,255,0.35) 100%
+            background: #ffffff;
         }
 
         .comparison-section h2 {
@@ -554,12 +553,13 @@
         .comparison-table-wrapper {
             max-width: 900px;
             margin: 0 auto;
-            background: rgba(255, 255, 255, 0.8);
+            background: rgba(255, 255, 255, 0.95);
             backdrop-filter: blur(10px);
-            border: 1px solid rgba(199, 174, 233, 0.2);
+            border: 1px solid rgba(199, 174, 233, 0.3);
             border-radius: 24px;
             padding: 40px;
             overflow-x: auto;
+            box-shadow: 0 10px 30px rgba(199, 174, 233, 0.1);
         }
 
         .comparison-table {
@@ -594,6 +594,7 @@
             font-weight: 300;
             color: #666;
             vertical-align: top;
+            background: #ffffff;
         }
 
         .comparison-table td:first-child {
@@ -601,11 +602,11 @@
             color: #000;
         }
 
-        .comparison-table tr:nth-child(even) {
-            background: rgba(199, 174, 233, 0.02);
+        .comparison-table tr:nth-child(even) td {
+            background: rgba(248, 250, 252, 0.8);
         }
 
-        .comparison-table tr:hover {
+        .comparison-table tr:hover td {
             background: rgba(199, 174, 233, 0.05);
         }
 
@@ -649,7 +650,7 @@
         /* CTA Section */
         .cta-section {
             padding: 80px 0;
-            background: #fff;
+            background: linear-gradient(135deg, #f8fafc 0%, #ffffff 50%, #f1f5f9 100%);
             text-align: center;
         }
 
@@ -690,10 +691,11 @@
         .cta-primary:hover {
             background: #000;
             color: #fff;
+            transform: translateY(-2px);
         }
 
         .cta-secondary {
-            background: none;
+            background: rgba(255, 255, 255, 0.9);
             color: #000;
             border: 1px solid #c7aee9;
             border-radius: 50px;
@@ -701,335 +703,205 @@
             font-size: 1.1rem;
             font-weight: 500;
             cursor: pointer;
+            transition: all 0.3s ease;
         }
 
         .cta-secondary:hover {
             background: #c7aee9;
             color: #000;
+            transform: translateY(-2px);
         }
 
-        .cta-section h2 {
-            font-size: 2.5rem;
-            font-weight: 300;
-            margin-bottom: 20px;
-            color: #000;
+        /* Footer */
+        .footer {
+            width: 100%;
+            background: linear-gradient(135deg, #1a1a1a 0%, #000000 100%);
+            color: #ffffff;
+            padding: 4rem 0 2rem;
         }
 
-        .cta-section p {
-            font-size: 1.2rem;
-            color: #666;
-            margin-bottom: 40px;
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            flex-wrap: wrap;
+            gap: 2rem;
+            font-size: 16px;
             font-weight: 300;
             font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
         }
 
-        .cta-buttons {
+        .footer-links {
             display: flex;
-            justify-content: center;
-            gap: 20px;
+            gap: 2rem;
             flex-wrap: wrap;
         }
 
-        .cta-primary {
-            background: linear-gradient(135deg, #c7aee9 0%, rgba(199, 174, 233, 0.8) 100%);
-            color: #000;
-            border: none;
-            border-radius: 50px;
-            padding: 16px 32px;
+        .footer-links a {
+            color: #ffffff;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            font-weight: 400;
+        }
+
+        .footer-links a:hover {
+            color: #c7aee9;
+            font-weight: 500;
+        }
+
+        /* Newsletter Section */
+        .footer-newsletter {
+            flex: 1;
+            max-width: 400px;
+        }
+
+        .footer-newsletter h4 {
+            color: #ffffff;
             font-size: 1.1rem;
             font-weight: 600;
-            cursor: pointer;
+            margin-bottom: 12px;
         }
 
-        .cta-primary:hover {
-            background: #000;
-            color: #fff;
+        .newsletter-signup {
+            display: flex;
+            gap: 8px;
+            margin-bottom: 12px;
         }
 
-        .cta-secondary {
-            background: none;
-            color: #000;
-            border: 1px solid #c7aee9;
-            border-radius: 50px;
-            padding: 16px 32px;
-            font-size: 1.1rem;
-            font-weight: 500;
-            cursor: pointer;
+        .newsletter-input {
+            flex: 1;
+            padding: 12px 16px;
+            border: 1px solid #374151;
+            border-radius: 25px;
+            background: rgba(31, 41, 55, 0.8);
+            color: #ffffff;
+            font-size: 0.9rem;
+            transition: border-color 0.2s ease;
         }
 
-        .cta-secondary:hover {
+        .newsletter-input:focus {
+            outline: none;
+            border-color: #c7aee9;
+        }
+
+        .newsletter-input::placeholder {
+            color: #9ca3af;
+        }
+
+        .newsletter-btn {
             background: #c7aee9;
-            color: #000;
+            color: #000000;
+            border: none;
+            padding: 12px 20px;
+            border-radius: 25px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            white-space: nowrap;
         }
 
-        /* Demo styling */
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
+        .newsletter-btn:hover {
+            background: #ffffff;
+            transform: translateY(-1px);
         }
 
-        .demo-info {
-            text-align: center;
-            margin-bottom: 40px;
-            padding: 20px;
-            background: rgba(255, 255, 255, 0.8);
-            border-radius: 12px;
-            border: 1px solid rgba(199, 174, 233, 0.2);
+        /* GDPR Consent */
+        .gdpr-consent {
+            display: flex;
+            align-items: flex-start;
+            gap: 8px;
         }
 
-        .demo-info h1 {
+        .gdpr-checkbox {
+            display: none;
+        }
+
+        .gdpr-label {
+            display: flex;
+            align-items: flex-start;
+            cursor: pointer;
+            user-select: none;
+            gap: 8px;
+            line-height: 1.4;
+        }
+
+        .gdpr-checkmark {
+            flex-shrink: 0;
+            width: 16px;
+            height: 16px;
+            border: 1px solid #6b7280;
+            border-radius: 3px;
+            background: rgba(31, 41, 55, 0.8);
+            position: relative;
+            transition: all 0.2s ease;
+            margin-top: 2px;
+        }
+
+        .gdpr-checkbox:checked + .gdpr-label .gdpr-checkmark {
+            background: #c7aee9;
+            border-color: #c7aee9;
+        }
+
+        .gdpr-checkbox:checked + .gdpr-label .gdpr-checkmark::after {
+            content: '';
+            position: absolute;
+            left: 4px;
+            top: 1px;
+            width: 4px;
+            height: 8px;
+            border: solid #000000;
+            border-width: 0 2px 2px 0;
+            transform: rotate(45deg);
+        }
+
+        .gdpr-text {
+            font-size: 0.8rem;
+            color: #d1d5db;
+            flex: 1;
+        }
+
+        .privacy-link {
             color: #c7aee9;
-            margin-bottom: 10px;
+            text-decoration: underline;
         }
 
-        .demo-info p {
-            color: #666;
+        .privacy-link:hover {
+            opacity: 0.8;
         }
 
+        /* Success/Error Messages */
+        .form-message {
+            font-size: 0.85rem;
+            margin-top: 8px;
+            padding: 8px 12px;
+            border-radius: 4px;
+            display: none;
+        }
 
-/* Footer */
-.footer {
-    width: 100%;
-    background-color: #000000;
-    color: #ffffff;
-    padding: 4rem 0 2rem;
-}
+        .form-success {
+            background-color: rgba(16, 185, 129, 0.1);
+            color: #10b981;
+            border: 1px solid rgba(16, 185, 129, 0.3);
+        }
 
-.footer-content {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 2rem;
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-start;
-    flex-wrap: wrap;
-    gap: 2rem;
-    font-size: 16px;
-    font-weight: 300;
-    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-    width: 100%;
-    box-sizing: border-box;
-}
+        .form-error {
+            background-color: rgba(239, 68, 68, 0.1);
+            color: #ef4444;
+            border: 1px solid rgba(239, 68, 68, 0.3);
+        }
 
-.footer-links {
-    display: flex;
-    gap: 2rem;
-}
-
-.footer-links a {
-    color: #ffffff;
-    text-decoration: none;
-    transition: opacity 0.3s ease;
-}
-
-.footer-links a:hover {
-    opacity: 0.7;
-    color: #c7aee9;
-    font-weight: 600;
-}
-
-/* Newsletter Section */
-.footer-newsletter {
-    flex: 1;
-    max-width: 400px;
-}
-
-.footer-newsletter h4 {
-    color: #ffffff;
-    font-size: 1.1rem;
-    font-weight: 600;
-    margin-bottom: 12px;
-}
-
-.newsletter-signup {
-    display: flex;
-    gap: 8px;
-    margin-bottom: 12px;
-}
-
-.newsletter-input {
-    flex: 1;
-    padding: 10px 14px;
-    border: 1px solid #374151;
-    border-radius: 25px;
-    background-color: #1f2937;
-    color: #ffffff;
-    font-size: 0.9rem;
-    transition: border-color 0.2s ease;
-    box-sizing: border-box;
-}
-
-.newsletter-input:focus {
-    outline: none;
-    border-color: #6b7280;
-}
-
-.newsletter-input::placeholder {
-    color: #9ca3af;
-}
-
-.newsletter-btn {
-    background-color: #ffffff;
-    color: #000000;
-    border: none;
-    padding: 10px 20px;
-    border-radius: 25px;
-    font-size: 0.9rem;
-    font-weight: 600;
-    cursor: pointer;
-    transition: all 0.2s ease;
-    white-space: nowrap;
-}
-
-.newsletter-btn:hover {
-    background-color: #f3f4f6;
-    transform: translateY(-1px);
-}
-
-/* GDPR Consent */
-.gdpr-consent {
-    display: flex;
-    align-items: flex-start;
-    gap: 8px;
-}
-
-.gdpr-checkbox {
-    display: none;
-}
-
-.gdpr-label {
-    display: flex;
-    align-items: flex-start;
-    cursor: pointer;
-    user-select: none;
-    gap: 8px;
-    line-height: 1.4;
-}
-
-.gdpr-checkmark {
-    flex-shrink: 0;
-    width: 16px;
-    height: 16px;
-    border: 1px solid #6b7280;
-    border-radius: 3px;
-    background-color: #1f2937;
-    position: relative;
-    transition: all 0.2s ease;
-    margin-top: 2px;
-}
-
-.gdpr-checkbox:checked + .gdpr-label .gdpr-checkmark {
-    background-color: #ffffff;
-    border-color: #ffffff;
-}
-
-.gdpr-checkbox:checked + .gdpr-label .gdpr-checkmark::after {
-    content: '';
-    position: absolute;
-    left: 4px;
-    top: 1px;
-    width: 4px;
-    height: 8px;
-    border: solid #000000;
-    border-width: 0 2px 2px 0;
-    transform: rotate(45deg);
-}
-
-.gdpr-text {
-    font-size: 0.8rem;
-    color: #d1d5db;
-    flex: 1;
-}
-
-.privacy-link {
-    color: #ffffff;
-    text-decoration: underline;
-}
-
-.privacy-link:hover {
-    opacity: 0.8;
-}
-
-/* Success/Error Messages */
-.form-message {
-    font-size: 0.85rem;
-    margin-top: 8px;
-    padding: 8px 12px;
-    border-radius: 4px;
-    display: none;
-}
-
-.form-success {
-    background-color: rgba(16, 185, 129, 0.1);
-    color: #10b981;
-    border: 1px solid rgba(16, 185, 129, 0.3);
-}
-
-.form-error {
-    background-color: rgba(239, 68, 68, 0.1);
-    color: #ef4444;
-    border: 1px solid rgba(239, 68, 68, 0.3);
-}
-
-
-/* MOBILE NAVIGATION AND LAYOUT FIXES */
-@media (max-width: 768px) {
-    .container {
-        padding: 0 15px;
-        width: 100%;
-        max-width: 100vw; /* Never exceed viewport width */
-    }
-    
-
-    /* Footer */
-    .footer-content {
-        flex-direction: column;
-        text-align: center;
-        gap: 2rem;
-        font-weight: 600;
-        width: 100%;
-        padding: 0 15px;
-    }
-
-    .footer-links {
-        flex-direction: row !important;
-        justify-content: center;
-        gap: 1rem;
-        flex-wrap: wrap;
-    }
-    
-    .newsletter-signup {
-        flex-direction: column;
-        gap: 12px;
-        width: 100%;
-    }
-
-    .newsletter-input {
-        margin-bottom: 0;
-        width: 100%;
-    }
-    
-    .newsletter-btn {
-        width: 100%;
-    }
-}
-   
-@media (max-width: 480px) {
-    .container {
-        padding: 0 10px;
-        margin-top: 90px;
-    }
-    
-    
-    /* Footer */
-    .footer-content {
-        padding: 0 10px;
-    }
-}
-            
-        
+        /* MOBILE NAVIGATION AND LAYOUT FIXES */
         @media (max-width: 768px) {
+            .container {
+                padding: 0 15px;
+                width: 100%;
+                max-width: 100vw;
+            }
+            
             .nav-menu {
                 display: none;
             }
@@ -1043,14 +915,14 @@
             }
 
             .features h2,
-            .bundle-types h2,
+            .squad-types h2,
             .how-it-works h2,
             .creator-types h2,
             .cta-section h2 {
                 font-size: 2rem;
             }
 
-            .bundle-selector,
+            .squad-selector,
             .creator-selector {
                 flex-direction: column;
                 align-items: center;
@@ -1070,17 +942,44 @@
                 align-items: center;
             }
 
-            .footer-links {
+            /* Footer */
+            .footer-content {
                 flex-direction: column;
-                gap: 20px;
-            }
-        }
-
-        @media (max-width: 480px) {
-            .container {
+                text-align: center;
+                gap: 2rem;
+                font-weight: 600;
+                width: 100%;
                 padding: 0 15px;
             }
 
+            .footer-links {
+                flex-direction: row !important;
+                justify-content: center;
+                gap: 1rem;
+                flex-wrap: wrap;
+            }
+            
+            .newsletter-signup {
+                flex-direction: column;
+                gap: 12px;
+                width: 100%;
+            }
+
+            .newsletter-input {
+                margin-bottom: 0;
+                width: 100%;
+            }
+            
+            .newsletter-btn {
+                width: 100%;
+            }
+        }
+   
+        @media (max-width: 480px) {
+            .container {
+                padding: 0 10px;
+            }
+            
             .hero {
                 padding: 60px 0;
             }
@@ -1090,7 +989,7 @@
             }
 
             .features,
-            .bundle-types,
+            .squad-types,
             .how-it-works,
             .creator-types,
             .comparison-section,
@@ -1108,32 +1007,10 @@
             .faq-item {
                 padding: 25px 20px;
             }
-        }
-
-            .footer-links {
-                flex-direction: column;
-                gap: 20px;
-            }
-
-        @media (max-width: 480px) {
-            .container {
-                padding: 0 15px;
-            }
-
-            .hero {
-                padding: 60px 0;
-            }
-
-            .hero h1 {
-                font-size: 1.8rem;
-            }
-
-            .features,
-            .bundle-types,
-            .how-it-works,
-            .creator-types,
-            .cta-section {
-                padding: 60px 0;
+            
+            /* Footer */
+            .footer-content {
+                padding: 0 10px;
             }
         }
     </style>
@@ -1142,7 +1019,7 @@
     <!-- Header -->
     <header class="header">
         <nav class="nav-container">
-      <div class="logo"><img src="logo1.png" alt="Logo"></div>
+            <div class="logo">LinkSquad</div>
             <ul class="nav-menu">
                 <li><a href="index.html" class="nav-link">Home</a></li>
                 <li><a href="#why-join" class="nav-link">Why join</a></li>
@@ -1156,8 +1033,9 @@
     <!-- Hero Section -->
     <section class="hero">
         <div class="container">
-                <img src="hero-image2.png" alt="LetsLinkup - Adult Content Creator Collaboration Platform">
+            <div class="hero-image">
                 <div style="text-align: center; z-index: 10; position: relative;">
+                    Hero Image Placeholder
                 </div>
             </div>
             <h1>Leverage collaboration and cross promotion</h1>
@@ -1168,15 +1046,14 @@
     </section>
 
  <!-- Unique Value Proposition Section -->
-      <section id="why-join" class="why-join">
-    <section class="value-proposition">
+    <section id="why-join" class="value-proposition">
         <div class="container">
             <h2>This is the network</h2>
             <div class="value-grid">
                 <div class="value-card">
                     <div class="value-image">
                         <div class="image-placeholder">
-                             <img src="free-icon.png">
+                             💰 Free Icon
                         </div>
                     </div>
                     <div class="value-content">
@@ -1188,8 +1065,7 @@
                 <div class="value-card">
                     <div class="value-image">
                         <div class="image-placeholder">
-                             <img src="conversion-icon.png">
-                        
+                             📈 Conversion Icon
                         </div>
                     </div>
                     <div class="value-content">
@@ -1201,12 +1077,11 @@
                 <div class="value-card">
                     <div class="value-image">
                         <div class="image-placeholder">
-                             <img src="collaboration-icon.png">
-                        
+                             🤝 Collaboration Icon
                         </div>
                     </div>
                     <div class="value-content">
-                        <h3>Collaborative  by design</h3>
+                        <h3>Collaborative by design</h3>
                         <p>Every creator can leverage the network : no losers, just winners.</p>
                     </div>
                 </div>
@@ -1214,18 +1089,17 @@
         </div>
     </section>
 
-
     <!-- Profiles Section -->
     <section id="what-are-squads" class="squad-types">
         <div class="container">
-            <h2>One tool, two stategies</h2>
+            <h2>One tool, two strategies</h2>
             <div class="squad-selector">
-                <button class="squad-tab active" onclick="showTool('growth')">For reach</button>
-                <button class="squad-tab" onclick="showTool('lead')">For conversion</button>
+                <button class="squad-tab active" onclick="showSquad('growth')">For reach</button>
+                <button class="squad-tab" onclick="showSquad('lead')">For conversion</button>
             </div>
             
             <div id="growth" class="squad-content active">
-                <h3>Growth stage creators : </h3>
+                <h3>Growth stage creators :</h3>
                 <p>You're matched with two other creators.</p>
                 <p>The three of you have a link page (link in bio page) featuring two other creators that you promote in rotation. You give your subscribers 
                    the opportunity to get free trial links to the two others creators. Your fans can send a message to us to redeem those free trials.</p> 
@@ -1245,7 +1119,6 @@
         </div>
     </section>
 
-
     <!-- How It Works -->
     <section id="how-it-works" class="how-it-works">
         <div class="container">
@@ -1258,19 +1131,19 @@
                 </div>
                 <div class="step">
                     <div class="step-number">2</div>
-                    <h3>Reveive an answer</h3>
+                    <h3>Receive an answer</h3>
                     <p>You'll be matched to similar creators (squad) and be asked to accept to join the squad.</p>
                 </div>
                 <div class="step">
                     <div class="step-number">3</div>
                     <h3>Get featured</h3>
-                    <p>You'll be have your own link in bio page to promote your squad free trial links and you'll get featured on their page too.</p>
+                    <p>You'll have your own link in bio page to promote your squad free trial links and you'll get featured on their page too.</p>
                 </div>
             </div>
         </div>
     </section>
 
-      <!-- Comparison Table -->
+    <!-- Comparison Table -->
     <section class="comparison-section">
         <div class="container">
             <h2>Traditional shoutouts vs Our system</h2>
@@ -1306,7 +1179,7 @@
                         </tr>
                         <tr>
                             <td><strong>Cost</strong></td>
-                            <td>Upfront - not garanteed</td>
+                            <td>Upfront - not guaranteed</td>
                             <td>Commission only !</td>
                         </tr>
                     </tbody>
@@ -1314,7 +1187,6 @@
             </div>
         </div>
     </section>
-
 
     <!-- CTA Section -->
     <section id="cta" class="cta-section">
@@ -1327,7 +1199,6 @@
             </div>
         </div>
     </section>
-
 
     <!-- Footer -->
     <footer class="footer">
@@ -1364,19 +1235,15 @@
       </div>
     </footer>
 
-
-          
-
     <script>
-    
-     function showBundle(type) {
-            // Hide all bundle contents
-            document.querySelectorAll('.bundle-content').forEach(content => {
+        function showSquad(type) {
+            // Hide all squad contents
+            document.querySelectorAll('.squad-content').forEach(content => {
                 content.classList.remove('active');
             });
             
             // Remove active class from all tabs
-            document.querySelectorAll('.bundle-tab').forEach(tab => {
+            document.querySelectorAll('.squad-tab').forEach(tab => {
                 tab.classList.remove('active');
             });
             
@@ -1402,9 +1269,12 @@
         }
 
         function scrollToSection(sectionId) {
-            document.getElementById(sectionId).scrollIntoView({
-                behavior: 'smooth'
-            });
+            const element = document.getElementById(sectionId);
+            if (element) {
+                element.scrollIntoView({
+                    behavior: 'smooth'
+                });
+            }
         }
 
         // Smooth scroll for anchor links
@@ -1418,79 +1288,6 @@
                     });
                 }
             });
-        });
-
-         // Testimonials Carousel Functionality
-        let currentTestimonialIndex = 0;
-        const totalTestimonials = 5;
-        let autoRotateInterval;
-
-        function showTestimonial(index) {
-            const track = document.getElementById('testimonialTrack');
-            const indicators = document.querySelectorAll('.indicator');
-            
-            // Ensure index is within bounds
-            if (index < 0) index = totalTestimonials - 1;
-            if (index >= totalTestimonials) index = 0;
-            
-            // Update track position - each testimonial takes 20% width (100% / 5)
-            track.style.transform = `translateX(-${index * 20}%)`;
-            
-            // Update indicators
-            indicators.forEach((indicator, i) => {
-                indicator.classList.toggle('active', i === index);
-            });
-            
-            currentTestimonialIndex = index;
-        }
-
-        function changeTestimonial(direction) {
-            const newIndex = currentTestimonialIndex + direction;
-            showTestimonial(newIndex);
-            
-            // Restart auto-rotation
-            stopAutoRotate();
-            startAutoRotate();
-        }
-
-        function currentTestimonial(index) {
-            showTestimonial(index - 1); // Convert from 1-based to 0-based index
-            
-            // Restart auto-rotation
-            stopAutoRotate();
-            startAutoRotate();
-        }
-
-        function startAutoRotate() {
-            autoRotateInterval = setInterval(() => {
-                changeTestimonial(1);
-            }, 6000);
-        }
-
-        function stopAutoRotate() {
-            if (autoRotateInterval) {
-                clearInterval(autoRotateInterval);
-            }
-        }
-
-        // Initialize carousel
-        document.addEventListener('DOMContentLoaded', function() {
-            showTestimonial(0);
-            startAutoRotate();
-            
-            // Pause auto-rotation when user hovers over carousel
-            const carousel = document.querySelector('.testimonials-carousel');
-            carousel.addEventListener('mouseenter', stopAutoRotate);
-            carousel.addEventListener('mouseleave', startAutoRotate);
-        });
-
-        // Handle keyboard navigation
-        document.addEventListener('keydown', function(event) {
-            if (event.key === 'ArrowLeft') {
-                changeTestimonial(-1);
-            } else if (event.key === 'ArrowRight') {
-                changeTestimonial(1);
-            }
         });
 
         // Header background on scroll
@@ -1521,58 +1318,100 @@
         }, observerOptions);
 
         // Observe all sections for animation
-        document.querySelectorAll('section').forEach(section => {
-            section.style.opacity = '0';
-            section.style.transform = 'translateY(30px)';
-            section.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
-            observer.observe(section);
+        document.addEventListener('DOMContentLoaded', function() {
+            document.querySelectorAll('section').forEach(section => {
+                if (!section.classList.contains('hero')) {
+                    section.style.opacity = '0';
+                    section.style.transform = 'translateY(30px)';
+                    section.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+                    observer.observe(section);
+                }
+            });
         });
 
-        // Set hero section to be visible immediately
-        document.querySelector('.hero').style.opacity = '1';
-        document.querySelector('.hero').style.transform = 'translateY(0)';
+        // Newsletter form handling
+        document.getElementById('newsletterForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const email = this.querySelector('input[name="email"]').value;
+            const consent = document.getElementById('gdprConsent').checked;
+            const errorMessage = document.getElementById('errorMessage');
+            
+            // Hide previous error messages
+            errorMessage.style.display = 'none';
+            
+            if (!email || !consent) {
+                errorMessage.textContent = '⚠ Please fill in your email and agree to the terms.';
+                errorMessage.style.display = 'block';
+                return;
+            }
+            
+            // Simple email validation
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (!emailRegex.test(email)) {
+                errorMessage.textContent = '⚠ Please enter a valid email address.';
+                errorMessage.style.display = 'block';
+                return;
+            }
+            
+            // If we get here, form is valid
+            // In a real implementation, you would submit to your backend
+            console.log('Form submitted:', { email, consent });
+            
+            // Show success message (you can replace this with actual form submission)
+            errorMessage.className = 'form-message form-success';
+            errorMessage.textContent = '✓ Thank you for subscribing!';
+            errorMessage.style.display = 'block';
+            
+            // Reset form
+            this.reset();
+            document.getElementById('gdprConsent').checked = false;
+            
+            // Hide success message after 3 seconds
+            setTimeout(() => {
+                errorMessage.style.display = 'none';
+                errorMessage.className = 'form-message form-error';
+            }, 3000);
+        });
+    </script>
 
-
-
-           <!-- Structured Data for AI/Search Engines -->
-         <script type="application/ld+json">
+    <!-- Structured Data for AI/Search Engines -->
+    <script type="application/ld+json">
     {
         "@context": "https://schema.org",
         "@type": "WebSite",
-        "name": "Soft Power Creators Network",
-        "url": "https://softpowercreators.net",
-        "description": "Collaborative marketing network for adult content creators featuring OnlyFans promotion, creator bundles, and collaboration matching.",
+        "name": "LinkSquad - Creator Collaboration Network",
+        "url": "https://letslinkup.eu"/linksquad,
+        "description": "Collaborative marketing network for adult content creators featuring OnlyFans promotion and collaboration matching.",
         "potentialAction": {
             "@type": "SearchAction",
-            "target": "https://softpowercreators.net/search?q={search_term_string}",
+            "target": "https://leslinkup.eu/linksquad/search?q={search_term_string}",
             "@id": "search"
-        }
+        },
         "sameAs": [
             "https://softlylinked.net"
         ]
     }
-    
+    </script>
     
     <script type="application/ld+json">
     {
         "@context": "https://schema.org",
         "@type": "Organization",
-        "name": "Soft Power Creators Network",
-        "url": "https://softpowercreators.net",
-        "logo": "https://softpowercreators.net/logo.png",
-        "description": "The trusted professional adult creators network offering free marketing bundles and collaboration services.",
-        "foundingDate": "2024",
+        "name": "LinkSquad - Creator Network",
+        "url": "https://letslinkup.eu",
+        "description": "The trusted professional adult creators network offering marketing bundles and collaboration services for adult creators.",
+        "foundingDate": "2025",
         "knowsAbout": [
             "Adult Content Marketing",
             "OnlyFans Promotion",
             "Creator Collaborations",
-            "Content Creator Growth",
+            "Content Creator Network",
             "Digital Marketing for Adult Industry"
         ],
         "serviceType": "Marketing Network",
         "areaServed": "Worldwide"
     }
-    
     </script>
 </body>
 </html>
