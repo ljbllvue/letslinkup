@@ -127,7 +127,7 @@
             font-weight: 700;
             margin-bottom: 8px;
             letter-spacing: -0.025em;
-            padding-top: 50px;
+            padding-top: 100px;
         }
 
         .page-header p {
@@ -1881,5 +1881,6 @@
                 align-items: flex-start;
                 gap: 8px;
             }
+
 
 
