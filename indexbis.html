@@ -11,7 +11,6 @@
 </head>
 <body>
   <div class="container">
-
     <!-- Scroll Progress Indicator -->
     <div class="scroll-indicator" id="scrollIndicator"></div>
 
@@ -24,63 +23,81 @@
         <div class="logo"><a href="/"><img src="logo1.png" alt="Logo"></a></div>
         <ul class="nav-menu" id="navMenu">
           <li><a href="index.html" class="nav-link">Home</a></li>
-          <li><a href="linkboard.html" class="nav-link">Explore</a></li>
-          <li><a href="ressources.html" class="nav-link">Read this</a></li>
+          <li><a href="linkboard.html" class="nav-link">Link Board</a></li>
+          <li><a href="linksquad.html" class="nav-link">Link Squad</a></li>
+          <li><a href="ressources.html" class="nav-link">Resources</a></li>
           <li><a href="mailto:contact@letslinkup.eu" class="nav-link">Contact</a></li>
           <li><button class="nav-link cta" onclick="openShootShotModal()">Submit a linkup</button></li>
         </ul>
-        <div class="mobile-toggle" id="mobileToggle">
-          <span></span>
-          <span></span>
-          <span></span>
-        </div>
+        <div class="mobile-toggle" id="mobileToggle"><span></span><span></span><span></span></div>
       </nav>
     </header>
 
-    <!-- Hero Section -->
+    <!-- Hero -->
     <section class="hero">
       <div class="hero-image">
-        <img src="shootingindex.png" alt="a porn shoot">
+        <img src="shootingindex.png" alt="Creator collaboration shoot">
       </div>
     </section>
 
-    <!-- Replaced Search Section with Hero CTA -->
+    <!-- Hero CTA (replaces search) -->
     <section class="search-section">
       <h1>Find Your Next Collaboration</h1>
       <p style="margin-bottom:30px; font-size:1.1rem; color:#555;">
-        Choose the path that fits you best
+        Two paths to grow: browse open linkups or apply for a curated squad.
       </p>
-      <div style="display:flex; justify-content:center; gap:20px; flex-wrap:wrap;">
+      <div class="cta-duo">
         <a href="linkboard.html" class="explore-button">Explore Link Board</a>
-        <a href="linksquad.html" class="explore-button" style="background:#000; color:#fff;">
-          Apply to Link Squad
+        <a href="linksquad.html" class="explore-button outline">Apply to Link Squad</a>
+      </div>
+    </section>
+
+    <!-- Quick Choices (light tiles) -->
+    <section class="quick-choices">
+      <div class="quick-grid">
+        <a href="linkboard.html" class="quick-tile">
+          <h3>Open Collabs</h3>
+          <p>Post or browse linkups.</p>
+        </a>
+        <a href="linksquad.html" class="quick-tile">
+          <h3>Curated Squads</h3>
+          <p>Apply for strategic matches.</p>
         </a>
       </div>
     </section>
 
-    <!-- Features Section -->
+    <!-- Features -->
     <section class="features">
       <h2>Link up to level up</h2>
       <div class="features-grid">
         <div class="feature-card">
-          <div class="feature-icon"><img src="revenue.png" alt="Revenue"></div>
+          <div class="feature-icon"><img src="revenue.png" alt="Revenue icon"></div>
           <h3>Increase your revenue</h3>
-          <p>Collaborate with creators who match your vibe and build professional relationships with business minded people.</p>
+          <p>Collaborate with creators who match your vibe and build professional relationships with business-minded people.</p>
         </div>
         <div class="feature-card">
-          <div class="feature-icon"><img src="content.png" alt="Content"></div>
+          <div class="feature-icon"><img src="content.png" alt="Content icon"></div>
           <h3>Diversify your content</h3>
-          <p>Protect your time and inbox by only receiving vetted submissions and sending messages to creators who are shoot ready.</p>
+          <p>Protect your time and inbox by only receiving vetted submissions and messaging creators who are shoot-ready.</p>
         </div>
         <div class="feature-card">
-          <div class="feature-icon"><img src="fanbase.png" alt="Fanbase"></div>
+          <div class="feature-icon"><img src="fanbase.png" alt="Fanbase icon"></div>
           <h3>Grow your fanbase</h3>
-          <p>Use our tools to set clear boundaries and mutual agreements, plan the scene(s) so expectations are aligned.</p>
+          <p>Use our tools to set clear boundaries and agreements, and plan scenes so expectations are aligned.</p>
         </div>
       </div>
     </section>
 
-    <!-- Collab Without Bullshit Section -->
+    <!-- Steps Strip (mini process with links) -->
+    <section class="steps-strip">
+      <ol class="steps-inline">
+        <li><a href="linkboard.html">1. Post/Browse</a></li>
+        <li><a href="linksquad.html">2. Apply to Squad</a></li>
+        <li><a href="#shootShotModal" onclick="openShootShotModal()">3. Get Matches</a></li>
+      </ol>
+    </section>
+
+    <!-- Collab Without Bullshit -->
     <section class="collab-section">
       <h2>Collab without the bullshit</h2>
       <div class="collab-cards">
@@ -96,7 +113,7 @@
         <div class="collab-card reverse">
           <div class="collab-content">
             <h3>Protect your Energy</h3>
-            <p>Focus on creating, not screening. We handle the initial filtering so you can invest your energy in meaningful collaborations.</p>
+            <p>Focus on creating, not screening. We handle initial filtering so you can invest energy in meaningful collabs.</p>
           </div>
           <div class="collab-image">
             <img src="energy.png" alt="Protect your Energy">
@@ -108,24 +125,22 @@
           </div>
           <div class="collab-content">
             <h3>Protect your Reputation</h3>
-            <p>Work with vetted professionals who respect boundaries and maintain the same high standards you do for your brand.</p>
+            <p>Work with vetted professionals who respect boundaries and keep the same high standards you do.</p>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- Matchmaking Section -->
+    <!-- Matchmaking -->
     <section class="matchmaking">
       <div class="matchmaking-content">
         <div>
-          <h2>How does it work</h2>
-          <br><div class="support-text"></div>
+          <h2>How it works</h2>
+          <div class="support-text" aria-hidden="true"></div>
           <h3>🟣 Poster</h3>
-          <p>We filter for you so you don’t waste time chatting, or guessing. 
-          You just have to submit what you want and we'll bring it serious creators to you.</p><br><br>
+          <p>Submit what you want; we filter and bring serious creators to you.</p><br><br>
           <h3>⚫ Responder</h3>
-          <p>You submit an interest form, we review it and keep you in our database. 
-              When a new linkup matches your profile, we just send it to you.</p>
+          <p>Submit interest; we review and keep you in our database. When a new linkup matches, we send it to you.</p>
         </div>
         <div>
           <div class="steps">
@@ -137,15 +152,34 @@
       </div>
     </section>
 
+    <!-- Mini FAQ (difference LB vs LS) -->
+    <section class="mini-faq">
+      <details>
+        <summary>What’s the difference between Link Board and Link Squad?</summary>
+        <p><strong>Link Board:</strong> open ideas anyone can post or browse.</p>
+        <p><strong>Link Squad:</strong> application-only, curated matches.</p>
+        <p><a href="linkboard.html">Go to Link Board</a> · <a href="linksquad.html">Apply to Link Squad</a></p>
+      </details>
+    </section>
+
     <!-- Submit Section -->
     <section class="submit-section">
       <h2>Let's work together</h2>
-      <h3>Do you need someone to find performers and manage those collaborations from vetting to filming?</h3>
+      <h3>Need someone to find performers and manage collabs from vetting to filming?</h3>
       <br>
       <div class="submit-buttons">
         <a href="mailto:contact@letslinkup.eu?subject=Posting collaborations as a studio" class="submit-cta">I'm a Studio</a>
         <a href="mailto:contact@letslinkup.eu?subject=Posting collaborations as a creator" class="submit-cta">I'm a Creator</a>
         <a href="mailto:contact@letslinkup.eu?subject=Posting collaborations as an agency" class="submit-cta">I'm an Agency</a>
+      </div>
+    </section>
+
+    <!-- CTA Band (above footer) -->
+    <section class="cta-band">
+      <p>Ready to grow with the right partners?</p>
+      <div class="cta-band-actions">
+        <a href="linkboard.html" class="explore-button">Explore Link Board</a>
+        <a href="linksquad.html" class="explore-button outline">Join Link Squad</a>
       </div>
     </section>
 
@@ -155,7 +189,7 @@
         <div class="footer-links">
           <a href="/">Home</a>
           <a href="/linkboard">The Link Board</a>
-          <a href="/linkandmatch">Link & Match</a>
+          <a href="/linksquad.html">Link Squad</a>
           <a href="/privacy-policy">Privacy Policy</a>
           <a href="/terms-of-service">Terms of Service</a>
         </div>
@@ -183,6 +217,9 @@
         </div>
       </div>
     </footer>
+
+    <!-- (Your existing modal stays as-is) -->
+    <!-- Shoot Your Shot Modal ... -->
 
   </div>
   <script src="index.js"></script>
