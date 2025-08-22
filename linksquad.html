@@ -10,12 +10,10 @@
     
     
     <style>
-
-{*
+        * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            
         }
 
         body {
@@ -537,8 +535,121 @@
             font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
         }
 
-        /* Case Study Section */
-       /* Header Section */
+        /* Case Study Section - FIXED */
+        .case-study {
+            padding: 80px 0;
+            background: linear-gradient(135deg, #ffffff 0%, #f8fafc 50%, #f1f5f9 100%);
+        }
+
+        .case-study h2 {
+            text-align: center;
+            font-size: 2.5rem;
+            font-weight: 300;
+            margin-bottom: 60px;
+            color: #000;
+        }
+
+        .case-study-content {
+            display: grid;
+            grid-template-columns: 1fr 400px;
+            gap: 60px;
+            align-items: start;
+        }
+
+        .case-study-text h3 {
+            font-size: 2rem;
+            font-weight: 400;
+            margin-bottom: 20px;
+            color: #c7aee9;
+        }
+
+        .case-study-text p {
+            color: #666;
+            font-weight: 300;
+            line-height: 1.7;
+            margin-bottom: 20px;
+        }
+
+        .case-study-stats {
+            display: flex;
+            justify-content: space-between;
+            margin: 40px 0;
+            gap: 20px;
+        }
+
+        .stat-item {
+            text-align: center;
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(199, 174, 233, 0.2);
+            border-radius: 16px;
+            padding: 20px;
+            flex: 1;
+        }
+
+        .stat-number {
+            font-size: 2rem;
+            font-weight: 600;
+            color: #c7aee9;
+            display: block;
+        }
+
+        .stat-label {
+            font-size: 0.9rem;
+            color: #666;
+            margin-top: 5px;
+        }
+
+        .case-study-quote {
+            font-style: italic;
+            color: #444;
+            font-size: 1.1rem;
+            line-height: 1.6;
+            margin: 30px 0 15px 0;
+            padding: 20px;
+            background: rgba(199, 174, 233, 0.05);
+            border-left: 4px solid #c7aee9;
+            border-radius: 8px;
+        }
+
+        .quote-author {
+            font-size: 0.9rem;
+            color: #c7aee9;
+            font-weight: 500;
+            margin-bottom: 30px;
+        }
+
+        .case-study-cta {
+            background: linear-gradient(135deg, #c7aee9 0%, rgba(199, 174, 233, 0.8) 100%);
+            color: #000;
+            border: none;
+            border-radius: 50px;
+            padding: 16px 32px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .case-study-cta:hover {
+            background: #000;
+            color: #fff;
+            transform: translateY(-2px);
+        }
+
+        /* LinkSquad Card - FIXED */
+        .linksquad-placeholder {
+            background: rgba(255, 255, 255, 0.95);
+            border: 2px solid rgba(199, 174, 233, 0.3);
+            border-radius: 20px;
+            padding: 25px;
+            max-width: 380px;
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            box-shadow: 0 10px 30px rgba(199, 174, 233, 0.15);
+            backdrop-filter: blur(10px);
+        }
+
+        /* Header Section */
         .linksquad-placeholder .header {
             text-align: center;
             margin-bottom: 25px;
@@ -772,8 +883,29 @@
             font-weight: 600;
         }
 
+        /* Footer inside LinkSquad card */
+        .linksquad-placeholder .footer {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid rgba(199, 174, 233, 0.2);
+            margin-top: 20px;
+        }
 
-        
+        .footer-brand {
+            font-size: 0.8rem;
+            color: #666;
+            margin: 0;
+        }
+
+        .footer-link {
+            color: #c7aee9;
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .footer-link:hover {
+            text-decoration: underline;
+        }
 
         /* Comparison Table */
         .comparison-section {
@@ -849,8 +981,6 @@
             background: rgba(199, 174, 233, 0.05);
         }
 
-       
-
         /* CTA Section */
         .cta-section {
             padding: 80px 0;
@@ -916,7 +1046,7 @@
             transform: translateY(-2px);
         }
 
-        /* Footer */
+        /* Main Footer */
         .footer {
             width: 100%;
             background: linear-gradient(135deg, #1a1a1a 0%, #000000 100%);
@@ -1151,8 +1281,7 @@
                 align-items: center;
             }
 
-            .comparison-table-wrapper,
-            .faq-grid {
+            .comparison-table-wrapper {
                 overflow-x: auto;
             }
 
@@ -1216,7 +1345,6 @@
             .how-it-works,
             .creator-types,
             .comparison-section,
-            .faq-section,
             .cta-section {
                 padding: 60px 0;
             }
@@ -1226,24 +1354,22 @@
                 padding: 15px 10px;
                 font-size: 0.9rem;
             }
-
-            .faq-item {
-                padding: 25px 20px;
-            }
             
             /* Footer */
             .footer-content {
                 padding: 0 10px;
             }
         }
-        
-    </style>
+
+
+
+        </style>
 </head>
 <body>
     <!-- Header -->
-        <header class="header">
+    <header class="header">
         <nav class="nav-container">
-      <div class="logo1"><img src="logo1.png" alt="Logo"></div>
+            <div class="logo">LinkSquad</div>
             <ul class="nav-menu">
                 <li><a href="index.html" class="nav-link">Home</a></li>
                 <li><a href="#why-join" class="nav-link">Why join</a></li>
@@ -1256,11 +1382,12 @@
 
     <!-- Hero Section -->
     <section class="hero">
-            <div class="container">
-  <div class="hero-inner">
-      <img src="hero-image2.png" alt="adult Content Creator Collaboration Platform">
-    </div>
-  </div>
+        <div class="container">
+            <div class="hero-image">
+                <div style="text-align: center; z-index: 10; position: relative;">
+                    Hero Image Placeholder
+                </div>
+            </div>
             <h1>Leverage collaboration and cross promotion</h1>
             <p class="hero-subtitle">Apply to join the collab network built for creators for real results.</p>
             <button class="hero-cta" onclick="scrollToSection('cta')">Join a linksquad</button>
@@ -1268,29 +1395,27 @@
         </div>
     </section>
 
-
-     <!-- Unique Value Proposition Section -->
-    <section class="value-proposition">
+ <!-- Unique Value Proposition Section -->
+    <section id="why-join" class="value-proposition">
         <div class="container">
             <h2>This is the network</h2>
             <div class="value-grid">
                 <div class="value-card">
                     <div class="value-image">
                         <div class="image-placeholder">
-                             <img src="free-icon.png">
+                             💰 Free Icon
                         </div>
                     </div>
                     <div class="value-content">
-                        <h3>Free to join</h3>
-                        <p>No upfront costs or monthly fees, just affiliate marketing.</p>
+                        <h3>Easy to join</h3>
+                        <p>No commissions, no upfront cost before you get matched</p>
                     </div>
                 </div>
                 
                 <div class="value-card">
                     <div class="value-image">
                         <div class="image-placeholder">
-                             <img src="conversion-icon.png">
-                        
+                             📈 Conversion Icon
                         </div>
                     </div>
                     <div class="value-content">
@@ -1302,22 +1427,17 @@
                 <div class="value-card">
                     <div class="value-image">
                         <div class="image-placeholder">
-                             <img src="collaboration-icon.png">
-                        
+                             🤝 Collaboration Icon
                         </div>
                     </div>
                     <div class="value-content">
-                        <h3>Collaborative  by design</h3>
+                        <h3>Collaborative by design</h3>
                         <p>Every creator can leverage the network : no losers, just winners.</p>
                     </div>
                 </div>
             </div>
         </div>
     </section>
-     
-
-
-    
 
     <!-- Profiles Section -->
     <section id="what-are-squads" class="squad-types">
@@ -1352,9 +1472,9 @@
     <!-- Case Study Section -->
     <section class="case-study">
         <div class="container">
-            <h2>See a LinkSquad in action</h2>
             <div class="case-study-content">
                 <div class="case-study-text">
+                    <h2>See a LinkSquad in action</h2>
                     <h3>Mistress Aria's Success Story</h3>
                     <p>This creator joined our network 4 months ago and transformed her fan engagement through strategic collaboration with Goddess Sasha and Queen Victoria.</p>
                     
@@ -1381,6 +1501,7 @@
                 
                 <div class="case-study-image">
                     <div class="linksquad-placeholder">
+                        <!-- Header -->
                         <div class="header">
                             <div class="profile-image"></div>
                             <h1 class="creator-name">Mistress Aria</h1>
@@ -1480,12 +1601,10 @@
         </div>
     </section>
 
-
-    
     <!-- Comparison Table -->
     <section class="comparison-section">
         <div class="container">
-            <h2>Why it works</h2>
+            <h2>Traditional shoutouts vs Our system</h2>
             <div class="comparison-table-wrapper">
                 <table class="comparison-table">
                     <thead>
@@ -1519,7 +1638,7 @@
                         <tr>
                             <td><strong>Cost</strong></td>
                             <td>Upfront - not guaranteed</td>
-                            <td>Upfront and commission - refund if no results !</td>
+                            <td>Commission only !</td>
                         </tr>
                     </tbody>
                 </table>
@@ -1530,11 +1649,11 @@
     <!-- CTA Section -->
     <section id="cta" class="cta-section">
         <div class="container">
-            <h2>Ready to work with us ?</h2>
-            <p>Join the network for free and apply to be part of a linksquad now.</p>
+            <h2>Ready to grow your fanbase?</h2>
+            <p>Join hundreds of creators already using our network to drive real fan growth</p>
             <div class="cta-buttons">
                 <button class="cta-primary" onclick="window.open('mailto:hello@softpowercreators.net?subject=Join Creator Network - Growth Stage', '_blank')">Join a link squad</button>
-                <button class="cta-secondary" onclick="window.open('mailto:hello@softpowercreators.net?subject=Join Creator Network - Lead Creator', '_blank')">Schedule a call</button>
+                <button class="cta-secondary" onclick="window.open('mailto:hello@softpowercreators.net?subject=Join Creator Network - Lead Creator', '_blank')">Get your link spotlight</button>
             </div>
         </div>
     </section>
@@ -1545,7 +1664,7 @@
         <div class="footer-links">
           <a href="/">Home</a>
           <a href="/linkboard">The Link Board</a>
-          <a href="/linkandmatch.html">Link & Match</a>
+          <a href="/linksquad.html">Link Squad</a>
           <a href="/privacy-policy">Privacy Policy</a>
           <a href="/terms-of-service">Terms of Service</a>
         </div>
@@ -1720,11 +1839,11 @@
         "@context": "https://schema.org",
         "@type": "WebSite",
         "name": "LinkSquad - Creator Collaboration Network",
-        "url": "https://letslinkup.eu/linksquad",
-        "description": "Collaborative marketing network for adult content creators featuring OnlyFans promotion and collaboration matching.",
+        "url": "https://softpowercreators.net",
+        "description": "Collaborative marketing network for adult content creators featuring OnlyFans promotion, creator bundles, and collaboration matching.",
         "potentialAction": {
             "@type": "SearchAction",
-            "target": "https://letslinkup.eu/linksquad/search?q={search_term_string}",
+            "target": "https://softpowercreators.net/search?q={search_term_string}",
             "@id": "search"
         },
         "sameAs": [
@@ -1738,519 +1857,14 @@
         "@context": "https://schema.org",
         "@type": "Organization",
         "name": "LinkSquad - Creator Network",
-        "url": "https://letslinkup.eu",
-        "description": "The trusted professional adult creators network offering marketing bundles and collaboration services for adult creators.",
-        "foundingDate": "2025",
+        "url": "https://softpowercreators.net",
+        "description": "The trusted professional adult creators network offering free marketing bundles and collaboration services.",
+        "foundingDate": "2024",
         "knowsAbout": [
             "Adult Content Marketing",
             "OnlyFans Promotion",
             "Creator Collaborations",
-            "Content Creator Network",
-            "Digital Marketing for Adult Industry"
-        ],
-        "serviceType": "Marketing Network",
-        "areaServed": "Worldwide"
-    }
-    </script>
-
-
-
-    
-        </div>
-    </section>
-
- <!-- Unique Value Proposition Section -->
-    <section id="why-join" class="value-proposition">
-        <div class="container">
-              <div class="value-grid">
-                <div class="value-card">
-                    <div class="value-image">
-                        <div class="image-placeholder">
-                             <img src="free-icon.png">
-                        </div>
-                    </div>
-                    <div class="value-content">
-                        <h3>Free to join</h3>
-                        <p>No upfront costs before you finally get matched with the right creators for your brand your goals. We take our time to ensure results.</p>
-                    </div>
-                </div>
-                
-                <div class="value-card">
-                    <div class="value-image">
-                        <div class="image-placeholder">
-                             <img src="conversion-icon.png">
-                        
-                        </div>
-                    </div>
-                    <div class="value-content">
-                        <h3>Built to convert</h3>
-                        <p>Attract only paying fans : no freeloaders just serious leads more likely to buy based on the creators you are paired with.</p>
-                    </div>
-                </div>
-                
-                <div class="value-card">
-                    <div class="value-image">
-                        <div class="image-placeholder">
-                             <img src="collaboration-icon.png">
-                        
-                        </div>
-                    </div>
-                    <div class="value-content">
-                        <h3>Made for everyone</h3>
-                        <p>Every creator can leverage the network for their strategy whether you are growing or esthablished. No losers, just winners.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Profiles Section -->
-    <section id="what-are-squads" class="squad-types">
-        <div class="container">
-            <h2>One tool, two strategies</h2>
-            <div class="squad-selector">
-                <button class="squad-tab active" onclick="showSquad('growth')">For reach</button>
-                <button class="squad-tab" onclick="showSquad('lead')">For conversion</button>
-            </div>
-            
-            <div id="growth" class="squad-content active">
-                <h3>Growth stage creators :</h3>
-                <p>You're matched with two other creators.</p>
-                <p>The three of you have a link page (link in bio page) featuring two other creators that you promote in rotation. You give your subscribers 
-                   the opportunity to get free trial links to the two others creators. Your fans can send a message to us to redeem those free trials.</p> 
-                <p><strong>Perfect for:</strong> Established creators who are open to collaborations with creators.</p>
-                <p><strong>What you get:</strong> Your own linkpage featuring two rotating guest creators that you will be able to promote to your fans and a team tracking and optimizing conversions by
-                putting you in higher converting link squads.</p>
-            </div>
-            
-            <div id="lead" class="squad-content">
-                <h3>Lead creators</h3>
-                <p>You're added to a curated list of three creators that we promote, renewed each month. We handle the promotion through paid ads, socials, SEO, and our email list during this month.
-                    Your free trial can be promoted to our curated newsletter of paying fans acquired through link pages.
-                </p>
-                <p><strong>Perfect for:</strong> New creators who are building an audience, want more visibility but don't have time or budget to figure out marketing.</p>
-                <p><strong>What you get:</strong> You get featured in high converting formats with quality traffic.</p>
-            </div>
-        </div>
-    </section>
-
-    <!-- How It Works -->
-    <section id="how-it-works" class="how-it-works">
-        <div class="container">
-            <h2>How it works</h2>
-            <div class="steps">
-                <div class="step">
-                    <div class="step-number">1</div>
-                    <h3>Submit an application form</h3>
-                    <p>Fill out a short form. Give info about your experience, brand, niche, content, socials.</p>
-                </div>
-                <div class="step">
-                    <div class="step-number">2</div>
-                    <h3>Receive an answer</h3>
-                    <p>You'll be matched to similar creators (squad) and be asked to accept to join the squad.</p>
-                </div>
-                <div class="step">
-                    <div class="step-number">3</div>
-                    <h3>Get featured</h3>
-                    <p>You'll have your own link in bio page to promote your squad free trial links and you'll get featured on their page too.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-
-      <!-- Case Study Section -->
-    <section class="case-study">
-        <div class="container">
-            <div class="case-study-content">
-                <div class="case-study-text">
-                    <h2>See a LinkSquad in action</h2>
-                    <h3>Mistress Aria's Success Story</h3>
-                    <p>This creator joined our network 4 months ago and transformed her fan engagement through strategic collaboration with Goddess Sasha and Queen Victoria.</p>
-                    
-                    <div class="case-study-stats">
-                        <div class="stat-item">
-                            <div class="stat-number">73%</div>
-                            <div class="stat-label">Higher engagement rate</div>
-                        </div>
-                        <div class="stat-item">
-                            <div class="stat-number">1.8K</div>
-                            <div class="stat-label">New quality subscribers</div>
-                        </div>
-                        <div class="stat-item">
-                            <div class="stat-number">$8.5K</div>
-                            <div class="stat-label">Additional monthly revenue</div>
-                        </div>
-                    </div>
-                    
-                    <p class="case-study-quote">"The LinkSquad completely changed my approach to fan acquisition. Instead of random shoutouts, I now have a curated network that delivers real, paying subscribers. My fans love the exclusive access to my trusted circle."</p>
-                    <div class="quote-author">- Mistress Aria, Featured Creator</div>
-                    
-                    <button class="case-study-cta" onclick="scrollToSection('cta')">Start Your Own Squad</button>
-                </div>
-                
-                <div class="case-study-image">
-                    <div class="linksquad-placeholder">
-                        <!-- My Links -->
-                        <div class="my-links">
-                                   <div class="profile-image"></div>
-                            <h1 class="creator-name">Mistress Aria</h1>
-                            <p class="creator-handle">@mistress_aria</p>
-                            <p class="creator-bio">Dominant goddess & and sensual muscle mommy.</p>
-                            <h2 class="section-title">My Onlyfans</h2>
-                            <a href="#" class="link-btn">Subscribe Here</a>
-                        </div>
-
-                        <!-- Link Squad Section -->
-                        <div class="link-squad">
-                            <div class="squad-header">
-                                <h2 class="squad-title">My Link Squad</h2>
-                                <p class="squad-description">Check out these incredible creators from my inner circle.</p>
-                                <div class="squad-note">Get free trials</div>
-                            </div>
-
-                            <div class="friends-grid">
-                                <!-- Friend 1 -->
-                                <div class="friend-card">
-                                    <div class="friend-header">
-                                        <div class="friend-image"></div>
-                                        <div class="friend-info">
-                                            <h3 class="friend-name">Goddess Sasha</h3>
-                                            <p class="friend-handle">@goddess_sasha</p>
-                                        </div>
-                                    </div>
-                                    <div class="friend-links">
-                                        <a href="#" class="friend-link">Instagram</a>
-                                        <a href="#" class="friend-link">Telegram</a>
-                                    </div>
-                                </div>
-
-                                <!-- Friend 2 -->
-                                <div class="friend-card">
-                                    <div class="friend-header">
-                                        <div class="friend-image"></div>
-                                        <div class="friend-info">
-                                            <h3 class="friend-name">Queen Victoria</h3>
-                                            <p class="friend-handle">@queen_victoria</p>
-                                        </div>
-                                    </div>
-                                    <div class="friend-links">
-                                        <a href="#" class="friend-link">Instagram</a>
-                                        <a href="#" class="friend-link">Telegram</a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Free Trial Section -->
-                        <div class="trial-section">
-                            <h3>Try my friends pages for 7 days</h3>
-                            <p class="trial-description">You are a subscriber ? Get your free link passes !</p>
-
-                            <div class="contact-info">
-                                <div class="contact-label">📧 Click to send an email to :</div>
-                                <div class="contact-email">contact@unlockpage.link</div>
-                            </div>
-                        </div>
-
-                        <!-- Footer -->
-                        <div class="footer">
-                            <p class="footer-brand">Unlock Page powered by <a href="#" class="footer-link">Letslinkup</a></p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- How It Works -->
-    <section id="how-it-works" class="how-it-works">
-        <div class="container">
-            <h2>How it works</h2>
-            <div class="steps">
-                <div class="step">
-                    <div class="step-number">1</div>
-                    <h3>Submit an application form</h3>
-                    <p>Fill out a short form. Give info about your experience, brand, niche, content, socials.</p>
-                </div>
-                <div class="step">
-                    <div class="step-number">2</div>
-                    <h3>Receive an answer</h3>
-                    <p>You'll be matched to similar creators (squad) and be asked to accept to join the squad.</p>
-                </div>
-                <div class="step">
-                    <div class="step-number">3</div>
-                    <h3>Get featured</h3>
-                    <p>You'll have your own link in bio page to promote your squad free trial links and you'll get featured on their page too.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Comparison Table -->
-    <section class="comparison-section">
-        <div class="container">
-            <h2>Why it works</h2>
-            <div class="comparison-table-wrapper">
-                <table class="comparison-table">
-                    <thead>
-                        <tr>
-                            <th>Feature</th>
-                            <th>Traditional Shoutouts</th>
-                            <th>Our System</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td><strong>Discovery</strong></td>
-                            <td>Post gone in 24 hours</td>
-                            <td>Link in bio page</td>
-                        </tr>
-                        <tr>
-                            <td><strong>Conversion</strong></td>
-                            <td>Cold traffic, low follow-through</td>
-                            <td>Warm leads, already paying</td>
-                        </tr>
-                        <tr>
-                            <td><strong>ROI</strong></td>
-                            <td>Low return on investment</td>
-                            <td>Middle to high ROI</td>
-                        </tr>
-                        <tr>
-                            <td><strong>Fan Experience</strong></td>
-                            <td>Fans get spammed</td>
-                            <td>Fans get real value</td>
-                        </tr>
-                        <tr>
-                            <td><strong>Cost</strong></td>
-                            <td>Upfront - not guaranteed</td>
-                            <td>Upfront and commission - refund if no results !</td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-        </div>
-    </section>
-
-    <!-- CTA Section -->
-    <section id="cta" class="cta-section">
-        <div class="container">
-            <h2>Ready to work with us ?</h2>
-            <p>Join the network for free and apply to be part of a linksquad now.</p>
-            <div class="cta-buttons">
-                <button class="cta-primary" onclick="window.open('mailto:hello@softpowercreators.net?subject=Join Creator Network - Growth Stage', '_blank')">Join a link squad</button>
-                <button class="cta-secondary" onclick="window.open('mailto:hello@softpowercreators.net?subject=Join Creator Network - Lead Creator', '_blank')">Schedule a call</button>
-            </div>
-        </div>
-    </section>
-
-    <!-- Footer -->
-    <footer class="footer">
-      <div class="footer-content">
-        <div class="footer-links">
-          <a href="/">Home</a>
-          <a href="/linkboard">The Link Board</a>
-          <a href="/linkandmatch.html">Link & Match</a>
-          <a href="/privacy-policy">Privacy Policy</a>
-          <a href="/terms-of-service">Terms of Service</a>
-        </div>
-        <div class="footer-newsletter">
-          <div class="newsletter-form">
-            <h4>Stay Updated</h4>
-            <form name="newsletter" method="POST" action="/subscribed" data-netlify="true" netlify-honeypot="bot-field" id="newsletterForm" class="newsletter-signup">
-              <div style="display: none;">
-                <label>Don't fill this out if you're human: <input name="bot-field" /></label>
-              </div>
-              <input type="email" name="email" placeholder="Enter your email" class="newsletter-input" required>
-              <button type="submit" class="newsletter-btn">Subscribe</button>
-            </form>
-            <div class="gdpr-consent">
-              <input type="checkbox" id="gdprConsent" name="gdpr-consent" class="gdpr-checkbox" form="newsletterForm" required>
-              <label for="gdprConsent" class="gdpr-label">
-                <span class="gdpr-checkmark"></span>
-                <span class="gdpr-text">I agree to receive marketing emails and understand I can unsubscribe at any time. <a href="/privacy-policy" class="privacy-link">Privacy Policy</a></span>
-              </label>
-            </div>
-            <div class="form-message form-error" id="errorMessage">
-              ⚠ Something went wrong. Please try again.
-            </div>
-          </div>
-        </div>
-      </div>
-    </footer>
-
-    <script>
-        function showSquad(type) {
-            // Hide all squad contents
-            document.querySelectorAll('.squad-content').forEach(content => {
-                content.classList.remove('active');
-            });
-            
-            // Remove active class from all tabs
-            document.querySelectorAll('.squad-tab').forEach(tab => {
-                tab.classList.remove('active');
-            });
-            
-            // Show selected content and activate tab
-            document.getElementById(type).classList.add('active');
-            event.target.classList.add('active');
-        }
-
-        function showCreator(type) {
-            // Hide all creator contents
-            document.querySelectorAll('.creator-content').forEach(content => {
-                content.classList.remove('active');
-            });
-            
-            // Remove active class from all tabs
-            document.querySelectorAll('.creator-tab').forEach(tab => {
-                tab.classList.remove('active');
-            });
-            
-            // Show selected content and activate tab
-            document.getElementById(type).classList.add('active');
-            event.target.classList.add('active');
-        }
-
-        function scrollToSection(sectionId) {
-            const element = document.getElementById(sectionId);
-            if (element) {
-                element.scrollIntoView({
-                    behavior: 'smooth'
-                });
-            }
-        }
-
-        // Smooth scroll for anchor links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    target.scrollIntoView({
-                        behavior: 'smooth'
-                    });
-                }
-            });
-        });
-
-        // Header background on scroll
-        window.addEventListener('scroll', function() {
-            const header = document.querySelector('.header');
-            if (window.scrollY > 50) {
-                header.style.background = 'rgba(255, 255, 255, 0.98)';
-                header.style.borderBottom = '1px solid rgba(199, 174, 233, 0.3)';
-            } else {
-                header.style.background = 'rgba(255, 255, 255, 0.95)';
-                header.style.borderBottom = '1px solid rgba(199, 174, 233, 0.2)';
-            }
-        });
-
-        // Add fade-in animation on scroll
-        const observerOptions = {
-            threshold: 0.1,
-            rootMargin: '0px 0px -50px 0px'
-        };
-
-        const observer = new IntersectionObserver(function(entries) {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.style.opacity = '1';
-                    entry.target.style.transform = 'translateY(0)';
-                }
-            });
-        }, observerOptions);
-
-        // Observe all sections for animation
-        document.addEventListener('DOMContentLoaded', function() {
-            document.querySelectorAll('section').forEach(section => {
-                if (!section.classList.contains('hero')) {
-                    section.style.opacity = '0';
-                    section.style.transform = 'translateY(30px)';
-                    section.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
-                    observer.observe(section);
-                }
-            });
-        });
-
-        // Newsletter form handling
-        document.getElementById('newsletterForm').addEventListener('submit', function(e) {
-            e.preventDefault();
-            
-            const email = this.querySelector('input[name="email"]').value;
-            const consent = document.getElementById('gdprConsent').checked;
-            const errorMessage = document.getElementById('errorMessage');
-            
-            // Hide previous error messages
-            errorMessage.style.display = 'none';
-            
-            if (!email || !consent) {
-                errorMessage.textContent = '⚠ Please fill in your email and agree to the terms.';
-                errorMessage.style.display = 'block';
-                return;
-            }
-            
-            // Simple email validation
-            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-            if (!emailRegex.test(email)) {
-                errorMessage.textContent = '⚠ Please enter a valid email address.';
-                errorMessage.style.display = 'block';
-                return;
-            }
-            
-            // If we get here, form is valid
-            // In a real implementation, you would submit to your backend
-            console.log('Form submitted:', { email, consent });
-            
-            // Show success message (you can replace this with actual form submission)
-            errorMessage.className = 'form-message form-success';
-            errorMessage.textContent = '✓ Thank you for subscribing!';
-            errorMessage.style.display = 'block';
-            
-            // Reset form
-            this.reset();
-            document.getElementById('gdprConsent').checked = false;
-            
-            // Hide success message after 3 seconds
-            setTimeout(() => {
-                errorMessage.style.display = 'none';
-                errorMessage.className = 'form-message form-error';
-            }, 3000);
-        });
-    </script>
-
-    <!-- Structured Data for AI/Search Engines -->
-    <script type="application/ld+json">
-    {
-        "@context": "https://schema.org",
-        "@type": "WebSite",
-        "name": "LinkSquad - Creator Collaboration Network",
-        "url": "https://letslinkup.eu"/linksquad,
-        "description": "Collaborative marketing network for adult content creators featuring OnlyFans promotion and collaboration matching.",
-        "potentialAction": {
-            "@type": "SearchAction",
-            "target": "https://leslinkup.eu/linksquad/search?q={search_term_string}",
-            "@id": "search"
-        },
-        "sameAs": [
-            "https://softlylinked.net"
-        ]
-    }
-    </script>
-    
-    <script type="application/ld+json">
-    {
-        "@context": "https://schema.org",
-        "@type": "Organization",
-        "name": "LinkSquad - Creator Network",
-        "url": "https://letslinkup.eu",
-        "description": "The trusted professional adult creators network offering marketing bundles and collaboration services for adult creators.",
-        "foundingDate": "2025",
-        "knowsAbout": [
-            "Adult Content Marketing",
-            "OnlyFans Promotion",
-            "Creator Collaborations",
-            "Content Creator Network",
+            "Content Creator Growth",
             "Digital Marketing for Adult Industry"
         ],
         "serviceType": "Marketing Network",
