@@ -10,7 +10,8 @@
     
     
     <style>
-        * {
+
+{
             margin: 0;
             padding: 0;
             box-sizing: border-box;
@@ -108,28 +109,22 @@
         }
 
         .hero-image {
-             width: 100%;
+            width: 100%;
             max-width: 600px;
             height: 300px;
+            background: linear-gradient(135deg, #c7aee9 0%, rgba(199, 174, 233, 0.3) 100%);
             border-radius: 24px;
             margin: 0 auto 40px;
             display: flex;
             align-items: center;
             justify-content: center;
+            color: #000;
             font-size: 1.2rem;
             font-weight: 300;
+            border: 1px solid rgba(199, 174, 233, 0.3);
             position: relative;
             overflow: hidden;
         }
-
-
-.hero-inner {
-  text-align: center;
-  position: relative;
-  z-index: 10;
-}
-        
-        
 
         .hero h1 {
             font-size: 3rem;
@@ -140,13 +135,12 @@
         }
 
         .hero-subtitle {
-            font-size: 1.3rem;
-            color: #666666; 
+            font-size: 1.5rem;
+            color: #000;
             margin-bottom: 40px;
             font-weight: 400;
             font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
         }
-
 
         .hero-cta {
             background: #000;
@@ -543,6 +537,209 @@
             font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
         }
 
+        /* Case Study Section */
+        .case-study {
+            padding: 80px 0;
+            background: #ffffff;
+        }
+
+        .case-study-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .case-study-text h2 {
+            font-size: 2.5rem;
+            font-weight: 300;
+            margin-bottom: 20px;
+            color: #000;
+        }
+
+        .case-study-text h3 {
+            font-size: 1.5rem;
+            font-weight: 500;
+            margin-bottom: 20px;
+            color: #c7aee9;
+        }
+
+        .case-study-text p {
+            color: #666;
+            font-weight: 300;
+            line-height: 1.7;
+            margin-bottom: 20px;
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+        }
+
+        .case-study-stats {
+            display: flex;
+            gap: 30px;
+            margin: 30px 0;
+            flex-wrap: wrap;
+        }
+
+        .stat-item {
+            text-align: center;
+        }
+
+        .stat-number {
+            font-size: 2.2rem;
+            font-weight: 600;
+            color: #c7aee9;
+            margin-bottom: 5px;
+        }
+
+        .stat-label {
+            font-size: 0.9rem;
+            color: #666;
+            font-weight: 400;
+        }
+
+        .case-study-quote {
+            font-style: italic;
+            color: #333 !important;
+            font-size: 1.1rem;
+            padding: 20px;
+            background: rgba(199, 174, 233, 0.05);
+            border-left: 4px solid #c7aee9;
+            border-radius: 8px;
+            margin: 30px 0 10px 0;
+        }
+
+        .quote-author {
+            color: #c7aee9;
+            font-weight: 500;
+            text-align: right;
+            margin-bottom: 30px;
+        }
+
+        .case-study-cta {
+            background: linear-gradient(135deg, #c7aee9 0%, rgba(199, 174, 233, 0.8) 100%);
+            color: #000;
+            border: none;
+            border-radius: 50px;
+            padding: 16px 32px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .case-study-cta:hover {
+            background: #000;
+            color: #fff;
+            transform: translateY(-2px);
+        }
+
+        .case-study-image {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .linksquad-placeholder {
+            width: 100%;
+            max-width: 400px;
+            background: #ffffff;
+            border: 2px solid rgba(199, 174, 233, 0.3);
+            border-radius: 20px;
+            padding: 25px;
+            box-shadow: 0 15px 35px rgba(199, 174, 233, 0.2);
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+        }
+
+        .placeholder-header {
+            text-align: center;
+            margin-bottom: 25px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid rgba(199, 174, 233, 0.2);
+        }
+
+        .placeholder-logo {
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: #c7aee9;
+            margin-bottom: 8px;
+        }
+
+        .placeholder-title {
+            font-size: 1.1rem;
+            font-weight: 500;
+            color: #000;
+        }
+
+        .placeholder-creators {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+
+        .placeholder-creator {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            padding: 15px;
+            background: rgba(199, 174, 233, 0.03);
+            border-radius: 12px;
+            border: 1px solid rgba(199, 174, 233, 0.1);
+        }
+
+        .creator-avatar {
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, #c7aee9 0%, rgba(199, 174, 233, 0.8) 100%);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 600;
+            color: #000;
+            font-size: 1.2rem;
+        }
+
+        .creator-info {
+            flex: 1;
+        }
+
+        .creator-name {
+            font-weight: 600;
+            color: #000;
+            font-size: 1rem;
+            margin-bottom: 2px;
+        }
+
+        .creator-desc {
+            font-size: 0.85rem;
+            color: #666;
+            margin-bottom: 8px;
+        }
+
+        .creator-btn {
+            background: #c7aee9;
+            color: #000;
+            padding: 6px 12px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 500;
+            display: inline-block;
+        }
+
+        .placeholder-footer {
+            text-align: center;
+            padding-top: 15px;
+            border-top: 1px solid rgba(199, 174, 233, 0.2);
+        }
+
+        .placeholder-text {
+            font-size: 0.8rem;
+            color: #999;
+            font-weight: 300;
+        }
+
         /* Comparison Table */
         .comparison-section {
             padding: 80px 0;
@@ -925,8 +1122,27 @@
             .squad-types h2,
             .how-it-works h2,
             .creator-types h2,
-            .cta-section h2 {
+            .cta-section h2,
+            .case-study h2 {
                 font-size: 2rem;
+            }
+
+            .case-study-content {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+
+            .case-study-stats {
+                justify-content: space-around;
+                gap: 20px;
+            }
+
+            .stat-number {
+                font-size: 1.8rem;
+            }
+
+            .linksquad-placeholder {
+                max-width: 350px;
             }
 
             .squad-selector,
@@ -1020,6 +1236,7 @@
                 padding: 0 10px;
             }
         }
+        
     </style>
 </head>
 <body>
@@ -1122,6 +1339,102 @@
                 </p>
                 <p><strong>Perfect for:</strong> New creators who are building an audience, want more visibility but don't have time or budget to figure out marketing.</p>
                 <p><strong>What you get:</strong> You get featured in high converting formats with quality traffic.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- How It Works -->
+    <section id="how-it-works" class="how-it-works">
+        <div class="container">
+            <h2>How it works</h2>
+            <div class="steps">
+                <div class="step">
+                    <div class="step-number">1</div>
+                    <h3>Submit an application form</h3>
+                    <p>Fill out a short form. Give info about your experience, brand, niche, content, socials.</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">2</div>
+                    <h3>Receive an answer</h3>
+                    <p>You'll be matched to similar creators (squad) and be asked to accept to join the squad.</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">3</div>
+                    <h3>Get featured</h3>
+                    <p>You'll have your own link in bio page to promote your squad free trial links and you'll get featured on their page too.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+     <!-- Case Study Section -->
+    <section class="case-study">
+        <div class="container">
+            <div class="case-study-content">
+                <div class="case-study-text">
+                    <h2>See a LinkSquad in action</h2>
+                    <h3>Meet Sarah, Emma & Lily's Squad</h3>
+                    <p>This trio of creators joined forces 3 months ago and have seen incredible results through their shared link page.</p>
+                    
+                    <div class="case-study-stats">
+                        <div class="stat-item">
+                            <div class="stat-number">47%</div>
+                            <div class="stat-label">Average conversion increase</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-number">2.3K</div>
+                            <div class="stat-label">New subscribers gained</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-number">$12K</div>
+                            <div class="stat-label">Combined monthly revenue boost</div>
+                        </div>
+                    </div>
+                    
+                    <p class="case-study-quote">"The LinkSquad changed everything. Instead of competing, we're collaborating and all three of us are winning. My fans love discovering new creators they actually want to follow."</p>
+                    <div class="quote-author">- Sarah M., Squad Leader</div>
+                    
+                    <button class="case-study-cta" onclick="scrollToSection('cta')">Start Your Own Squad</button>
+                </div>
+                
+                <div class="case-study-image">
+                    <div class="linksquad-placeholder">
+                        <div class="placeholder-header">
+                            <div class="placeholder-logo">🔗 LinkSquad</div>
+                            <div class="placeholder-title">Sarah, Emma & Lily's Squad</div>
+                        </div>
+                        <div class="placeholder-creators">
+                            <div class="placeholder-creator">
+                                <div class="creator-avatar">S</div>
+                                <div class="creator-info">
+                                    <div class="creator-name">Sarah M.</div>
+                                    <div class="creator-desc">Fitness & Wellness</div>
+                                    <div class="creator-btn">Get Free Trial</div>
+                                </div>
+                            </div>
+                            <div class="placeholder-creator">
+                                <div class="creator-avatar">E</div>
+                                <div class="creator-info">
+                                    <div class="creator-name">Emma K.</div>
+                                    <div class="creator-desc">Lifestyle & Fashion</div>
+                                    <div class="creator-btn">Get Free Trial</div>
+                                </div>
+                            </div>
+                            <div class="placeholder-creator">
+                                <div class="creator-avatar">L</div>
+                                <div class="creator-info">
+                                    <div class="creator-name">Lily R.</div>
+                                    <div class="creator-desc">Art & Photography</div>
+                                    <div class="creator-btn">Get Free Trial</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="placeholder-footer">
+                            <div class="placeholder-text">Powered by LinkSquad Network</div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
