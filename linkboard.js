@@ -1,4 +1,165 @@
-// Age Gate Protection Script for all pages
+function closeLinkUpDetails() {
+    const modal = document.getElementById('linkUpDetailsModal');
+    if (modal) {
+        modal.remove();
+    }
+    document.body.style.overflow = 'auto';
+    
+    // Update URL to remove hash
+    if (currentLinkUpId) {
+        currentLinkUpId = null;
+        updateURL();
+    }
+}
+
+function openLinkUpPage(linkUpId) {
+    currentLinkUpId = linkUpId;
+    updateURL(linkUpId);
+    const linkUp = linkUps.find(lu => lu.id === linkUpId);
+    if (linkUp) {
+        showLinkUpDetails(linkUp);
+    }
+}
+
+// Copy link functionality
+function copyLinkUpURL(linkUpId) {
+    const url = `${window.location.origin}${window.location.pathname}#${linkUpId}`;
+    
+    navigator.clipboard.writeText(url).then(() => {
+        // Show feedback
+        const feedback = document.getElementById(`copyFeedback-${linkUpId}`);
+        if (feedback) {
+            feedback.style.display = 'inline';
+            setTimeout(() => {
+                feedback.style.display = 'none';
+            }, 2000);
+        }
+    }).catch(err => {
+        // Fallback for older browsers
+        const textArea = document.createElement('textarea');
+        textArea.value = url;
+        document.body.appendChild(textArea);
+        textArea.select();
+        document.execCommand('copy');
+        document.body.removeChild(textArea);
+        
+        // Show feedback
+        const feedback = document.getElementById(`copyFeedback-${linkUpId}`);
+        if (feedback) {
+            feedback.style.display = 'inline';
+            setTimeout(() => {
+                feedback.style.display = 'none';
+            }, 2000);
+        }
+    });
+}
+
+// Collaboration Knowledge Pop-up Functions
+function showCollabPopup() {
+    const collabPopup = document.getElementById('collabPopup');
+    if (collabPopup) {
+        collabPopup.style.display = 'block';
+        document.body.style.overflow = 'hidden';
+    }
+}
+
+function closeCollabPopup() {
+    const collabPopup = document.getElementById('collabPopup');
+    if (collabPopup) {
+        collabPopup.style.display = 'none';
+        document.body.style.overflow = 'auto';
+    }
+}
+
+// Modal handlers initialization
+function initializeModalHandlers() {
+    // Close modals when clicking outside
+    document.addEventListener('click', function(e) {
+        const modals = document.querySelectorAll('.modal');
+        modals.forEach(modal => {
+            if (e.target === modal) {
+                if (modal.id === 'interestModal') {
+                    closeModal();
+                } else if (modal.id === 'shootShotModal') {
+                    closeShootShotModal();
+                } else if (modal.id === 'collabPopup') {
+                    closeCollabPopup();
+                } else if (modal.id === 'linkUpDetailsModal') {
+                    closeLinkUpDetails();
+                }
+            }
+        });
+    });
+    
+    // Close modals with Escape key
+    document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape') {
+            const visibleModals = document.querySelectorAll('.modal[style*="display: block"], .modal[style*="display:block"]');
+            if (visibleModals.length > 0) {
+                const lastModal = visibleModals[visibleModals.length - 1];
+                if (lastModal.id === 'interestModal') {
+                    closeModal();
+                } else if (lastModal.id === 'shootShotModal') {
+                    closeShootShotModal();
+                } else if (lastModal.id === 'collabPopup') {
+                    closeCollabPopup();
+                } else if (lastModal.id === 'linkUpDetailsModal') {
+                    closeLinkUpDetails();
+                }
+            }
+        }
+    });
+}
+
+// Initialize everything
+function initializePage() {
+    // Initial render with pagination
+    updatePagination();
+    renderCurrentPage();
+    initializeDatePicker();
+    
+    // Initialize all components
+    initializeMobileMenu();
+    initializeFilterTags();
+    initializeSearch();
+    initializeModalHandlers();
+    initializeRouting();
+    initializeNewsletter();
+    
+    // Setup form event listeners
+    setupFormEventListeners();
+}
+
+// Run initialization when page loads
+document.addEventListener('DOMContentLoaded', function() {
+    // Small delay to ensure all scripts are loaded
+    setTimeout(() => {
+        initializePage();
+        setShootCurrentMonthYear();
+        // Handle any direct URL access after page loads
+        handleURLChange();
+    }, 100);
+    
+    // Auto-show popup after 3 seconds for demo (you can remove this)
+    setTimeout(() => {
+        showCollabPopup();
+    }, 3000);
+});
+
+// Search function for index page
+(function () {
+    const params = new URLSearchParams(window.location.search);
+    const incomingCity = params.get('city'); 
+
+    if (incomingCity) {
+        const cityInput = document.getElementById('citySearch');
+        if (cityInput) cityInput.value = incomingCity;
+          
+        if (typeof applyAllFilters === 'function') {
+            applyAllFilters();
+        }
+    }
+})();// Age Gate Protection Script for all pages
 (function() {
     'use strict';
     
@@ -152,7 +313,7 @@ const linkUps = [
     tags: ["kinky", "gg", "fetish", "femdom"],
     canHost: "Yes",
     hostingCost: "Covered",
-    requirements: "Must be willing to show face",
+    mustHaves: "Must be willing to show face",
     sceneSummary:
       "Looking to film hot femdom scenes with queer women involving taboo role-play, soft domination, foot and body hair fetish for my clipstore",
     shootDates: "Available from 25 Sept – 21 Oct",
@@ -177,7 +338,7 @@ const linkUps = [
     tags: ["bg", "g/g", "softcore", "fetish", "kinky", "cosplay"],
     canHost: "Yes",
     hostingCost: "N/A",
-    requirements:
+    mustHaves:
       "If you are a man, you have to get tested for STD/HIV, if you are a girl, I am interested if you have at least 10k followers and in similar niche or nerdy, doing cosplay like me",
     sceneSummary:
       "I dabble in multiple fetishes, I am really open minded and I am looking for girls or guys (especially girls) to film clips to post on Manyvids and on my OF. I am looking to film taboo, kinky, fetishes especially, no vanilla !",
@@ -203,7 +364,7 @@ const linkUps = [
     tags: ["fetish", "softcore", "kinky", "femdom", "bg", "gg"],
     canHost: "No",
     hostingCost: "Split",
-    requirements:
+    mustHaves:
       "STI, HIV test, good hygiene, having a big dick is a plus, my boyfriend needs to be present",
     sceneSummary:
       "I want to film content with a respectful man confortable with having sex with a pregnant woman on camera. My man will be here and that would be great if we could film content together (MMF) since I never filmed that type of content and want to explore. I am not into extreme rough sex, BDSM and I will not tolerate any aggressive behavior. If you are good at dirty talk, have a big dick and have an OF page already, send me a message.",
@@ -229,7 +390,7 @@ const linkUps = [
     tags: ["gg", "group", "bg"],
     canHost: "Yes",
     hostingCost: "N/A",
-    requirements: "Must have the same body type and some decent subscriber count",
+    mustHaves: "Must have the same body type and some decent subscriber count",
     sceneSummary:
       "If you are a female creator with the same body type as me, if you also have already done G/G content, I am available for collabs for my Onlyfans and open to any idea that you have except for extreme stuffs which I am not confortable with.",
     shootDates: "Available each month",
@@ -255,7 +416,7 @@ const linkUps = [
     tags: ["gg", "softcore"],
     canHost: "No",
     hostingCost: "Split",
-    requirements:
+    mustHaves:
       "Consent aware, high quality aesthetic artistic content only (no vulgarity), queer women and NB are more than welcome !",
     sceneSummary:
       "Asthetically and cinematic lesbian scenes with a focus on capturing raw intimacy and sharing real pleasure on camera. I am also a photographer so I would love to take some professional erotic or sensual photos that you will be able to keep. I can do all the editing if you want.",
@@ -282,7 +443,7 @@ const linkUps = [
   tags: ["fetish", "femdom", "kinky"],
   canHost: "Yes",
   hostingCost: "N/A",
-  requirements: "Submissive or submissive leaning, can follow instructions and great body",
+  mustHaves: "Submissive or submissive leaning, can follow instructions and great body",
   sceneSummary: "Femdom scenes involving fetish and maybe PIV, POV blowjob scenes for cuck content also",
   shootDates: "ongoing",
   shootMonth: ["2025-08", "2025-09", "2025-10", "2025-11", "2025-12"],
@@ -305,7 +466,7 @@ const linkUps = [
   tags: ["gg", "bg", "softcore"],
   canHost: "Yes",
   hostingCost: "Covered",
-  requirements: "HIV test",
+  mustHaves: "HIV test",
   sceneSummary: "Natural and realistic B/G scenes",
   shootDates: "September - October",
   shootMonth: ["2025-09", "2025-10"],
@@ -327,7 +488,7 @@ const linkUps = [
   tags: ["softcore", "kinky"],
   canHost: "Yes",
   hostingCost: "Covered",
-  requirements: "Clean and respectful (tested for HIV, STDs), preferably experienced and must be verified on OF",
+  mustHaves: "Clean and respectful (tested for HIV, STDs), preferably experienced and must be verified on OF",
   sceneSummary: "Soft B/G content",
   shootDates: "August 29th - September 3rd",
   shootMonth: ["2025-09", "2025-10"],
@@ -352,7 +513,7 @@ const linkUps = [
   tags: ["bg", "kinky", "group"],
   canHost: "Yes",
   hostingCost: "Covered",
-  requirements: "Clean",
+  mustHaves: "Clean",
   sceneSummary: "I want to film hotwife content and need someone to be my boyfriend on camera",
   shootDates: "September 14th - 19th",
   shootMonth: "2025-09",
@@ -374,7 +535,7 @@ const linkUps = [
   tags: ["gg", "fetish", "gg"],
   canHost: "Yes",
   hostingCost: "N/A",
-  requirements: "Hairy women with a bush? natural looking women",
+  mustHaves: "Hairy women with a bush? natural looking women",
   sceneSummary: "Kinky french bicurious switch want to experiment on camera with a feminist small adult content creator like me. Si tu parles français, c'est encore mieux :)",
   shootDates: "Flexible",
   shootMonth: "ongoing",
@@ -397,7 +558,7 @@ const linkUps = [
   tags: ["softcore", "kinky", "bg"],
   canHost: "Yes",
   hostingCost: "Covered",
-  requirements: "HIV and STD test and I want to talk a bit, meet somewhere before to make sure you are safe",
+  mustHaves: "HIV and STD test and I want to talk a bit, meet somewhere before to make sure you are safe",
   sceneSummary: "I will be travelling and want to shoot amateur B/G content with a guy who can perform on camera. No hardcore stuff, just regular hot sex.",
   shootDates: "September 05-11, 2025",
   shootMonth: "2025-09",
@@ -419,7 +580,7 @@ const linkUps = [
   tags: ["bg", "softcore", "fetish", "femdom"],
   canHost: "Yes",
   hostingCost: "Covered",
-  requirements: "English speaking",
+  mustHaves: "English speaking",
   sceneSummary: "No sex and only foot fetish if you have no experience; if you have experience, show me some videos you did with other creators or give me names. If you have experience I want to film B/G, blowjobs, softcore or content for cucks for my clip store",
   shootDates: "September 25 - 30",
   shootMonth: "2025-09",
@@ -988,7 +1149,7 @@ function renderLinkUps(linkUpsToRender = filteredLinkUps) {
                 </div>
                 <div class="scene-summary">${linkUp.sceneSummary}</div>
                 <div class="requirements-section">
-                    <strong>Requirements :</strong> ${linkUp.requirements}
+                    <strong>Must Have(s) 💜 :</strong> ${linkUp.mustHaves}
                 </div>
                 <div class="shoot-dates"><strong>Shoot Dates :</strong> ${linkUp.shootDates}</div>
                 <button class="interested-btn" onclick="event.stopPropagation(); openInterestModal(${linkUp.id})">I'm Interested</button>
@@ -997,6 +1158,7 @@ function renderLinkUps(linkUpsToRender = filteredLinkUps) {
         grid.appendChild(card);
     });
 }
+
 
 function openInterestModal(linkUpId) {
     const linkUp = linkUps.find(lu => lu.id === linkUpId);
