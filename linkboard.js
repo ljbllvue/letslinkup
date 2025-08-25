@@ -1513,8 +1513,8 @@ function showLinkUpDetails(linkUp) {
                         <h3>Project Details</h3>
                         <p>${linkUp.sceneSummary}</p>
                         
-                        <h3>Requirements</h3>
-                        <p>${linkUp.requirements}</p>
+                        <h3>Must Have(s) 💜</h3>
+                        <p>${linkUp.mustHaves}</p>
                         
                         <h3>Logistics</h3>
                         <p><strong>Can Host:</strong> ${linkUp.canHost}</p>
